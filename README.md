@@ -17,6 +17,7 @@ Bonus
 - [ ] Boss battles
 
 ### Wireframe
+<img alt="Art direction proof of concept" src="https://1.bp.blogspot.com/-tDJhqHsDtIc/W5YGHYuJMdI/AAAAAAAAA5Q/Uy7udY6rXlkpJcSxv38JNbfjh4_14OhHwCLcBGAs/s1600/sr_rush.gif">
 
 ### Technologies and Technical Challenges
 #### Technologies
@@ -52,8 +53,9 @@ Bonus
 
 ##### Day 5 - Sunday (5/19/19)
 - [ ] Improve UX/UI
-- [ ] Bonus features: Enemy shooting
-- [ ] Bonus features: Boss battles
+- [ ] Items + powerups
+- [ ] *Bonus features: Enemy shooting
+- [ ] *Bonus features: Boss battles
 
 ##### Day 6 - Monday (5/20/19)
 - [ ] Production README
