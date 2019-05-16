@@ -2,31 +2,35 @@
 
 ## Background and Overview
 
-In part a Mario parody, Sanrio is a sidescrolling platformer where the player aims to reach the end of a level, collecting coins while avoiding enemy obstacles.
+In part a Mario parody, Sanrio is a multilevel sidescrolling platformer where the player aims to reach the end of a level, collecting coins for maximum points, while avoiding enemy obstacles.
 
 
 ### Functionality and MVP
-- [ ] Player creation and movement
-- [ ] Procedural level generation
-- [ ] Enemy obstacles 
-- [ ] Player shooting 
-- [ ] Items and powerups
+* Player creation and movement
+* Procedural level generation
+* Enemy obstacles 
+* Player shooting 
+* Items and powerups
 
 Bonus
-- [ ] Enemy projectiles + diversified attacks
-- [ ] Boss battles
+* Level map
+* Enemy projectiles + diversified attacks
+* Boss battles
 
 ### Wireframe
 <img alt="Art direction proof of concept" src="https://1.bp.blogspot.com/-tDJhqHsDtIc/W5YGHYuJMdI/AAAAAAAAA5Q/Uy7udY6rXlkpJcSxv38JNbfjh4_14OhHwCLcBGAs/s1600/sr_rush.gif">
 
 ### Technologies and Technical Challenges
 #### Technologies
-- HTML/CSS/Javascript
+* HTML/CSS/Javascript
+    * Vanilla Javascript for game logic
+    * HTML5 Canvas for rendering
+* Webpack to bundle various scripts
 
 #### Technical Challenges
-- Character collision and boundaries against platform planes
-- Procedural level generation
-- Seamless character movement + interaction
+* Character collision and boundaries against platform planes
+* Procedural level generation
+* Seamless character movement + interaction
 
 
 ### Implementation Timeline
