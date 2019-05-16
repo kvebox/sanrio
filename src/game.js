@@ -1,26 +1,33 @@
 const Player = require('./players/player');
 
-class Game {
-    constructor() {
+const Game = function() {
+    this.color = 'rgb(0,0,0)';
+    this.colors = [0,0,0];
+    this.shifts = [1,1,1];
 
-    }
-
-    addPlayer() {
-        const player = new Player();
-    }
-
-    draw(ctx) {
-        ctx.clearRect(0, 0, 300, 400);
-        ctx.fillStyle = '#ccc';
-        ctx.fillRect(0, 0, 300, 400);
+    this.update = function() {
+        for (let index = 0; index < 3; index++){
+            let color = this.colors[index];
+            let shift = this.shifts[index];
+        }
     }
 }
 
+// class Game {
+//     constructor() {
+        
+//     }
+    
+//     addPlayer() {
+//         const player = new Player();
+//     }
+    
+//     draw(ctx) {
+//         ctx.clearRect(0, 0, 300, 400);
+//         ctx.fillStyle = '#ccc';
+//         ctx.fillRect(0, 0, 300, 400);
+//     }
+// }
 
-Game.BG_COLOR = "#000000";
-Game.DIM_X = 1000;
-Game.DIM_Y = 600;
-Game.FPS = 32;
-Game.NUM_ASTEROIDS = 10;
 
-module.exports = Game;
+// module.exports = Game;
