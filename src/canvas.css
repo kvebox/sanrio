@@ -1,0 +1,12 @@
+#canvas {
+    height: 400px;
+    width: 700px;
+    border: 1px solid black;
+    margin: 0 auto;
+    
+}
+
+body {
+    background: lightgray;
+    margin: 0 auto;
+}
