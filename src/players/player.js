@@ -28,10 +28,6 @@ export default class Player {
         this.speedy = -GRAVITY;
     }
 
-    move() {
-
-    }
-
     moveLeft(){
         this.speedx = -SPEED;
     }
@@ -49,8 +45,6 @@ export default class Player {
     }
 
     update(deltaTime) {
-        if (!deltaTime) return;
-
         
         this.position.x += this.speedx;
         this.position.y -= this.speedy;

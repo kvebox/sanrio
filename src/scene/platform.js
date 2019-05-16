@@ -1,4 +1,4 @@
-class Platform {
+export default class Platform {
     constructor(width, height) {
         this.width = width;
         this.height = height;
@@ -12,6 +12,9 @@ class Platform {
     draw(ctx) {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
+
+    update(deltaTime){
+
+    }
 }
 
-module.exports = Platform;

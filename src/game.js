@@ -1,33 +1,33 @@
-const Player = require('./players/player');
+import {CANVAS_HEIGHT, CANVAS_WIDTH} from './constants';
+import InputHandler from './players/playerInput';
+import Platform from './scene/platform';
+import Player from './players/player';
 
-const Game = function() {
-    this.color = 'rgb(0,0,0)';
-    this.colors = [0,0,0];
-    this.shifts = [1,1,1];
+export default class Game {
+    constructor(CANVAS_HEIGHT, CANVAS_WIDTH) {
+        this.gameWidth = CANVAS_WIDTH;
+        this.gameHeight = CANVAS_HEIGHT;
 
-    this.update = function() {
-        for (let index = 0; index < 3; index++){
-            let color = this.colors[index];
-            let shift = this.shifts[index];
-        }
+        
+    }
+
+    start() {
+        this.player = new Player(this.gameHeight, this.gameWidth);
+        this.platform = new Platform(50, 100);
+        
+        new InputHandler(this.player);
+    }
+
+
+    update(deltaTime){
+        this.player.update(deltaTime);
+
+    }
+    
+    
+    draw() {
+        this.player.draw(ctx);
+        this.platform.draw(ctx);
+
     }
 }
-
-// class Game {
-//     constructor() {
-        
-//     }
-    
-//     addPlayer() {
-//         const player = new Player();
-//     }
-    
-//     draw(ctx) {
-//         ctx.clearRect(0, 0, 300, 400);
-//         ctx.fillStyle = '#ccc';
-//         ctx.fillRect(0, 0, 300, 400);
-//     }
-// }
-
-
-// module.exports = Game;
