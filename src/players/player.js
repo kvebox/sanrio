@@ -14,7 +14,8 @@ export default class Player {
             x: this.game.gameWidth/2  - this.width/2,
             y: this.game.gameHeight/2 
         };
-        this.jump = true;
+        this.canJump = true;
+        this.velocity = 0;
         this.speedx = 0;
         this.speedy = -GRAVITY;
         this.color = '#ff00ff';

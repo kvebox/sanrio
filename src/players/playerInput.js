@@ -3,54 +3,58 @@ import Game from "../game";
 
 export default class InputHandler {
     constructor(player, game){
+        // this.controller = this.controller.bind(this);
         this.left = false;
         this.right = false;
         this.up = false;
-        // this.loop = this.loop.bind(this);
+        this.controller = this.controller.bind(this);
+        this.loop = this.loop.bind(this);
+        this.player = player;
+        this.game = game;
     }
-
+    
     controller (e){
         var key_state = (event.type == 'keydown') ? true : false;
-
+        
         switch (e.keyCode) {
-        case 37:
-        this.left = key_state;
-        console.log(this.left);
-        break;
-        case 32:
-        this.up = key_state;
-        break;
-        case 39:
-        this.right = key_state;
-        break;
-        case 80:
-        game.pause();
+            case 37:
+            this.left = key_state;
+            break;
+            case 32:
+            this.up = key_state;
+            break;
+            case 39:
+            this.right = key_state;
+            break;
+        }
     }
-}
-
+    
     loop () {
-        if (this.up ) {
-            // player.jump = true;
-            // player.speedy = 0;
-            player.jump();
-        }
-        (this.left) ? player.moveLeft() : player.stop()
-            // (this.right && player.speedx > 0) ? player.moveRight() : player.stop()
-
-        if (this.right) {
-            console.log('right');
-            player.moveRight();
-        }
-
-        // if (this.up) {
-        //     player.jump();
-        // }
-        document.addEventListener('keydown', this.controller);
+        // debugger
+        if (this.up && this.player.canJump ) {
+            this.player.jump(); }
+            else {
+                this.player.drop();
+            }
+            // (this.left) ? this.player.moveLeft() : this.player.stop()
+            // (this.right) ? this.player.moveRight() : this.player.stop()
+            
+            if (this.right) {
+                this.player.moveRight();
+            } else if (this.left) {
+                this.player.moveLeft() } else {
+                this.player.stop();
+            }
+            document.addEventListener('keydown', this.controller);
         document.addEventListener('keyup', this.controller);
-        window.requestAnimationFrame(this.loop);
-    }
+        
+        // if (this.up) {
+            //     player.jump();
+            // }
+            
+            requestAnimationFrame(this.loop);
+        }
 }
-
 
 
 

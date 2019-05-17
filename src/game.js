@@ -19,6 +19,7 @@ export default class Game {
     }
 
     start() {
+        // debugger
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
@@ -29,9 +30,10 @@ export default class Game {
 
         };
         
-        new InputHandler(this.player, this);
+        const handle = new InputHandler(this.player, this);
+        requestAnimationFrame(handle.loop);
     }
-
+    
     pause() {
         if (this.gameState == GAMESTATE.PAUSED) {
             this.gameState = GAMESTATE.RUNNING;
@@ -39,10 +41,12 @@ export default class Game {
             this.gameState = GAMESTATE.PAUSED;
         }
     }
-
-
+    
+    
     update(deltaTime){
+        
         if (this.gameState == GAMESTATE.PAUSED) return;
+        
         this.player.update(deltaTime);
         Object.keys(this.platforms).forEach (key => {
             this.platforms[key].update(deltaTime);
@@ -67,3 +71,4 @@ export default class Game {
         }
     }
 }
+
