@@ -2,6 +2,7 @@ import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../c
 import {detectCollision} from '../util/collision';
 
 
+
 export default class Player {
     constructor(game) {
         // this.image = 
@@ -16,7 +17,7 @@ export default class Player {
 
         this.speedx = 0;
         this.speedy = -GRAVITY;
-
+        this.color = '#ff00ff';
     }
 
     jump() {
@@ -44,6 +45,7 @@ export default class Player {
     }
 
     draw(ctx) {
+        ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
@@ -66,6 +68,7 @@ export default class Player {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
                 this.speedy = 0;
+                // this.speedx = 0;
             }
         });
 

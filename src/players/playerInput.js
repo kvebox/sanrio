@@ -1,5 +1,7 @@
+import Game from "../game";
+
 export default class InputHandler {
-    constructor (player) {
+    constructor (player, game) {
         document.addEventListener('keydown', (e) => {
             if (e.repeat) return;
         switch (e.keyCode) {
@@ -11,10 +13,11 @@ export default class InputHandler {
                 break;
             case 39:
                 player.moveRight();
+                break;
+            case 80:
+                game.pause();
             }
         });
-        
-
 
         document.addEventListener('keyup', e => {
             switch (e.keyCode) {
