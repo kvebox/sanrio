@@ -7,47 +7,54 @@ export default class InputHandler {
         this.right = false;
         this.up = false;
         // this.loop = this.loop.bind(this);
-    
-        this.controller = function(e) {
-            var key_state = (event.type == 'keydown') ? true : false;
+    }
+
+    controller (e){
+        var key_state = (event.type == 'keydown') ? true : false;
 
         switch (e.keyCode) {
-            case 37:
-            this.left = key_state;
-            console.log(this.left);
-            break;
-            case 32:
-            this.up = key_state;
-            break;
-            case 39:
-            this.right = key_state;
-            break;
-            case 80:
-            game.pause();
+        case 37:
+        this.left = key_state;
+        console.log(this.left);
+        break;
+        case 32:
+        this.up = key_state;
+        break;
+        case 39:
+        this.right = key_state;
+        break;
+        case 80:
+        game.pause();
+    }
+}
+
+    loop () {
+        if (this.up ) {
+            // player.jump = true;
+            // player.speedy = 0;
+            player.jump();
+        }
+        (this.left) ? player.moveLeft() : player.stop()
+            // (this.right && player.speedx > 0) ? player.moveRight() : player.stop()
+
+        if (this.right) {
+            console.log('right');
+            player.moveRight();
         }
 
-        this.loop = function() {
-            if (this.up ) {
-                // player.jump = true;
-                // player.speedy = 0;
-                player.jump();
-            }
-            (this.left) ? player.moveLeft() : player.stop()
-                // (this.right && player.speedx > 0) ? player.moveRight() : player.stop()
-
-            if (this.right) {
-                player.moveRight();
-            }
-
-            // if (this.up) {
-            //     player.jump();
-            // }
-        };
+        // if (this.up) {
+        //     player.jump();
+        // }
+        document.addEventListener('keydown', this.controller);
+        document.addEventListener('keyup', this.controller);
         window.requestAnimationFrame(this.loop);
-    };
+    }
+}
 
-    document.addEventListener('keydown', this.controller);
-    document.addEventListener('keyup', this.controller);
+
+
+
+    
 
         // document.addEventListener('keyup', (e) => {
         //     switch (e.keyCode) {
@@ -63,8 +70,6 @@ export default class InputHandler {
         //     }
     
         // });
-}
-}
 
 
 
@@ -114,6 +119,13 @@ export default class InputHandler {
 // document.addEventListener('keydown', controller.keyListener);
 // document.addEventListener('keyup', controller.keyListener);
 // window.requestAnimationFrame(loop);
+
+
+
+
+
+
+
 // export default class InputHandler {
 
     // constructor (player, game) {
