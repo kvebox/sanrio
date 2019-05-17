@@ -14,7 +14,7 @@ export default class Player {
             x: this.game.gameWidth/2  - this.width/2,
             y: this.game.gameHeight/2 
         };
-
+        this.jump = true;
         this.speedx = 0;
         this.speedy = -GRAVITY;
         this.color = '#ff00ff';
@@ -45,7 +45,7 @@ export default class Player {
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color;
+        // ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 

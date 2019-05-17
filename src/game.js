@@ -51,14 +51,19 @@ export default class Game {
     
     
     draw() {
-
+        ctx.resetTransform();
+        ctx.translate(this.player.x, this.player.y);
+        // ctx.translate(-this.gameWidth/2, -this.gameHeight/2);
+        
         this.player.draw(ctx);
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(ctx);
         });
         
-        // if (this.gameState == GAMESTATE.PAUSED) {
-
-        // })
+        if (this.gameState == GAMESTATE.PAUSED) {
+            ctx.rect(0, 0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fill();
+        }
     }
 }
