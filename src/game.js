@@ -27,7 +27,7 @@ export default class Game {
         // constructor(width, height, x, y, filler)
         this.platforms = {
             1: new Platform(50, 15, 100, 50),
-            2: new Platform(100, 15, 75, 100)
+            2: new Platform(100, 15, 275, 300)
 
         };
         new GameInputHandler(this);

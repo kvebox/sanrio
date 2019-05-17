@@ -17,12 +17,15 @@ export default class Player {
         this.canJump = false;
         this.y_velocity = GRAVITY;
         this.x_velocity = 0;
-        this.color = '#ff00ff';
+        this.hit = false;
     }
 
     move(){
         this.position.x += this.x_velocity;
         this.position.y += this.y_velocity;
+        this.x_velocity *= 0.9;
+        this.y_velocity *= 0.9;
+
     }
 
     shoot() {
@@ -41,7 +44,9 @@ export default class Player {
         //check collisions with wall
         
         if(this.position.x < 0) this.position.x = 0;
-        if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth-this.width;
+        if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
+
+        // this.position.x =  this.game.gameWidth-this.width;
         if(this.position.y < 0) this.position.y = 0;
         if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
 
@@ -52,7 +57,9 @@ export default class Player {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
                 this.y_velocity = 0;
-                console.log('hit');
+                this.hit = true;
+                this.canJump = true;
+                // console.log('hit');
                 // this.speedx = 0;
             }
         });
