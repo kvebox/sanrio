@@ -1,4 +1,3 @@
-import {CANVAS_HEIGHT, CANVAS_WIDTH} from './constants';
 import InputHandler from './players/playerInput';
 import Platform from './scene/platform';
 import Player from './players/player';
@@ -12,8 +11,14 @@ export default class Game {
     }
 
     start() {
-        this.player = new Player(this.gameHeight, this.gameWidth);
-        this.platform = new Platform(50, 100);
+
+        this.player = new Player(this);
+
+        this.platforms = {
+            1: new Platform(50, 100, 25, 100),
+            2: new Platform(100, 50, 50, 200)
+
+        };
         
         new InputHandler(this.player);
     }
@@ -21,13 +26,17 @@ export default class Game {
 
     update(deltaTime){
         this.player.update(deltaTime);
-
+        Object.keys(this.platforms).forEach (key => {
+            this.platforms[key].update(deltaTime);
+        });
     }
     
     
     draw() {
         this.player.draw(ctx);
-        this.platform.draw(ctx);
+        Object.keys(this.platforms).forEach(key => {
+            this.platforms[key].draw(ctx);
+        });
 
     }
 }

@@ -1,11 +1,11 @@
 export default class Platform {
-    constructor(width, height) {
+    constructor(width, height, x, y) {
         this.width = width;
         this.height = height;
 
         this.position = {
-            x: 100,
-            y: 100
+            x: x,
+            y: y
         };
     }
 
