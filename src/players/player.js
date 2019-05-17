@@ -14,30 +14,18 @@ export default class Player {
             x: this.game.gameWidth/2  - this.width/2,
             y: this.game.gameHeight/2 
         };
-
-        this.speedx = 0;
-        this.speedy = -GRAVITY;
-        this.color = '#ff00ff';
+        this.canJump = false;
+        this.y_velocity = GRAVITY;
+        this.x_velocity = 0;
+        this.hit = false;
     }
 
-    jump() {
-        this.speedy = JUMP_HEIGHT;
-    }
+    move(){
+        this.position.x += this.x_velocity;
+        this.position.y += this.y_velocity;
+        this.x_velocity *= 0.9;
+        this.y_velocity *= 0.9;
 
-    stop() {
-        this.speedx = 0;
-    }
-
-    drop(){
-        this.speedy = -GRAVITY;
-    }
-
-    moveLeft(){
-        this.speedx = -SPEED;
-    }
-
-    moveRight(){
-        this.speedx = SPEED;
     }
 
     shoot() {
@@ -45,19 +33,20 @@ export default class Player {
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.color;
+        // ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
     update(deltaTime) {
         
-        this.position.x += this.speedx;
-        this.position.y -= this.speedy;
+        this.move();
 
         //check collisions with wall
         
         if(this.position.x < 0) this.position.x = 0;
-        if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth-this.width;
+        if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
+
+        // this.position.x =  this.game.gameWidth-this.width;
         if(this.position.y < 0) this.position.y = 0;
         if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
 
@@ -67,7 +56,10 @@ export default class Player {
         Object.keys(this.game.platforms).forEach (key => {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
-                this.speedy = 0;
+                this.y_velocity = 0;
+                this.hit = true;
+                this.canJump = true;
+                // console.log('hit');
                 // this.speedx = 0;
             }
         });

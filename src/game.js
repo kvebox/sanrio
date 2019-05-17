@@ -1,4 +1,5 @@
 import InputHandler from './players/playerInput';
+import GameInputHandler from './gameStateController';
 import Platform from './scene/platform';
 import Player from './players/player';
 
@@ -19,19 +20,21 @@ export default class Game {
     }
 
     start() {
+        // debugger
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
         // constructor(width, height, x, y, filler)
         this.platforms = {
             1: new Platform(50, 15, 100, 50),
-            2: new Platform(100, 15, 75, 100)
+            2: new Platform(100, 15, 275, 300)
 
         };
-        
-        new InputHandler(this.player, this);
+        new GameInputHandler(this);
+        const handle = new InputHandler(this.player, this);
+        requestAnimationFrame(handle.loop);
     }
-
+    
     pause() {
         if (this.gameState == GAMESTATE.PAUSED) {
             this.gameState = GAMESTATE.RUNNING;
@@ -39,10 +42,12 @@ export default class Game {
             this.gameState = GAMESTATE.PAUSED;
         }
     }
-
-
+    
+    
     update(deltaTime){
+        
         if (this.gameState == GAMESTATE.PAUSED) return;
+        
         this.player.update(deltaTime);
         Object.keys(this.platforms).forEach (key => {
             this.platforms[key].update(deltaTime);
@@ -51,14 +56,20 @@ export default class Game {
     
     
     draw() {
-
+        ctx.resetTransform();
+        ctx.translate(this.player.x, this.player.y);
+        // ctx.translate(-this.gameWidth/2, -this.gameHeight/2);
+        
         this.player.draw(ctx);
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(ctx);
         });
         
-        // if (this.gameState == GAMESTATE.PAUSED) {
-
-        // })
+        if (this.gameState == GAMESTATE.PAUSED) {
+            ctx.rect(0, 0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fill();
+        }
     }
 }
+
