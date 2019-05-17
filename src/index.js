@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
 
         game.update(deltaTime);
-        game.draw(ctx);
+        // game.draw(ctx);
 
         requestAnimationFrame(gameLoop);
     }

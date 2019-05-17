@@ -33,12 +33,13 @@ export default class Player {
     }
 
     draw(ctx) {
+        debugger
         // ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
     update(deltaTime) {
-        
+        debugger
         this.move();
 
         //check collisions with wall
