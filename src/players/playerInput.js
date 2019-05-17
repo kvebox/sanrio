@@ -1,4 +1,5 @@
 import Game from "../game";
+import {CANVAS_WIDTH, CANVAS_HEIGHT} from '../constants';
 
 
 export default class InputHandler {
@@ -32,26 +33,35 @@ export default class InputHandler {
     loop () {
         // debugger
         if (this.up && this.player.canJump ) {
-            this.player.jump(); }
-            else {
-                this.player.drop();
-            }
-            // (this.left) ? this.player.moveLeft() : this.player.stop()
-            // (this.right) ? this.player.moveRight() : this.player.stop()
-            
-            if (this.right) {
-                this.player.moveRight();
-            } else if (this.left) {
-                this.player.moveLeft() } else {
-                this.player.stop();
-            }
-            document.addEventListener('keydown', this.controller);
+            this.player.y_velocity = -100;
+            this.player.canJump = false; 
+        } else {
+            this.player.y_velocity = 5;
+        }
+        
+        if (this.right) {
+            this.player.x_velocity = 5;
+        } else if (this.left) {
+            this.player.x_velocity = -5; 
+        } else {
+            this.player.x_velocity = 0;
+        }
+        
+
+        // console.log(this.player.y);
+        if (this.player.position.y >= this.game.gameHeight - this.player.height){
+            // this.player.y_velocity = 0;
+            this.player.canJump = true;
+            // console.log(this.player.canJump);
+            // console.log('hi');
+        }
+        // debugger
+
+
+
+        document.addEventListener('keydown', this.controller);
         document.addEventListener('keyup', this.controller);
         
-        // if (this.up) {
-            //     player.jump();
-            // }
-            
             requestAnimationFrame(this.loop);
         }
 }

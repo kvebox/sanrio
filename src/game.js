@@ -1,4 +1,5 @@
 import InputHandler from './players/playerInput';
+import GameInputHandler from './gameStateController';
 import Platform from './scene/platform';
 import Player from './players/player';
 
@@ -29,7 +30,7 @@ export default class Game {
             2: new Platform(100, 15, 75, 100)
 
         };
-        
+        new GameInputHandler(this);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
     }
