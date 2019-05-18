@@ -2,6 +2,7 @@ export default class PlatformPiece {
     constructor(x, y) {
         this.width = 15;
         this.height = 15;
+        this.image = document.getElementById('platformPiece-middle');
 
         this.position = {
             x: x,
@@ -10,7 +11,7 @@ export default class PlatformPiece {
     }
 
     draw(ctx) {
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
 
     update(deltaTime) {

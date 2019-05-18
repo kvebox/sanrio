@@ -3,7 +3,7 @@ import GameInputHandler from './gameStateController';
 import Platform from './scene/platform';
 import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
-import PlatformPiece from './scene/platform_piece';
+// import PlatformLeft from './scene/platform_left';
 
 
 const GAMESTATE = {
@@ -27,12 +27,14 @@ export default class Game {
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
-        // constructor(width, height, x, y, filler)
+  
         this.platforms = {
             1: new Platform(50, 15, 100, 50),
             2: new Platform(100, 15, 275, 300)
 
         };
+
+        // this.left = new PlatformLeft(0,0);
 
 
         this.platform = new PlatformBuilder(3, 150,150);
@@ -65,7 +67,9 @@ export default class Game {
         // ctx.resetTransform();
         // ctx.translate(this.player.x, this.player.y);
         // ctx.translate(-this.gameWidth/2, -this.gameHeight/2);
-        
+        // this.left.draw();
+
+
         this.player.draw(ctx);
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(ctx);

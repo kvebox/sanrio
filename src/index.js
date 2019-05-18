@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     let lastTime = 0;
+
+// images
+
     function gameLoop(timestamp) {
         
         let deltaTime = timestamp - lastTime;
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         game.update(deltaTime);
         game.draw(ctx);
+
 
         requestAnimationFrame(gameLoop);
     }

@@ -9,3 +9,14 @@ body {
     background: black;
     margin: 0 auto;
 }
+
+/*----------- IMAGES ------------*/
+
+/* platforms */
+#platformPiece-middle {
+    display: hidden;
+}
+
+#platformPiece-left {
+    display: hidden;
+}
