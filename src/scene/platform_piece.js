@@ -1,7 +1,9 @@
+import { BLOCKSIZE } from '../constants';
+
 export default class PlatformPiece {
     constructor(x, y) {
-        this.width = 15;
-        this.height = 15;
+        this.width = BLOCKSIZE;
+        this.height = BLOCKSIZE;
         this.image = document.getElementById('platformPiece-middle');
 
         this.position = {

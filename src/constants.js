@@ -12,3 +12,4 @@ export const JUMP_HEIGHT = 10;
 export const SPEED = 5;
 
 export const GRAVITY = 10;
+export const BLOCKSIZE = 15;

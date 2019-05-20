@@ -3,8 +3,6 @@ import GameInputHandler from './gameStateController';
 import Platform from './scene/platform';
 import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
-// import PlatformLeft from './scene/platform_left';
-
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -23,21 +21,19 @@ export default class Game {
     }
 
     start() {
-        // debugger
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
   
         this.platforms = {
             1: new Platform(50, 15, 100, 50),
-            2: new Platform(100, 15, 275, 300)
-
+            2: new Platform(100, 15, 275, 300),
+            3: new PlatformBuilder(3, 150, 150),
+            4: new PlatformBuilder(5, 250, 350)
         };
 
-        // this.left = new PlatformLeft(0,0);
-
-
-        this.platform = new PlatformBuilder(3, 150,150);
+        // this.platform = new PlatformBuilder(3, 150,150);
+        // this.platform2 = new PlatformBuilder(5, 250,350);
         new GameInputHandler(this);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
@@ -64,10 +60,6 @@ export default class Game {
     
     
     draw() {
-        // ctx.resetTransform();
-        // ctx.translate(this.player.x, this.player.y);
-        // ctx.translate(-this.gameWidth/2, -this.gameHeight/2);
-        // this.left.draw();
 
 
         this.player.draw(ctx);
@@ -76,7 +68,8 @@ export default class Game {
         });
 
 
-        this.platform.draw(ctx);
+        // this.platform.draw(ctx);
+        // this.platform2.draw(ctx);
         
         if (this.gameState == GAMESTATE.PAUSED) {
             ctx.rect(0, 0, this.gameWidth, this.gameHeight);

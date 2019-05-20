@@ -13,10 +13,6 @@ body {
 /*----------- IMAGES ------------*/
 
 /* platforms */
-#platformPiece-middle {
-    display: hidden;
-}
-
-#platformPiece-left {
-    display: hidden;
+#platformPiece-middle, #platformPiece-left, #platformPiece-right {
+    display: none;
 }
