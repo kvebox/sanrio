@@ -20,12 +20,16 @@ export default class Player {
         this.hit = false;
     }
 
-    move(){
-        this.position.x += this.x_velocity;
-        this.position.y += this.y_velocity;
+    move(deltaTime){
         this.x_velocity *= 0.9;
-        this.y_velocity *= 0.9;
-
+        // if (this.y_velocity < 0) {this.y_velocity += 15 }
+        // console.log(this.y_velocity);
+        if (this.y_velocity != 0){
+            this.y_velocity += 0.9;
+        }
+        this.position.x += this.x_velocity;
+        this.position.y += this.y_velocity ;
+        
     }
 
     shoot() {
@@ -39,7 +43,7 @@ export default class Player {
 
     update(deltaTime) {
         
-        this.move();
+        this.move(deltaTime);
 
         //check collisions with wall
         
@@ -57,6 +61,7 @@ export default class Player {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
                 this.y_velocity = 0;
+                this.position.y = platform.position.y - this.height
                 this.hit = true;
                 this.canJump = true;
                 // console.log('hit');

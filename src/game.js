@@ -60,7 +60,7 @@ export default class Game {
     
     
     draw() {
-
+        ctx.beginPath();
 
         this.player.draw(ctx);
         Object.keys(this.platforms).forEach(key => {
@@ -76,6 +76,7 @@ export default class Game {
             ctx.fillStyle = 'rgba(0,0,0,0.5)';
             ctx.fill();
         }
+        ctx.closePath();
     }
 }
 
