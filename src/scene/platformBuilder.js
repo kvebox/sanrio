@@ -5,10 +5,12 @@ import {BLOCKSIZE, CANVAS_HEIGHT} from '../constants';
 
 export default class PlatformBuilder {
     constructor(numBlocks, x, y) {
-        // this.width = width;
-        // this.height = height;
+        this.width = BLOCKSIZE * (numBlocks+2);
+        this.height = BLOCKSIZE;
         this.pieces = [];
         this.numBlocks = numBlocks;
+        this.platform_x = x;
+        this.platform_y = y;
         this.x_filler = x;
         this.y_filler = y + BLOCKSIZE;
         // this.filler = filler;
@@ -21,13 +23,13 @@ export default class PlatformBuilder {
     }
 
     build(){
-        this.pieces.push(new PlatformLeft(this.position.x, this.position.y));
-        this.position.x += BLOCKSIZE;
+        this.pieces.push(new PlatformLeft(this.platform_x, this.platform_y));
+        this.platform_x += BLOCKSIZE;
         for (let i = this.numBlocks; i > 0; i--){
-            this.pieces.push( new PlatformPiece(this.position.x, this.position.y));
-            this.position.x += BLOCKSIZE;
+            this.pieces.push(new PlatformPiece(this.platform_x, this.platform_y));
+            this.platform_x += BLOCKSIZE;
         }
-        this.pieces.push(new PlatformRight(this.position.x, this.position.y));
+        this.pieces.push(new PlatformRight(this.platform_x, this.platform_y));
 
     }
 
@@ -35,7 +37,7 @@ export default class PlatformBuilder {
         this.pieces.forEach(piece => {
             piece.draw(ctx);
         });
-        ctx.rect(this.x_filler, this.y_filler, this.position.x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
+        ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
         ctx.fillStyle = 'rgba(110,49,25)';
         ctx.fill();
         

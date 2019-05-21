@@ -24,9 +24,9 @@ export default class Player {
         this.x_velocity *= 0.9;
         // if (this.y_velocity < 0) {this.y_velocity += 15 }
         // console.log(this.y_velocity);
-        if (this.y_velocity != 0){
+        // if (this.y_velocity != 0){
             this.y_velocity += 0.9;
-        }
+        // }
         this.position.x += this.x_velocity;
         this.position.y += this.y_velocity ;
         
@@ -60,7 +60,7 @@ export default class Player {
         Object.keys(this.game.platforms).forEach (key => {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
-                this.y_velocity = 0;
+                this.y_velocity = 5;
                 this.position.y = platform.position.y - this.height
                 this.hit = true;
                 this.canJump = true;

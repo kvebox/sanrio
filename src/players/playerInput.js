@@ -32,11 +32,12 @@ export default class InputHandler {
     
     loop () {
         if (this.up && this.player.canJump ) {
-            this.player.y_velocity = -10;
+            this.player.y_velocity = -15;
             this.player.canJump = false; 
             this.player.hit = false;
         } else if (this.player.hit == true) {
-            this.player.y_velocity = 0;
+            // this.player.y_velocity = 0;
+            this.player.hit = false;
         } 
         
         if (this.right) {

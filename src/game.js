@@ -26,9 +26,9 @@ export default class Game {
 
   
         this.platforms = {
-            1: new Platform(50, 15, 100, 50),
-            2: new Platform(100, 15, 275, 300),
-            3: new PlatformBuilder(3, 150, 150),
+            1: new PlatformBuilder(7, 20, 320),
+            2: new PlatformBuilder(2, 375, 225),
+            3: new PlatformBuilder(3, 150, 250),
             4: new PlatformBuilder(5, 250, 350)
         };
 
