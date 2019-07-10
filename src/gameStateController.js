@@ -14,10 +14,11 @@ export default class GameInputHandler {
             switch (e.keyCode) {
                 // down
                 case 40:
-                    console.log('down');
+                    menu.shiftDown();
                     break;  
                 // up    
                 case 38:
+                    menu.shiftUp();
                     break;
                 // enter
                 case 13:
