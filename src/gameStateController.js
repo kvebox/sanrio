@@ -22,6 +22,7 @@ export default class GameInputHandler {
                     break;
                 // enter
                 case 13:
+                    menu.enter();
                     break;
                 case 80:
                     game.pause();

@@ -32,7 +32,7 @@ export default class Game {
             3: new PlatformBuilder(2, 375, 225),
             4: new PlatformBuilder(7, 20, 320),
         };
-        this.menu = new Menu();
+        this.menu = new Menu(this);
         new GameInputHandler(this, this.menu);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
