@@ -7,11 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sanrio</title>
     <link rel="stylesheet" type="text/css" href="./src/canvas.css">
+    <link rel="stylesheet" type="text/css" href="./src/menu/menu.css">
     <script type='application/javascript' src="./dist/sanrio.js"></script>
     
 </head>
 <body>
     <canvas id='canvas' ></canvas>
+
+    <div id='mainMenuContainer'>
+        <div id='mainMenu'>
+            <ul id='menuList'>
+                <div>
+                    <li id='selected'>NEW GAME</li>
+                    <li>RESTART LEVEL</li>
+                    <li>CONTROLS</li>
+                    <li>OPTIONS</li>
+                </div>
+                <li id='menuExit'>EXIT</li>
+            </ul>
+        </div>
+
+    </div>
 
     <!-- images -->
     <img id='platformPiece-middle' src="./src/images/platformMiddle_olive.png"/> 

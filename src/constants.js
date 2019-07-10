@@ -8,7 +8,7 @@ export const DIRECTIONS = {
     UP: (0, 1),
 };
 
-export const JUMP_HEIGHT = 10;
+export const JUMP = 15;
 export const SPEED = 5;
 
 export const GRAVITY = .5;

@@ -1,5 +1,5 @@
 import Game from "../game";
-import {CANVAS_WIDTH, CANVAS_HEIGHT} from '../constants';
+import {CANVAS_WIDTH, CANVAS_HEIGHT, SPEED, JUMP} from '../constants';
 
 
 export default class InputHandler {
@@ -32,7 +32,7 @@ export default class InputHandler {
     
     loop () {
         if (this.up && this.player.canJump ) {
-            this.player.y_velocity = -15;
+            this.player.y_velocity = -JUMP;
             this.player.canJump = false; 
             this.player.hit = false;
         } else if (this.player.hit == true) {
@@ -41,9 +41,9 @@ export default class InputHandler {
         } 
         
         if (this.right) {
-            this.player.x_velocity = 5;
+            this.player.x_velocity = SPEED;
         } else if (this.left) {
-            this.player.x_velocity = -5; 
+            this.player.x_velocity = -SPEED; 
         } else {
             this.player.x_velocity = 0;
         }
