@@ -35,14 +35,14 @@ Bonus
 
 ### Implementation Timeline
 ##### Day 1 - Wednesday (5/15/19)
-- [ ] Establish webpack + file structure set up
-- [ ] Establish Git workflow and branching strategies
+- [x] Establish webpack + file structure set up
+- [x] Establish Git workflow and branching strategies
 - [ ] Wireframes, art assets, review resources
 
 ##### Day 2 - Thursday (5/16/19)
-- [ ] Scene rendering + basic shapes
-- [ ] Placeholder platforms for character interaction
-- [ ] Player movement: left, right, jump
+- [x] Scene rendering + basic shapes
+- [x] Placeholder platforms for character interaction
+- [x] Player movement: left, right, jump
 - [ ] Game loop: player lives 
 
 ##### Day 3 - Friday (5/17/19)
@@ -51,7 +51,7 @@ Bonus
 - [ ] Player loses lives when falling off screen
 
 ##### Day 4 - Saturday (5/18/19)
-- [ ] Heroku deployment
+- [x] Github pages deployment
 - [ ] Enemies and obstacles
 - [ ] Player shooting
 
