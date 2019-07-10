@@ -1,12 +1,26 @@
-#canvas {
-    border: 1px solid black;
-    margin: 0 auto;
-    background: #B4F7CC;
+#canvasContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
 
+#canvasHolder {
+    /* margin: 15% auto; 15% from the top and centered */
+    /* width: 15%; */
+    overflow: hidden;
+}
+
+#canvas {
+    /* border: 1px solid black; */
+    margin: 10% auto;
+    background: #B4F7CC;
+    display: block;
 }
 
 body {
-    background: white;
+    background: #2F2F2F;
     margin: 0 auto;
 }
 

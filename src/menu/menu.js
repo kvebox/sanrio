@@ -5,6 +5,16 @@ export default class Menu {
         // ctx.fill();
     }
 
+    shiftDown(){
+
+    }
+
+    shiftUp(){
+
+    }
+
+    exit(){}
+
     toggleMenu(){
         let menu = document.getElementById('mainMenuContainer');
         menu.style.display = 'block';

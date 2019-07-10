@@ -32,8 +32,8 @@ export default class Game {
             3: new PlatformBuilder(2, 375, 225),
             4: new PlatformBuilder(7, 20, 320),
         };
-
-        new GameInputHandler(this);
+        this.menu = new Menu();
+        new GameInputHandler(this, this.menu);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
     }
@@ -68,14 +68,8 @@ export default class Game {
             this.platforms[key].draw(ctx);
         });
 
-        
         if (this.gameState == GAMESTATE.PAUSED) {
-            let menu = new Menu;
-            // menu.draw(ctx);
-            menu.toggleMenu();
-            // ctx.rect(0, 0, this.gameWidth, this.gameHeight);
-            // ctx.fillStyle = 'rgba(0,0,0,0.5)';
-            // ctx.fill();
+            this.menu.toggleMenu();
         }
         ctx.closePath();
     }

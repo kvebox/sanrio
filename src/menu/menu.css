@@ -11,13 +11,17 @@
 }
 
 #mainMenu {
-/* background-color: #fefefe; */
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 5px solid white;
+  border: 3px solid white;
   width: 400px;
   height: 250px;
   border-radius: 25px;
+  box-shadow:
+        inset 0px 0 5px rgb(255,255,255,.4),  /* inner left */
+        inset 0px 0 5px rgb(255,255,255,.4), /* inner right */
+        -0px 0 5px rgb(255,255,255,.4),        /* outer left */
+        0px 0 5px rgb(255,255,255,.4);         /* outer right */
 }
 
 #menuList {

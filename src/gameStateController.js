@@ -1,24 +1,36 @@
+const GAMESTATE = {
+    PAUSED: 0,
+    RUNNING: 1,
+    MENU: 2,
+    GAMEOVER: 3
+};
+
 export default class GameInputHandler {
 
-    constructor (game) {
+    constructor (game, menu) {
         document.addEventListener('keydown', (e) => {
-        //     if (e.repeat) return;
-        switch (e.keyCode) {
-        //     case 37:
-        //         controller.left = key_state;
-        //         // player.moveLeft();
-        //         break;      
-        //     case 32:
-        //         controller.up = key_state;
-        //         // player.jump();
-        //         break;
-        //     case 39:
-        //         controller.right = key_state;
-        //         // player.moveRight();
-        //         break;
-            case 80:
-                game.pause();
+            // if (e.repeat) return;
+        if (game.gameState == GAMESTATE.PAUSED){
+            switch (e.keyCode) {
+                // down
+                case 40:
+                    console.log('down');
+                    break;  
+                // up    
+                case 38:
+                    break;
+                // enter
+                case 13:
+                    break;
+                case 80:
+                    game.pause();
             }
+        } else {
+            switch (e.keyCode){
+                case 80:
+                    game.pause();
+                }
+        }
         });
 
     //     document.addEventListener('keyup', e => {
