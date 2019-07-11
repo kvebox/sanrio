@@ -42,9 +42,14 @@ export default class Game {
         if (this.gameState == GAMESTATE.PAUSED) {
             this.gameState = GAMESTATE.RUNNING;
             let menu = document.getElementById('mainMenuContainer');
+            let optionsMenu = document.getElementById('optionsMenuContainer');
             menu.style.display = 'none';
+            menu.style.position = 'fixed';
+            optionsMenu.style.display = 'none';
         } else {
             this.gameState = GAMESTATE.PAUSED;
+            let menuContent = document.getElementById('mainMenuContent');
+            menuContent.style.display = 'block';
         }
     }
     

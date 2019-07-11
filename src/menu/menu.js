@@ -4,11 +4,7 @@ export default class Menu {
         this.current = 0;
         this.length = this.optionsList.length;
         this.game = game;
-    }
-    draw(ctx){
-        // ctx.rect(0, 0, this.gameWidth, this.gameHeight);
-        // ctx.fillStyle = 'rgba(0,0,0,0.5)';
-        // ctx.fill();
+        this.menuType = '';
     }
 
     shiftDown(){
@@ -41,13 +37,25 @@ export default class Menu {
                 break;
             // options
             case 3:
+                this.toggleOptions();
                 break;
             default:
                 this.exit();
         }
     }
 
-    toggleOptions(){}
+    toggleOptions(){
+        let optionsMenu = document.getElementById('optionsMenuContainer');
+        optionsMenu.style.display = 'block';
+        let menu = document.getElementById('mainMenuContent');
+        let mainMenu = document.getElementById('mainMenuContainer');
+        mainMenu.style.position = 'static';
+        menu.style.display = 'none';
+    }
+
+    decreaseVolumne(){}
+
+    increaseVolumne(){}
 
     toggleMap(){}
 

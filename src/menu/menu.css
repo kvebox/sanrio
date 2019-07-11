@@ -3,21 +3,28 @@ body {
     color: white;
 }
 
-#mainMenuContainer, #optionsMenuContainer {
+#mainMenuContainer {
     width: 100%;
     height: 100%;
     position: fixed;
     left: 0;
     top: 0;
     overflow: auto;
-    background-color: rgb(0,0,0);
     background-color: rgba(47,47,47,0.9);
     display: none;
 }
 
 #optionsMenuContainer {
-    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(47,47,47,0.9);
+    display: none;
 }
+
 
 #mainMenu, #optionsMenu {
   padding: 20px;
