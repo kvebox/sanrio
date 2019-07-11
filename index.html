@@ -8,6 +8,7 @@
     <title>Sanrio</title>
     <link rel="stylesheet" type="text/css" href="./src/canvas.css">
     <link rel="stylesheet" type="text/css" href="./src/menu/menu.css">
+    <link rel="stylesheet" type="text/css" href="./src/resources/stylesheet.css">
     <script type='application/javascript' src="./dist/sanrio.js"></script>
     
 </head>
@@ -17,6 +18,13 @@
     </div>
 
     <div id='mainMenuContainer'>
+        <div id='mainMenuContent'>
+        <div id='menuHeader'>
+            <div class='menuLine'></div>
+            <h1 id='menuTitle'>GAME PAUSED</h1>
+            <div class='menuLine'></div>
+        </div>
+
         <div id='mainMenu'>
             <ul id='menuList'>
                 <div>
@@ -30,9 +38,22 @@
                 <li class='menuOptions' id='menuExit'>EXIT</li>
             </ul>
         </div>
-
+        <div id='mainMenuFooter'>Press (p) to unpause or select resume</div>
+        </div>
     </div>
 
+
+        <div id='optionsContainer'>
+            <div id='optionMenu'>
+                <ul id='optionMenuList'>
+                    <div>
+                        <li class=''>SFX</li>
+                        <li class=''>MUSIC</li>
+                    </div>
+                    <li class='' id='menuExit'>BACK</li>
+                </ul>
+            </div>
+        </div>
     <!-- images -->
     <img id='platformPiece-middle' src="./src/images/platformMiddle_olive.png"/> 
     <img id='platformPiece-left' src="./src/images/platformLeft_olive.png"/>
