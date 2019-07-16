@@ -85,6 +85,9 @@ body {
     font-size: 50px;
     line-height: 0;
     letter-spacing: 2px;
+    padding: 0px 5px;
+    text-align: center;
+    padding-left: 10px;
 }
 
 .menuLine {
@@ -163,7 +166,7 @@ body {
     height: 100%;
     left: 0;
     top: 0;
-    background-color: rgba(47,47,47,0.9);
+    background-color: rgba(47,47,47,0.95);
 }
 
 #controlsMenuContent {
@@ -175,23 +178,111 @@ body {
 
 #controlCanvas {
     border-bottom: 1px solid #979797;
-    width: 85%;
-    height: 135px;
+    width: 90%;
+    height: 125px;
     display: block;
     margin: 0 auto;
 }
 
+#controlsMenuList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+#controlMenuHeader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
 
 /* ---------- Keyboard -------------> */
-.keyboardKey {
+#keyboard {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 90%;
+}
+
+.keyboardKey, .halfKey, .quarterKey, .verticalHalfKey, .shift, #space, .arrow, .caps {
     height: 39px;
-    width: 37px;
+    width: 39px;
     border-radius: 8px;
     margin: 0px 2.5px;
     border: 2px solid #575757;
+    color: #575757;
 }
 
 .keyboardRow {
     display: flex;
     list-style-type: none;
+    margin: 5px 0px;
+    padding: 0;
+    /* justify-content: space-between; */
+}
+
+.keyLetterContent {
+    padding: 0 2.5px;
+    margin: 0;
+}
+
+.keyNumberContent {
+    /* margin: 0; */
+    margin-bottom: 0;
+    margin-top: 18.5px;
+    padding: 0 2.5px;
+}
+
+.quarterKey {
+    height: 22px;
+    width: 34px;
+    margin: 0px 1.5px;
+}
+
+.halfKey {
+    height: 22px;
+    width: 55px;
+    margin: 0px 1.5px; 
+}
+
+.verticalHalfKey {
+    height: 39px;
+    width: 30px;
+}
+
+.shift {
+    height: 39px;
+    width: 78px;
+}
+
+.caps {
+    height: 39px;
+    width: 49px;
+}
+
+#space {
+    height: 39px;
+    width: 202px;
+}
+
+#keyS, #keyP, #key1, #key2, #key3, #key4, #space, #rightArrow, #leftArrow, #upArrow, #downArrow {
+    color: white;
+    border: 2px solid white;
+}
+
+.arrow {
+    width: 37px;
+    height: 25px;
+    margin-bottom: 3.5px;
+}
+
+
+.arrowContainer {
+    display: flex;
+    flex-direction: column;
 }

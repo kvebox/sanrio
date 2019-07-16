@@ -7,14 +7,11 @@
 }
 
 #canvasHolder {
-    /* margin: 15% auto; 15% from the top and centered */
-    /* width: 15%; */
     overflow: hidden;
 }
 
 #canvas {
-    /* border: 1px solid black; */
-    margin: 10% auto;
+    margin: 15% auto;
     background: #B4F7CC;
     display: block;
 }
