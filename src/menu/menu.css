@@ -167,6 +167,7 @@ body {
     left: 0;
     top: 0;
     background-color: rgba(47,47,47,0.95);
+    display: none;
 }
 
 #controlsMenuContent {
@@ -295,4 +296,8 @@ body {
 .arrowContainer {
     display: flex;
     flex-direction: column;
+}
+
+#pressed {
+    border: 2px solid red;
 }

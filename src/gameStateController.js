@@ -16,22 +16,18 @@ export default class GameInputHandler {
                 case 40:
                     menu.shiftDown();
                     break;  
-
                 // up    
                 case 38:
                     menu.shiftUp();
                     break;
-
                 // left
                 case 37:
                     menu.decreaseVolume();
                     break;
-
                 // right
                 case 39:
                     menu.increaseVolume();
                     break;
-
                 // enter
                 case 13:
                     menu.enter();

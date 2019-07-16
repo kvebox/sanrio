@@ -23,30 +23,81 @@ export default class Menu {
         this.selected.setAttribute("id", "selected");
     }
 
-    generateControls(){
+    enter(){
+        switch (this.current){
+            // resume
+            case 0:
+                this.exit();
+                break;
+            // new game
+            case 1:
+                break;
+            // controls
+            case 2:
+                this.toggleControls();
+                break;
+            // options
+            case 3:
+                this.toggleOptions();
+                break;
+            default:
+                this.exit();
+        }
+    }
+
+    toggleControls(){
+        console.log('enter');
+        let controlsMenu = document.getElementById('controlsMenuContainer');
+        controlsMenu.style.display = 'block';
+        let menu = document.getElementById('mainMenuContent');
+        let mainMenu = document.getElementById('mainMenuContainer');
+        mainMenu.style.position = 'static';
+        menu.style.display = 'none';
+    }
+
+    toggleOptions(){
+        let optionsMenu = document.getElementById('optionsMenuContainer');
+        optionsMenu.style.display = 'block';
+        let menu = document.getElementById('mainMenuContent');
+        let mainMenu = document.getElementById('mainMenuContainer');
+        mainMenu.style.position = 'static';
+        menu.style.display = 'none';
+    }
+
+    decreaseVolumne(){}
+
+    increaseVolumne(){}
+
+    toggleMap(){}
+
+    exit(){
+        this.game.pause();
+    }
+
+    toggleMenu(){
+        let menu = document.getElementById('mainMenuContainer');
+        menu.style.display = 'block';
+    }
+
+    generateControls() {
         let keyboard = 'QWERTYUIOPASDFGHJKLZXCVBNM';
         let nums = '1234567890';
         let number = 0;
         let letter = 0;
         let keyArray = [
             [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 12],
-            // numbers
             [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5],
-            // qwertyuiop
             [0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 0],
-            // asdfghjkl
             [8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 5, 5, 5],
-            // zxcvbnm
             [6, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 6],
-            // space
             [0, 0, 0, 0, 7, 0, 0, 9, 10, 11]
         ];
 
-        for (let row = 0; row < keyArray.length; row++){
+        for (let row = 0; row < keyArray.length; row++) {
             let list = document.getElementById(`row${row}`);
             keyArray[row].forEach(key => {
                 let element = document.createElement('LI');
-                switch (key){
+                switch (key) {
                     case 1:
                         element.setAttribute("class", "keyboardKey");
                         element.setAttribute("id", `key${nums[number]}`);
@@ -86,7 +137,7 @@ export default class Menu {
                         element.appendChild(blank);
                         element.appendChild(leftArrow);
                         list.appendChild(element);
-                        break;  
+                        break;
                     case 10:
                         element.setAttribute("class", "arrowContainer");
                         let upArrow = document.createElement('DIV');
@@ -100,14 +151,13 @@ export default class Menu {
                         element.appendChild(upArrow);
                         element.appendChild(downArrow);
                         list.appendChild(element);
-                        break;  
+                        break;
                     case 11:
                         element.setAttribute("class", "arrowContainer");
-                        
+
                         let rightArrow = document.createElement('DIV');
                         rightArrow.setAttribute("class", "arrow");
                         rightArrow.setAttribute("id", "rightArrow");
-
 
                         let rightblank = document.createElement('DIV');
                         rightblank.setAttribute("class", "arrow");
@@ -115,7 +165,7 @@ export default class Menu {
                         element.appendChild(rightblank);
                         element.appendChild(rightArrow);
                         list.appendChild(element);
-                        break;  
+                        break;
 
                     // blank keys
                     case 0:
@@ -151,54 +201,5 @@ export default class Menu {
                 }
             });
         }
-
-
-    }
-
-    enter(){
-        switch (this.current){
-            // resume
-            case 0:
-                this.exit();
-                break;
-            // new game
-            case 1:
-                break;
-            // controls
-            case 2:
-                break;
-            // options
-            case 3:
-                this.toggleOptions();
-                break;
-            default:
-                this.exit();
-        }
-    }
-
-    toggleOptions(){
-        let optionsMenu = document.getElementById('optionsMenuContainer');
-        optionsMenu.style.display = 'block';
-        let menu = document.getElementById('mainMenuContent');
-        let mainMenu = document.getElementById('mainMenuContainer');
-        mainMenu.style.position = 'static';
-        menu.style.display = 'none';
-    }
-
-    decreaseVolumne(){}
-
-    increaseVolumne(){}
-
-    toggleMap(){}
-
-    toggleControls(){}
-
-    exit(){
-        this.game.pause();
-    }
-
-    toggleMenu(){
-        let menu = document.getElementById('mainMenuContainer');
-        menu.style.display = 'block';
     }
 }
