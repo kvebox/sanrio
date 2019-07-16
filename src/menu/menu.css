@@ -180,3 +180,18 @@ body {
     display: block;
     margin: 0 auto;
 }
+
+
+/* ---------- Keyboard -------------> */
+.keyboardKey {
+    height: 39px;
+    width: 37px;
+    border-radius: 8px;
+    margin: 0px 2.5px;
+    border: 2px solid #575757;
+}
+
+.keyboardRow {
+    display: flex;
+    list-style-type: none;
+}

@@ -24,7 +24,7 @@ export default class Menu {
     }
 
     generateControls(){
-        let keyboard = 'qwertyuiopasdfghjklzxcvbnm';
+        let keyboard = 'QWERTYUIOPASDFGHJKLZXCVBNM';
         let number = 0;
         let letter = 0;
         let keyArray = [
@@ -33,25 +33,30 @@ export default class Menu {
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0],
             [2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0],
             [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
-        for (let row = 0; row < keyArray.length; row++){
+        for (let row = 1; row < keyArray.length; row++){
             let list = document.getElementById(`row${row}`);
             keyArray[row].forEach(key => {
                 let element = document.createElement('LI');
                 switch (key){
                     case 0:
+                        element.setAttribute("class", "keyboardKey");
+                        list.appendChild(element);
                         break;
                     case 1:
+                        element.setAttribute("class", "keyboardKey");
                         let textnode = document.createTextNode(`${number}`);
+                        // textnode.setAttribute("id", `key${number}`);
                         element.appendChild(textnode);
                         list.appendChild(element);
                         number += 1;
                         break;
                     case 2:
+                        element.setAttribute("class", "keyboardKey");
                         let letternode = document.createTextNode(`${keyboard[letter]}`);
+                        // letternode.setAttribute("id", `key${keyboard[letter]}`);
                         element.appendChild(letternode);
                         list.appendChild(element);
                         letter += 1;
