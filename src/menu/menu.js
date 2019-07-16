@@ -29,7 +29,7 @@ export default class Menu {
         let number = 0;
         let letter = 0;
         let keyArray = [
-            [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4],
+            [4, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 12],
             // numbers
             [5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5],
             // qwertyuiop
@@ -140,6 +140,10 @@ export default class Menu {
                         break;
                     case 8:
                         element.setAttribute("class", "caps");
+                        list.appendChild(element);
+                        break;
+                    case 12:
+                        element.setAttribute("class", "backspace");
                         list.appendChild(element);
                         break;
                     default:
