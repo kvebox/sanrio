@@ -23,6 +23,48 @@ export default class Menu {
         this.selected.setAttribute("id", "selected");
     }
 
+    generateControls(){
+        let keyboard = 'qwertyuiopasdfghjklzxcvbnm';
+        let number = 0;
+        let letter = 0;
+        let keyArray = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0],
+            [2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0],
+            [2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ];
+
+        for (let row = 0; row < keyArray.length; row++){
+            let list = document.getElementById(`row${row}`);
+            keyArray[row].forEach(key => {
+                let element = document.createElement('LI');
+                switch (key){
+                    case 0:
+                        break;
+                    case 1:
+                        let textnode = document.createTextNode(`${number}`);
+                        element.appendChild(textnode);
+                        list.appendChild(element);
+                        number += 1;
+                        break;
+                    case 2:
+                        let letternode = document.createTextNode(`${keyboard[letter]}`);
+                        element.appendChild(letternode);
+                        list.appendChild(element);
+                        letter += 1;
+                        break;
+                    default:
+                        break;
+                }
+            });
+        }
+
+
+    }
+
     enter(){
         switch (this.current){
             // resume

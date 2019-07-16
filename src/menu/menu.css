@@ -147,8 +147,8 @@ body {
 #controlsMenu {
     padding: 20px;
     border: 3px solid white;
-    width: 700px;
-    height: 400px;
+    width: 715px;
+    height: 466px;
     border-radius: 25px;
     box-shadow:
             inset 0px 0 5px rgb(255,255,255,.4),  /* inner left */
@@ -169,6 +169,14 @@ body {
 #controlsMenuContent {
     display: flex;
     flex-direction: column;
-    width: 746px;
-    margin: 0% auto;
+    width: 761px;
+    margin: 2.5% auto;
+}
+
+#controlCanvas {
+    border-bottom: 1px solid #979797;
+    width: 85%;
+    height: 135px;
+    display: block;
+    margin: 0 auto;
 }
