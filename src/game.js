@@ -44,8 +44,10 @@ export default class Game {
             this.gameState = GAMESTATE.RUNNING;
             let menu = document.getElementById('mainMenuContainer');
             let optionsMenu = document.getElementById('optionsMenuContainer');
+            let controlsMenu = document.getElementById('controlsMenuContainer');
             menu.style.display = 'none';
             menu.style.position = 'fixed';
+            controlsMenu.style.display = 'none';
             optionsMenu.style.display = 'none';
         } else {
             this.gameState = GAMESTATE.PAUSED;
@@ -77,6 +79,11 @@ export default class Game {
         if (this.gameState == GAMESTATE.PAUSED) {
             this.menu.toggleMenu();
         }
+
+        if (this.gameState == GAMESTATE.GAMEOVER){
+            
+        }
+        
         ctx.closePath();
     }
 }

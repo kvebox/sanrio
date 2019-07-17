@@ -6,7 +6,6 @@ const GAMESTATE = {
 };
 
 export default class GameInputHandler {
-
     constructor (game, menu) {
         document.addEventListener('keydown', (e) => {
             // if (e.repeat) return;

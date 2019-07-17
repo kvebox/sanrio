@@ -16,11 +16,7 @@
         "webpack-cli": "^3.3.2"
     },
     "engines": {
-        "node": "10.13.0",
-        "npm": "6.4.1"
-    },
-    "dependencies": {
-        "lodash": "^4.17.11"
+        "node": "10.13.0"
     },
     "repository": {
         "type": "git",
