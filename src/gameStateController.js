@@ -32,7 +32,8 @@ export default class GameInputHandler {
                     menu.enter();
                     break;
                 case 80:
-                    game.pause();
+                    menu.exit();
+                    menu.changeMenuType(0);
             }
         } else {
             switch (e.keyCode){

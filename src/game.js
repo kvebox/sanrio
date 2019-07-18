@@ -44,14 +44,29 @@ export default class Game {
             this.gameState = GAMESTATE.RUNNING;
             let menu = document.getElementById('allMenus');
             menu.style.display = 'none';
-            // let menu = document.getElementById('mainMenuContainer');
-            // menu.style.display = 'none';
+
+            let mainMenu = document.getElementById('mainMenuContainer');
+            let controlsMenu = document.getElementById('controlsMenuContainer');
+            let optionsMenu = document.getElementById('optionsMenuContainer');
+
+            controlsMenu.style.display = 'none';
+            optionsMenu.style.display = 'none';
+            mainMenu.style.display = 'block';
+
+
         } else {
             this.gameState = GAMESTATE.PAUSED;
             let menu = document.getElementById('allMenus');
             menu.style.display = 'block';
-            // let menu = document.getElementById('mainMenuContainer');
-            // menu.style.display = 'block';
+
+
+            // let mainMenu = document.getElementById('mainMenu');
+            // let controlsMenu = document.getElementById('controlsMenuContainer');
+            // let optionsMenu = document.getElementById('optionsMenuContainer');
+
+            // controlsMenu.style.display = 'none';
+            // optionsMenu.style.display = 'none';
+            // mainMenu.style.display = 'block';
         }
     }
     

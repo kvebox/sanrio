@@ -54,7 +54,7 @@ export default class Menu {
                 this.optionSelected.setAttribute("id", "selected");
                 break;
             default:
-                console.log('no!');
+                break;
         }
     }
 
@@ -78,8 +78,9 @@ export default class Menu {
                     break;
                 // options
                 case 3:
-                    this.changeMenuType(1);
                     this.toggleOptions();
+                    this.changeMenuType(1);
+                    console.log(this.menuType);
                     break;
                 default:
                     this.exit();
@@ -94,6 +95,7 @@ export default class Menu {
                     break;
                 case 2:
                     this.changeMenuType(0);
+                    this.toggleMenu();
             
             }
         }
@@ -103,20 +105,37 @@ export default class Menu {
     showMenu(){
         let menu = document.getElementById('allMenus');
         menu.style.display = 'block';
-        // let menu = document.getElementById('mainMenuContainer');
-        // menu.style.display = 'block';
     }
 
     toggleMenu() {
+        let mainMenu = document.getElementById('mainMenuContainer');
+        let controlsMenu = document.getElementById('controlsMenuContainer');
+        let optionsMenu = document.getElementById('optionsMenuContainer');
+
+
+        controlsMenu.style.display = 'none';        
+        optionsMenu.style.display = 'none';        
+        mainMenu.style.display = 'block';
     }
 
     toggleControls(){
+        let mainMenu = document.getElementById('mainMenuContainer');
         let controlsMenu = document.getElementById('controlsMenuContainer');
+        let optionsMenu = document.getElementById('optionsMenuContainer');
+
         controlsMenu.style.display = 'block';
+        optionsMenu.style.display = 'none';
+        mainMenu.style.display = 'none';
     }
 
     toggleOptions(){
+        console.log('swapped');
+        let mainMenu = document.getElementById('mainMenuContainer');
+        let controlsMenu = document.getElementById('controlsMenuContainer');
         let optionsMenu = document.getElementById('optionsMenuContainer');
+
+        controlsMenu.style.display = 'none';
+        mainMenu.style.display = 'none';
         optionsMenu.style.display = 'block';
     }
 
