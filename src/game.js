@@ -42,17 +42,16 @@ export default class Game {
     pause() {
         if (this.gameState == GAMESTATE.PAUSED) {
             this.gameState = GAMESTATE.RUNNING;
-            let menu = document.getElementById('mainMenuContainer');
-            let optionsMenu = document.getElementById('optionsMenuContainer');
-            let controlsMenu = document.getElementById('controlsMenuContainer');
+            let menu = document.getElementById('allMenus');
             menu.style.display = 'none';
-            menu.style.position = 'fixed';
-            controlsMenu.style.display = 'none';
-            optionsMenu.style.display = 'none';
+            // let menu = document.getElementById('mainMenuContainer');
+            // menu.style.display = 'none';
         } else {
             this.gameState = GAMESTATE.PAUSED;
-            let menuContent = document.getElementById('mainMenuContent');
-            menuContent.style.display = 'block';
+            let menu = document.getElementById('allMenus');
+            menu.style.display = 'block';
+            // let menu = document.getElementById('mainMenuContainer');
+            // menu.style.display = 'block';
         }
     }
     
@@ -77,7 +76,7 @@ export default class Game {
         });
 
         if (this.gameState == GAMESTATE.PAUSED) {
-            this.menu.toggleMenu();
+            this.menu.showMenu();
         }
 
         if (this.gameState == GAMESTATE.GAMEOVER){

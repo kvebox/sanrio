@@ -11,7 +11,7 @@ body {
     top: 0;
     overflow: auto;
     background-color: rgba(47,47,47,0.9);
-    display: none;
+    display: block;
 }
 
 #optionsMenuContainer {
@@ -300,4 +300,8 @@ body {
 
 #pressed {
     border: 2px solid red;
+}
+
+#allMenus {
+    display: none;
 }

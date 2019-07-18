@@ -78,6 +78,7 @@ export default class Menu {
                     break;
                 // options
                 case 3:
+                    this.changeMenuType(1);
                     this.toggleOptions();
                     break;
                 default:
@@ -93,41 +94,30 @@ export default class Menu {
                     break;
                 case 2:
                     this.changeMenuType(0);
-                    this.toggleMenu();
             
             }
         }
 
     }
 
-    toggleMenu() {
-        let menu = document.getElementById('mainMenuContainer');
-        let menuContent = document.getElementById('mainMenuContent');
-        menuContent.style.display = 'block';
+    showMenu(){
+        let menu = document.getElementById('allMenus');
         menu.style.display = 'block';
-        menu.style.position = 'fixed';
+        // let menu = document.getElementById('mainMenuContainer');
+        // menu.style.display = 'block';
+    }
+
+    toggleMenu() {
     }
 
     toggleControls(){
         let controlsMenu = document.getElementById('controlsMenuContainer');
         controlsMenu.style.display = 'block';
-        let menu = document.getElementById('mainMenuContent');
-        let mainMenu = document.getElementById('mainMenuContainer');
-        mainMenu.style.position = 'static';
-        menu.style.display = 'none';
-        mainMenu.style.display = 'none';
     }
 
     toggleOptions(){
-        this.changeMenuType(1);
-        console.log(this.menuType);
         let optionsMenu = document.getElementById('optionsMenuContainer');
         optionsMenu.style.display = 'block';
-        let menu = document.getElementById('mainMenuContent');
-        let mainMenu = document.getElementById('mainMenuContainer');
-        mainMenu.style.position = 'static';
-        mainMenu.style.display = 'none';
-        menu.style.display = 'none';
     }
 
     decreaseVolume(){}
