@@ -8,7 +8,7 @@ import Menu from './menu/menu';
 const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
-    MENU: 2,
+    START: 2,
     GAMEOVER: 3
 };
 
@@ -80,6 +80,8 @@ export default class Game {
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(ctx);
         });
+
+        if (this.gameState == GAMESTATE.START)
 
         if (this.gameState == GAMESTATE.PAUSED) {
             this.menu.showMenu();

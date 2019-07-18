@@ -23,7 +23,29 @@ body {
 
 /*----------- IMAGES ------------*/
 
+#buttonContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+}
+
+
+
+/*----------- IMAGES ------------*/
+
 /* platforms */
 #platformPiece-middle, #platformPiece-left, #platformPiece-right {
     display: none;
 }
+
+
