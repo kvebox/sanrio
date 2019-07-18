@@ -58,15 +58,6 @@ export default class Game {
             this.gameState = GAMESTATE.PAUSED;
             let menu = document.getElementById('allMenus');
             menu.style.display = 'block';
-
-
-            // let mainMenu = document.getElementById('mainMenu');
-            // let controlsMenu = document.getElementById('controlsMenuContainer');
-            // let optionsMenu = document.getElementById('optionsMenuContainer');
-
-            // controlsMenu.style.display = 'none';
-            // optionsMenu.style.display = 'none';
-            // mainMenu.style.display = 'block';
         }
     }
     

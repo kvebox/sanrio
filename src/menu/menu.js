@@ -19,6 +19,7 @@ export default class Menu {
     }
 
     shiftDown(){
+        console.log(this.menuType);
         switch (this.menuType){
             case this.menuHash[0]:
                 this.optionsList[this.current].removeAttribute('id', 'selected');
@@ -38,6 +39,7 @@ export default class Menu {
     }
 
     shiftUp(){
+        console.log(this.menuType);
         switch (this.menuType) {
             case this.menuHash[0]:
                 this.optionsList[this.current].removeAttribute('id', 'selected');
@@ -75,13 +77,13 @@ export default class Menu {
                 // controls
                 case 2:
                     this.toggleControls();
-                    break;
+                    this.changeMenuType(3);
+                    return;
                 // options
                 case 3:
                     this.toggleOptions();
                     this.changeMenuType(1);
-                    console.log(this.menuType);
-                    break;
+                    return;
                 default:
                     this.exit();
             }
@@ -96,9 +98,12 @@ export default class Menu {
                 case 2:
                     this.changeMenuType(0);
                     this.toggleMenu();
-            
+                    return;
+                default:
+                    this.exit();
             }
         }
+        // console.log(this.menuType);
 
     }
 
