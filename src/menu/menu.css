@@ -46,11 +46,9 @@ body {
     width: 446px;
 }
 
-#menuList {
+#menuList, #optionMenuList{
     display: flex;
     list-style-type: none;
-    color: white;
-    font-family: "Avenir Next";
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
@@ -71,6 +69,14 @@ body {
     margin-bottom: 10px;
     font-size: 14px;
     border-radius: 2.5px;
+}
+
+#optionMenuList li {
+    padding: 2px 15px;
+    font-size: 14px;
+    border-radius: 2.5px;
+    margin-bottom: 10px;
+    height: 21px;
 }
 
 #selected {
@@ -131,16 +137,16 @@ body {
 .audioSlider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    width: 15px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
     background: #D8D8D8; /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 15px;
 }
 
 .audioSlider::-moz-range-thumb {
-    width: 15px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
     background: #D8D8D8; /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 15px;
