@@ -4,6 +4,7 @@ import Platform from './scene/platform';
 import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
+import Tutorial from './menu/tutorial';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -14,9 +15,10 @@ const GAMESTATE = {
 
 
 export default class Game {
-    constructor(CANVAS_HEIGHT, CANVAS_WIDTH) {
+    constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
         this.gameWidth = CANVAS_WIDTH;
         this.gameHeight = CANVAS_HEIGHT;
+        this.ctx = ctx;
 
         //13, 
     }
@@ -37,6 +39,13 @@ export default class Game {
         new GameInputHandler(this, this.menu);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
+
+        this.tutorial = new Tutorial();
+        this.tutorial.start();
+        // this.tutorialPlayer = new Player(this.tutorial);
+        // console.log(this.tutorialPlayer);
+        // const tutorialHandle = new InputHandler(this.tutorialPlayer, this);
+        // requestAnimationFrame(tutorialHandle.loop);
     }
     
     pause() {
@@ -74,24 +83,26 @@ export default class Game {
     
     
     draw() {
-        ctx.beginPath();
+        this.ctx.beginPath();
 
-        this.player.draw(ctx);
+        this.player.draw(this.ctx);
         Object.keys(this.platforms).forEach(key => {
-            this.platforms[key].draw(ctx);
+            this.platforms[key].draw(this.ctx);
         });
 
         if (this.gameState == GAMESTATE.START)
 
         if (this.gameState == GAMESTATE.PAUSED) {
             this.menu.showMenu();
+            
         }
 
         if (this.gameState == GAMESTATE.GAMEOVER){
             
         }
+        this.tutorial.draw();
         
-        ctx.closePath();
+        this.ctx.closePath();
     }
 }
 

@@ -1,3 +1,5 @@
+import Tutorial from './tutorial';
+
 export default class Menu {
     constructor(game){
         this.optionsList = document.getElementsByClassName('menuOptions');
@@ -8,6 +10,7 @@ export default class Menu {
         this.optionCurrent = 0;
         this.optionLength = this.audioOptionsList.length;
         
+
         this.game = game;
         this.menuHash = {
             0: 'main',
@@ -137,6 +140,9 @@ export default class Menu {
         controlsMenu.style.display = 'none';
         mainMenu.style.display = 'none';
         optionsMenu.style.display = 'block';
+    }
+
+    spawn(){
     }
 
     decreaseVolume(){}

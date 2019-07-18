@@ -19,14 +19,14 @@ export default class InputHandler {
         
         switch (e.keyCode) {
             case 37:
-            this.left = key_state;
-            break;
+                this.left = key_state;
+                break;
             case 32:
-            this.up = key_state;
-            break;
+                this.up = key_state;
+                break;
             case 39:
-            this.right = key_state;
-            break;
+                this.right = key_state;
+                break;
         }
     }
     

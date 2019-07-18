@@ -5,11 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById('canvas');
     canvas.height = CANVAS_HEIGHT;
     canvas.width = CANVAS_WIDTH;
-    window.ctx = canvas.getContext('2d');
-    // ctx.fillStyle = '#EF5455';
+    let ctx = canvas.getContext('2d');
 
-    
-    let game = new Game(CANVAS_HEIGHT, CANVAS_WIDTH);
+
+    let game = new Game(CANVAS_HEIGHT, CANVAS_WIDTH, ctx);
     game.start();
     
     
@@ -18,6 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // images
 
     function gameLoop(timestamp) {
+        // let canvas = document.getElementById('canvas');
+        // let ctx = canvas.getContext('2d');
         
         let deltaTime = timestamp - lastTime;
         lastTime = timestamp;
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         game.update(deltaTime);
         game.draw(ctx);
+
 
 
         requestAnimationFrame(gameLoop);
