@@ -64,6 +64,7 @@ body {
 .heartIcon {
     height: 25px;
     width: 25px;
+    margin-left: 2.5px;
 }
 
 #gameUI {

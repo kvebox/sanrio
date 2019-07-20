@@ -146,9 +146,38 @@ export default class Menu {
     spawn(){
     }
 
-    decreaseVolume(){}
+    decreaseVolume(){
+        if (this.menuType === this.menuHash[1]) {
+            let volume = '';
+            switch (this.optionCurrent) {
+                case 0:
+                    volume = document.getElementById('sfxRange');
+                    volume.value = parseInt(volume.value) - 10;
+                    return;
+                case 1:
+                    volume = document.getElementById('musicRange');
+                    volume.value = parseInt(volume.value) - 10;
+                    return;
+            }
+        }
+    }
     
-    increaseVolume(){}
+    
+    increaseVolume(){
+        if (this.menuType === this.menuHash[1]) {
+            let volume = '';
+            switch (this.optionCurrent) {
+                case 0:
+                    volume = document.getElementById('sfxRange');
+                    volume.value = parseInt(volume.value) + 10;
+                    return;
+                case 1:
+                    volume = document.getElementById('musicRange');
+                    volume.value = parseInt(volume.value) + 10;
+                return;
+            }
+        }
+    }
 
     toggleMap(){}
 
