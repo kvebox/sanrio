@@ -15,11 +15,12 @@ export default class Tutorial {
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
         
-        this.fillStyle= 'red';
+        
     }
-
+    
     draw() {
         this.ctx.beginPath();
+        this.ctx.fillStyle= 'red';
         this.player.draw(this.ctx);
         this.ctx.closePath();
     }

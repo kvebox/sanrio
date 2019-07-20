@@ -1,10 +1,6 @@
-// import gordo from 'images/gordoSpriteSheet.png';
+// import menu_arrow from './images/menu/menuCursor.png';
 
-const gordoImage = new Image();
-gordoImage.src = 'images/gordoSpriteSheet.png';
+// const menuArrowImg = new Image();
+// menuArrowImg.src = menu_arrow;
 
-
-function sprite(options) {
-    var that = {};
-
-}
+// export const menuArrow = [menuArrowImg];

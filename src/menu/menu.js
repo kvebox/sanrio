@@ -1,4 +1,5 @@
 import Tutorial from './tutorial';
+import imgLoader from '../imgLoader';
 
 export default class Menu {
     constructor(game){

@@ -94,13 +94,12 @@ export default class Game {
 
         if (this.gameState == GAMESTATE.PAUSED) {
             this.menu.showMenu();
-            
         }
-
+        
+        this.tutorial.draw();
         if (this.gameState == GAMESTATE.GAMEOVER){
             
         }
-        this.tutorial.draw();
         
         this.ctx.closePath();
     }
