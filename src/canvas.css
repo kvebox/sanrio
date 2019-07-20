@@ -73,6 +73,34 @@ body {
     align-items: center;
 }
 
+#powerContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.powerBox {
+    border: 2px solid white;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+#boxContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxUI {
+    border-bottom: 2px solid white;
+    width: 210px;
+    margin-top: 5px;
+}
+
+
 /*----------- IMAGES ------------*/
 
 /* platforms */
