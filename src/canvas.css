@@ -53,9 +53,23 @@ body {
     justify-content: flex-end;
 }
 
+#heartContainer, #coinContainer, #scoreContainer {
+    width: 33.33%;
+}
+
+#scoreContainer {
+    text-align: center;
+}
+
 .heartIcon {
     height: 25px;
     width: 25px;
+}
+
+#gameUI {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /*----------- IMAGES ------------*/

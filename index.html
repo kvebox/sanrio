@@ -15,13 +15,24 @@
     <div id='pageContent'>
 
         <div id='canvasContainer'>
-            <div id='heartContainer'>
-                <div class='heart'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
-                <div class='heart'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
-                <div class='heart'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
+            <div id='gameUI'>
+                <div id='coinContainer'>
+                    <span id='coins'>00000</span>
+                </div>
+
+                <div id='scoreContainer'>
+                    SCORE: <span id='score'>00000000</span>
+                </div>
+
+                <div id='heartContainer'>
+                    <div class='heartFull'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
+                    <div class='heartFull'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
+                    <div class='heartFull'><img class='heartIcon' src='./src/images/menu/life.png' /></div>
+                </div>
             </div>
 
             <canvas id='canvas'></canvas>
+
             <div id='buttonContainer'>
                 <a href='https://www.twitter.com/kvebox'>
                     <img class='button' alt='twitter button' src='./src/images/media_buttons/twitter.png' /></a>
