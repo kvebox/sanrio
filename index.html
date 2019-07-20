@@ -96,20 +96,25 @@
             <div id='optionsMenu'>
                 <ul id='optionMenuList'>
                     <div>
-                        <li class='optionMenuOptions' id='selected'>
-                            <div class='audioHeader'>SFX</div>
-                            <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="audioSlider" id="sfxRange">
+                        <li class='optionMenuOptionContainer'>
+                            <div class='optionMenuOptions' id='selected'>
+                                <div class='audioHeader'>SFX</div>
+                                <div class="slidecontainer">
+                                    <input type="range" min="1" max="100" value="50" class="audioSlider" id="sfxRange">
+                                </div>
                             </div>
+                            <img id='optionArrow' class='pointerArrow' src='./src/images/menu/menuCursor.png' />
                         </li>
-                        <li class='optionMenuOptions'>
-                            <div class='audioHeader'>MUSIC</div>
-                            <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="audioSlider" id="musicRange">
+                        <li class='optionMenuOptionContainer'>
+                            <div class='optionMenuOptions'>
+                                <div class='audioHeader'>MUSIC</div>
+                                <div class="slidecontainer">
+                                    <input type="range" min="1" max="100" value="50" class="audioSlider" id="musicRange">
+                                </div>
                             </div>
                         </li>
                     </div>
-                    <li class='optionMenuOptions' id='menuExit'>BACK</li>
+                    <li class='optionMenuOptionContainer' id='menuExit'><div class='optionMenuOptions'>BACK</div></li>
                 </ul>
             </div>
             <div id='mainMenuFooter'>Press (p) to unpause or select back</div>

@@ -9,6 +9,7 @@ export default class Menu {
         this.length = this.optionsList.length;
         
         this.audioOptionsList = document.getElementsByClassName('optionMenuOptions');
+        this.optionContainers = document.getElementsByClassName('optionMenuOptionContainer');
         this.optionCurrent = 0;
         this.optionLength = this.audioOptionsList.length;
         
@@ -27,7 +28,6 @@ export default class Menu {
 
     shiftDown(){
         let arrow = document.createElement('img');
-        arrow.setAttribute('id', 'mainArrow');
         arrow.setAttribute('class', 'pointerArrow');
         arrow.src = './src/images/menu/menuCursor.png';
 
@@ -39,21 +39,27 @@ export default class Menu {
                 if (this.current >= this.length) this.current %= this.length;
                 this.selected = this.optionsList[this.current % this.length];
                 this.selected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'mainArrow');
                 this.mainContainers[this.current].appendChild(arrow);
                 break;
             case this.menuHash[1]:
+                // console.log(this.optionContainers[this.optionCurrent].childNodes);
+                // this.optionContainers[this.optionCurrent].removeChild(this.optionContainers[this.optionCurrent].childNodes[1]);
+                let currentArrow = document.getElementById('optionArrow');
+                currentArrow.parentNode.removeChild(currentArrow);
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
                 this.optionCurrent += 1;
                 if (this.optionCurrent >= this.optionLength) this.optionCurrent %= this.optionLength;
                 this.optionSelected = this.audioOptionsList[this.optionCurrent % this.optionLength];
                 this.optionSelected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'optionArrow');
+                this.optionContainers[this.optionCurrent].appendChild(arrow);
                 break;
         }
     }
 
     shiftUp(){
         let arrow = document.createElement('img');
-        arrow.setAttribute('id', 'mainArrow');
         arrow.setAttribute('class', 'pointerArrow');
         arrow.src = './src/images/menu/menuCursor.png';
 
@@ -65,14 +71,20 @@ export default class Menu {
                 if (this.current < 0) this.current = this.length-1;
                 this.selected = this.optionsList[this.current % this.length];
                 this.selected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'mainArrow');
                 this.mainContainers[this.current].appendChild(arrow);
                 break;
             case this.menuHash[1]:
+                // this.optionContainers[this.optionCurrent].removeChild(this.optionContainers[this.optionCurrent].childNodes[1]);
+                let currentArrow = document.getElementById('optionArrow');
+                currentArrow.parentNode.removeChild(currentArrow);
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
                 this.optionCurrent -= 1;
                 if (this.optionCurrent < 0) this.optionCurrent = this.optionLength-1;
                 this.optionSelected = this.audioOptionsList[this.optionCurrent % this.optionLength];
                 this.optionSelected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'optionArrow');
+                this.optionContainers[this.optionCurrent].appendChild(arrow);
                 break;
             default:
                 break;

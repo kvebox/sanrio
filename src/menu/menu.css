@@ -72,12 +72,18 @@ body {
     width: 80%;
 }
 
-#optionMenuList li {
+.optionMenuOptionContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.optionMenuOptions {
     padding: 2px 15px;
     font-size: 14px;
     border-radius: 2.5px;
     margin-bottom: 10px;
     height: 21px;
+    width: 80%;
 }
 
 #selected {
