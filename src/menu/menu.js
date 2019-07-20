@@ -4,6 +4,7 @@ import imgLoader from '../imgLoader';
 export default class Menu {
     constructor(game){
         this.optionsList = document.getElementsByClassName('menuOptions');
+        this.mainContainers = document.getElementsByClassName('menuOptionContainer');
         this.current = 0;
         this.length = this.optionsList.length;
         
@@ -22,14 +23,23 @@ export default class Menu {
 
     }
 
+    // <img id='mainArrow' class='pointerArrow' src='./src/images/menu/menuCursor.png' />
+
     shiftDown(){
-        switch (this.menuType){
+        let arrow = document.createElement('img');
+        arrow.setAttribute('id', 'mainArrow');
+        arrow.setAttribute('class', 'pointerArrow');
+        arrow.src = './src/images/menu/menuCursor.png';
+
+        switch (this.menuType){     
             case this.menuHash[0]:
+                this.mainContainers[this.current].removeChild(this.mainContainers[this.current].childNodes[1]);
                 this.optionsList[this.current].removeAttribute('id', 'selected');
                 this.current += 1;
                 if (this.current >= this.length) this.current %= this.length;
                 this.selected = this.optionsList[this.current % this.length];
                 this.selected.setAttribute("id", "selected");
+                this.mainContainers[this.current].appendChild(arrow);
                 break;
             case this.menuHash[1]:
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
@@ -42,13 +52,20 @@ export default class Menu {
     }
 
     shiftUp(){
+        let arrow = document.createElement('img');
+        arrow.setAttribute('id', 'mainArrow');
+        arrow.setAttribute('class', 'pointerArrow');
+        arrow.src = './src/images/menu/menuCursor.png';
+
         switch (this.menuType) {
             case this.menuHash[0]:
+                this.mainContainers[this.current].removeChild(this.mainContainers[this.current].childNodes[1]);
                 this.optionsList[this.current].removeAttribute('id', 'selected');
                 this.current -= 1;
                 if (this.current < 0) this.current = this.length-1;
                 this.selected = this.optionsList[this.current % this.length];
                 this.selected.setAttribute("id", "selected");
+                this.mainContainers[this.current].appendChild(arrow);
                 break;
             case this.menuHash[1]:
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
