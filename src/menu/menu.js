@@ -146,7 +146,7 @@ export default class Menu {
         }
 
         if (this.menuType === this.menuHash[1]){
-            switch (this.optionCurrent) {
+            switch (this.optionCurrent){
                 case 0:
                     break;
                 case 1:
@@ -160,9 +160,19 @@ export default class Menu {
             }
         }
 
-        if (this.menuType === this.menuHash[2]) {
+        if (this.menuType === this.menuHash[2]){
             this.changeMenuType(0);
             this.toggleMenu();
+        }
+
+        if (this.menuType === this.menuHash[3]){
+            switch (this.goCurrent){
+                case 0:
+                    break;
+                case 1:
+                    this.game.newGame();
+                    break;
+            }
         }
     }
 

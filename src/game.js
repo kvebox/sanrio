@@ -24,8 +24,7 @@ export default class Game {
     }
 
     start() {
-        this.gameState = GAMESTATE.GAMEOVER;
-        // this.gameState = GAMESTATE.RUNNING;
+        this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
   
@@ -70,11 +69,17 @@ export default class Game {
             menu.style.display = 'block';
         }
     }
+
+    newGame(){
+        this.gameState = GAMESTATE.RUNNING;
+        let menu = document.getElementById('goContainer');
+        menu.style.display = 'none';
+    }
     
     
     update(deltaTime){
         
-        if (this.gameState == GAMESTATE.PAUSED) return;
+        if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
         
         this.player.update(deltaTime);
         // Object.keys(this.platforms).forEach (key => {
