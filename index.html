@@ -142,7 +142,8 @@
 
             <div id='controlsMenu'>
                 <ul id='controlsMenuList'>
-                    <li class='controlMenuOptions' id='menuExit'>BACK</li>
+                    <li class='controlMenuOptions' id='menuExit'>
+                        <div class='back'><img class='backArrow' src='./src/images/menu/menuBack.png' />BACK</div></li>
                 </ul>
 
                 <div id='controlCanvasContainer'>
@@ -174,8 +175,41 @@
     </div>
     </div>
 
+    <!----------- Game over! ------------>
+    <div id='goContainer'>
+        <div id='goMenuContent'>
+            <div id='goMenuHeader'>
+                <h1 id='goMenuTitle'>GAME OVER</h1>
+            </div>
+    
+            <div id='goMenu'>
+                <ul id='goMenuList'>
+                    <li class='goMenuOptionContainer'>
+                        <div class='goMenuOptions' id='selected'>
+                            <div class='goHeader'>NEW GAME</div>
+                        </div>
+                        <img id='goArrow' class='pointerArrow' src='./src/images/menu/menuCursor.png' />
+                    </li>
+                    <li class='goMenuOptionContainer'>
+                        <div class='goMenuOptions'>
+                            <div class='goHeader'>EXIT</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
+        <div id='mainMenuFooter'>Thank you for playing!</div>
         
+        <div id='buttonContainer'>
+            <a href='https://www.twitter.com/kvebox'>
+                <img class='button' alt='twitter button' src='./src/images/media_buttons/twitter.png' /></a>
+            <a href='https://www.github.com/kvebox'>
+                <img class='button' alt='github button' src='./src/images/media_buttons/github.png' /></a>
+            <a href='https://www.linkedin.com/in/vhjoh/'>
+                <img class='button' alt='linkedin button' src='./src/images/media_buttons/linkedin.png' /></a>
+        </div>
+    </div>    
+
     <!-- images -->
     <img id='platformPiece-middle' src="./src/images/platformMiddle_olive.png"/> 
     <img id='platformPiece-left' src="./src/images/platformLeft_olive.png"/>

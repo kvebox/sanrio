@@ -42,9 +42,8 @@ export default class Menu {
                 arrow.setAttribute('id', 'mainArrow');
                 this.mainContainers[this.current].appendChild(arrow);
                 break;
+
             case this.menuHash[1]:
-                // console.log(this.optionContainers[this.optionCurrent].childNodes);
-                // this.optionContainers[this.optionCurrent].removeChild(this.optionContainers[this.optionCurrent].childNodes[1]);
                 let currentArrow = document.getElementById('optionArrow');
                 currentArrow.parentNode.removeChild(currentArrow);
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
@@ -74,8 +73,8 @@ export default class Menu {
                 arrow.setAttribute('id', 'mainArrow');
                 this.mainContainers[this.current].appendChild(arrow);
                 break;
+
             case this.menuHash[1]:
-                // this.optionContainers[this.optionCurrent].removeChild(this.optionContainers[this.optionCurrent].childNodes[1]);
                 let currentArrow = document.getElementById('optionArrow');
                 currentArrow.parentNode.removeChild(currentArrow);
                 this.audioOptionsList[this.optionCurrent].removeAttribute('id', 'selected');
@@ -108,7 +107,7 @@ export default class Menu {
                 // controls
                 case 2:
                     this.toggleControls();
-                    this.changeMenuType(3);
+                    this.changeMenuType(2);
                     return;
                 // options
                 case 3:
@@ -133,6 +132,11 @@ export default class Menu {
                 default:
                     this.exit();
             }
+        }
+
+        if (this.menuType === this.menuHash[2]) {
+            this.changeMenuType(0);
+            this.toggleMenu();
         }
     }
 
