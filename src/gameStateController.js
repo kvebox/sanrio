@@ -35,6 +35,20 @@ export default class GameInputHandler {
                     menu.exit();
                     menu.changeMenuType(0);
             }
+        } else if (game.gameState == GAMESTATE.GAMEOVER){
+            switch (e.keyCode) {
+                // down
+                case 40:
+                    menu.shiftDown();
+                    break;
+                // up    
+                case 38:
+                    menu.shiftUp();
+                    break;
+                case 13:
+                    menu.enter();
+                    break;
+            }
         } else {
             switch (e.keyCode){
                 case 80:

@@ -13,24 +13,26 @@ export default class Menu {
         this.optionCurrent = 0;
         this.optionLength = this.audioOptionsList.length;
         
+        this.goContainers = document.getElementsByClassName('goMenuOptionContainer');
+        this.goCurrent = 0;
+        this.goOptionsList = document.getElementsByClassName('goMenuOptions');
+        this.goLength = this.goOptionsList.length;
 
         this.game = game;
         this.menuHash = {
             0: 'main',
             1: 'options',
-            2: 'control'
+            2: 'control',
+            3: 'gameover'
         };
         this.menuType = this.menuHash[0];
-
     }
-
-    // <img id='mainArrow' class='pointerArrow' src='./src/images/menu/menuCursor.png' />
 
     shiftDown(){
         let arrow = document.createElement('img');
         arrow.setAttribute('class', 'pointerArrow');
         arrow.src = './src/images/menu/menuCursor.png';
-
+        
         switch (this.menuType){     
             case this.menuHash[0]:
                 this.mainContainers[this.current].removeChild(this.mainContainers[this.current].childNodes[1]);
@@ -53,6 +55,18 @@ export default class Menu {
                 this.optionSelected.setAttribute("id", "selected");
                 arrow.setAttribute('id', 'optionArrow');
                 this.optionContainers[this.optionCurrent].appendChild(arrow);
+                break;
+            
+            case this.menuHash[3]:
+                let goArrow = document.getElementById('goArrow');
+                goArrow.parentNode.removeChild(goArrow);
+                this.goOptionsList[this.goCurrent].removeAttribute('id', 'selected');
+                this.goCurrent += 1;
+                if (this.goCurrent >= this.goLength) this.goCurrent %= this.goLength;
+                this.goSelected = this.goOptionsList[this.goCurrent % this.goLength];
+                this.goSelected.setAttribute('id', 'selected');
+                arrow.setAttribute('id', 'goArrow');
+                this.goContainers[this.goCurrent].appendChild(arrow);
                 break;
         }
     }
@@ -84,6 +98,18 @@ export default class Menu {
                 this.optionSelected.setAttribute("id", "selected");
                 arrow.setAttribute('id', 'optionArrow');
                 this.optionContainers[this.optionCurrent].appendChild(arrow);
+                break;
+            
+            case this.menuHash[3]:
+                let goArrow = document.getElementById('goArrow');
+                goArrow.parentNode.removeChild(goArrow);
+                this.goOptionsList[this.goCurrent].removeAttribute('id', 'selected');
+                this.goCurrent -= 1;
+                if (this.goCurrent < 0) this.goCurrent = this.goLength - 1;
+                this.goSelected = this.goOptionsList[this.goCurrent % this.goLength];
+                this.goSelected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'goArrow');
+                this.goContainers[this.goCurrent].appendChild(arrow);
                 break;
             default:
                 break;
@@ -138,6 +164,12 @@ export default class Menu {
             this.changeMenuType(0);
             this.toggleMenu();
         }
+    }
+
+    gameOver(){
+        let end = document.getElementById('goContainer');
+        end.style.display = 'block';
+        this.changeMenuType(3);
     }
 
     showMenu(){

@@ -246,6 +246,7 @@ body {
     left: 0;
     top: 0;
     background-color: rgba(47,47,47,0.95);
+    display: none;
 }
 
 #goMenuList {

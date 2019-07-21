@@ -24,7 +24,8 @@ export default class Game {
     }
 
     start() {
-        this.gameState = GAMESTATE.RUNNING;
+        this.gameState = GAMESTATE.GAMEOVER;
+        // this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
   
@@ -98,7 +99,7 @@ export default class Game {
         
         this.tutorial.draw();
         if (this.gameState == GAMESTATE.GAMEOVER){
-            
+            this.menu.gameOver();
         }
         
         this.ctx.closePath();
