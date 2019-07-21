@@ -18,9 +18,23 @@ export default class Game {
     constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
         this.gameWidth = CANVAS_WIDTH;
         this.gameHeight = CANVAS_HEIGHT;
-        this.ctx = ctx;
+        this.ctx = ctx; 
+    }
 
-        //13, 
+    loadLevel(file) {
+        let rawFile = new XMLHttpRequest();
+        let returnText = '';
+        rawFile.open('GET', file, false);
+        rawFile.onreadystatechange = function () {
+            if (rawFile.readyState === 4) {
+                if (rawFile.status === 200 || rawFile.status === 0) {
+                    var allText = rawFile.responseText;
+                    returnText = allText;
+                }
+            }
+        };
+        rawFile.send(null);
+        return returnText;
     }
 
     start() {

@@ -233,7 +233,15 @@ export default class Menu {
                     volume = document.getElementById('musicRange');
                     volume.value = parseInt(volume.value) - 10;
                     return;
+                case 2:
+                    this.changeMenuType(0);
+                    this.toggleMenu();
             }
+        }
+
+        if (this.menuType === this.menuHash[2]) {
+            this.changeMenuType(0);
+            this.toggleMenu();
         }
     }
     
@@ -250,6 +258,21 @@ export default class Menu {
                     volume = document.getElementById('musicRange');
                     volume.value = parseInt(volume.value) + 10;
                 return;
+            }
+        }
+
+        if (this.menuType === this.menuHash[0]) {
+            switch (this.current) {
+                // controls
+                case 2:
+                    this.toggleControls();
+                    this.changeMenuType(2);
+                    return;
+                // options
+                case 3:
+                    this.toggleOptions();
+                    this.changeMenuType(1);
+                    return;
             }
         }
     }
