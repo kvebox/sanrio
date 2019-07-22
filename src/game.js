@@ -5,6 +5,8 @@ import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
 import Tutorial from './menu/tutorial';
+import { levels, parseLevel } from './lvlLoader';
+
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -21,23 +23,8 @@ export default class Game {
         this.ctx = ctx; 
     }
 
-    loadLevel(file) {
-        let rawFile = new XMLHttpRequest();
-        let returnText = '';
-        rawFile.open('GET', file, false);
-        rawFile.onreadystatechange = function () {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status === 0) {
-                    var allText = rawFile.responseText;
-                    returnText = allText;
-                }
-            }
-        };
-        rawFile.send(null);
-        return returnText;
-    }
-
     start() {
+        parseLevel(levels[1]);
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 

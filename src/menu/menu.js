@@ -147,10 +147,6 @@ export default class Menu {
 
         if (this.menuType === this.menuHash[1]){
             switch (this.optionCurrent){
-                case 0:
-                    break;
-                case 1:
-                    break;
                 case 2:
                     this.changeMenuType(0);
                     this.toggleMenu();

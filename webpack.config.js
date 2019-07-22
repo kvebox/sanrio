@@ -1,6 +1,14 @@
 const path = require('path');
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.txt$/i,
+                use: 'raw-loader',
+            }
+        ]
+    },
     entry: './src/index.js',
     output: {
         filename: 'sanrio.js',
