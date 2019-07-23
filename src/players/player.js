@@ -51,8 +51,17 @@ export default class Player {
         if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
 
         // this.position.x =  this.game.gameWidth-this.width;
+
+        //check collisions w floor 
         if(this.position.y < 0) this.position.y = 0;
-        if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
+        // if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
+        
+        if (this.position.y + this.height > this.game.gameHeight) {
+            this.position.x = this.game.gameWidth / 2 - this.width / 2;
+            this.position.y = this.game.gameHeight / 2;
+            this.game.loseLife();
+        }
+
 
 
         // check collisions with platforms
@@ -64,8 +73,6 @@ export default class Player {
                 this.position.y = platform.position.y - this.height
                 this.hit = true;
                 this.canJump = true;
-                // console.log('hit');
-                // this.speedx = 0;
             }
         });
 

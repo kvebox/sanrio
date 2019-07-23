@@ -24,7 +24,7 @@ export default class Game {
     }
 
     start() {
-        parseLevel(levels[1]);
+        // parseLevel(levels[1]);
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
@@ -86,6 +86,16 @@ export default class Game {
         // Object.keys(this.platforms).forEach (key => {
         //     this.platforms[key].update(deltaTime);
         // });
+    }
+
+    loseLife(){
+        let lives = document.getElementsByClassName('heartFull');
+        lives[0].parentNode.removeChild(lives[0]);
+        if (lives.length === 0) this.gameOver();
+    }
+
+    gameOver(){
+        this.gameState = GAMESTATE.GAMEOVER;
     }
     
     
