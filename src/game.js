@@ -78,6 +78,7 @@ export default class Game {
         this.addLife();
         this.addLife();
         this.addLife();
+        this.menu.changeMenuType(0);
     }
     
     

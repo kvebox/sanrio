@@ -129,6 +129,7 @@ export default class Menu {
                     break;
                 // new game
                 case 1:
+                    this.game.newGame();
                     break;
                 // controls
                 case 2:

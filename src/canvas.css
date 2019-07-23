@@ -63,13 +63,8 @@ body {
     margin-bottom: 2px;
 }
 
-.heartFull {
-    height: 25px;
-    width: 25px;
-    margin-left: 2.5px;
-}
-
 .heartIcon {
+    margin-left: 2.5px;
     height: 25px;
     width: 25px;
 }
