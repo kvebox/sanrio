@@ -164,9 +164,9 @@ export default class Menu {
         if (this.menuType === this.menuHash[3]){
             switch (this.goCurrent){
                 case 0:
+                    this.game.newGame();
                     break;
                 case 1:
-                    this.game.newGame();
                     break;
             }
         }

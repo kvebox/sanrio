@@ -75,6 +75,9 @@ export default class Game {
         this.gameState = GAMESTATE.RUNNING;
         let menu = document.getElementById('goContainer');
         menu.style.display = 'none';
+        this.addLife();
+        this.addLife();
+        this.addLife();
     }
     
     
@@ -88,8 +91,17 @@ export default class Game {
         // });
     }
 
+    addLife(){
+        let heart = document.createElement('img');
+        heart.setAttribute('class', 'heartIcon');
+        heart.src = './src/images/menu/life.png';
+
+        let heartContainer = document.getElementById('heartContainer');
+        heartContainer.appendChild(heart);
+    }
+
     loseLife(){
-        let lives = document.getElementsByClassName('heartFull');
+        let lives = document.getElementsByClassName('heartIcon');
         lives[0].parentNode.removeChild(lives[0]);
         if (lives.length === 0) this.gameOver();
     }
