@@ -23,7 +23,8 @@ export default class Menu {
             0: 'main',
             1: 'options',
             2: 'control',
-            3: 'gameover'
+            3: 'gameover',
+            4: 'start'
         };
         this.menuType = this.menuHash[0];
     }
@@ -177,6 +178,12 @@ export default class Menu {
         let end = document.getElementById('goContainer');
         end.style.display = 'block';
         this.changeMenuType(3);
+    }
+
+    startMenu(){
+        let start = document.getElementById('startContainer');
+        start.style.display = 'block';
+        this.changeMenuType(4);
     }
 
     showMenu(){

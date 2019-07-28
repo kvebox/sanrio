@@ -25,7 +25,8 @@ export default class Game {
 
     start() {
         // parseLevel(levels[1]);
-        this.gameState = GAMESTATE.RUNNING;
+        // this.gameState = GAMESTATE.RUNNING;
+        this.gameState = GAMESTATE.START;
         this.player = new Player(this);
 
   
@@ -120,7 +121,9 @@ export default class Game {
             this.platforms[key].draw(this.ctx);
         });
 
-        if (this.gameState == GAMESTATE.START)
+        if (this.gameState == GAMESTATE.START){
+            this.menu.startMenu();
+        }
 
         if (this.gameState == GAMESTATE.PAUSED) {
             this.menu.showMenu();
