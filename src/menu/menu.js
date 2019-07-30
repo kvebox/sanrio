@@ -1,3 +1,11 @@
+const GAMESTATE = {
+    PAUSED: 0,
+    RUNNING: 1,
+    START: 2,
+    GAMEOVER: 3,
+    INTRO: 4
+};
+
 export default class Menu {
     constructor(game){
         this.optionsList = document.getElementsByClassName('menuOptions');
@@ -158,6 +166,8 @@ export default class Menu {
                 // new game
                 case 1:
                     this.game.newGame();
+                    let menu = document.getElementById('allMenus');
+                    menu.style.display = 'none';
                     break;
                 // controls
                 case 2:
@@ -202,12 +212,22 @@ export default class Menu {
 
         if (this.menuType === this.menuHash[4]){
             switch (this.startCurrent){
+                // one player game
                 case 0:
+                    this.game.newGame();
+                    this.game.gameState = GAMESTATE.RUNNING;
                     break;
+                // controls
                 case 1:
-                    break;
+                    this.toggleControls();
+                    this.changeMenuType(2);
+                    return;
+                // options
                 case 2:
-                    break;
+                    this.toggleOptions();
+                    this.changeMenuType(1);
+                    return;
+                // exit
                 case 3:
                     break;
             }

@@ -26,8 +26,8 @@ export default class Game {
 
     start() {
         // parseLevel(levels[1]);
-        // this.gameState = GAMESTATE.RUNNING;
-        this.gameState = GAMESTATE.START;
+        this.gameState = GAMESTATE.RUNNING;
+        // this.gameState = GAMESTATE.START;
         this.player = new Player(this);
 
   
@@ -81,6 +81,8 @@ export default class Game {
         this.addLife();
         this.addLife();
         this.menu.changeMenuType(0);
+        this.player.position.x = this.gameWidth / 2 - this.width / 2;
+        this.player.position.y = this.gameHeight / 2;
     }
     
     
