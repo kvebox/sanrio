@@ -1,6 +1,3 @@
-import Tutorial from './tutorial';
-import imgLoader from '../imgLoader';
-
 export default class Menu {
     constructor(game){
         this.optionsList = document.getElementsByClassName('menuOptions');
@@ -18,13 +15,19 @@ export default class Menu {
         this.goOptionsList = document.getElementsByClassName('goMenuOptions');
         this.goLength = this.goOptionsList.length;
 
+        this.startContainers = document.getElementsByClassName('startMenuOptionContainer');
+        this.startCurrent = 0;
+        this.startOptionsList = document.getElementsByClassName('startOptions');
+        this.startLength = this.startOptionsList.length;
+
         this.game = game;
         this.menuHash = {
             0: 'main',
             1: 'options',
             2: 'control',
             3: 'gameover',
-            4: 'start'
+            4: 'start',
+            5: 'intro'
         };
         this.menuType = this.menuHash[0];
     }
@@ -69,6 +72,18 @@ export default class Menu {
                 arrow.setAttribute('id', 'goArrow');
                 this.goContainers[this.goCurrent].appendChild(arrow);
                 break;
+            
+            case this.menuHash[4]:
+                // let startArrow = document.getElementById('startArrow');
+                // startArrow.parentNode.removeChild(startArrow);
+                this.startOptionsList[this.startCurrent].removeAttribute('id', 'selected');
+                this.startCurrent += 1;
+                if (this.startCUrrent >= this.startLength) this.startCUrrent %= this.startLength;
+                this.startSelected = this.startOptionsList[this.startCurrent % this.startLength];
+                this.startSelected.setAttribute('id', 'selected');
+                // arrow.setAttribute('id', 'startArrow');
+                // this.startContainers[this.startCurrent].appendChild(arrow);
+                break;
         }
     }
 
@@ -111,6 +126,18 @@ export default class Menu {
                 this.goSelected.setAttribute("id", "selected");
                 arrow.setAttribute('id', 'goArrow');
                 this.goContainers[this.goCurrent].appendChild(arrow);
+                break;
+
+            case this.menuHash[4]:
+                // let startArrow = document.getElementById('startArrow');
+                // startArrow.parentNode.removeChild(startArrow);
+                this.startOptionsList[this.startCurrent].removeAttribute('id', 'selected');
+                this.startCurrent -= 1;
+                if (this.startCUrrent < 0) this.startCUrrent = this.startLength - 1;
+                this.startSelected = this.startOptionsList[this.startCurrent % this.startLength];
+                this.startSelected.setAttribute('id', 'selected');
+                // arrow.setAttribute('id', 'startArrow');
+                // this.startContainers[this.startCurrent].appendChild(arrow);
                 break;
             default:
                 break;
@@ -169,6 +196,19 @@ export default class Menu {
                     this.game.newGame();
                     break;
                 case 1:
+                    break;
+            }
+        }
+
+        if (this.menuType === this.menuHash[4]){
+            switch (this.startCurrent){
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
                     break;
             }
         }

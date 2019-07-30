@@ -12,7 +12,8 @@ const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
     START: 2,
-    GAMEOVER: 3
+    GAMEOVER: 3,
+    INTRO: 4
 };
 
 
