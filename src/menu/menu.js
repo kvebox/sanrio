@@ -74,15 +74,15 @@ export default class Menu {
                 break;
             
             case this.menuHash[4]:
-                // let startArrow = document.getElementById('startArrow');
-                // startArrow.parentNode.removeChild(startArrow);
+                let startArrow = document.getElementById('startArrow');
+                startArrow.parentNode.removeChild(startArrow);
                 this.startOptionsList[this.startCurrent].removeAttribute('id', 'selected');
                 this.startCurrent += 1;
-                if (this.startCUrrent >= this.startLength) this.startCUrrent %= this.startLength;
+                if (this.startCurrent >= this.startLength) this.startCurrent %= this.startLength;
                 this.startSelected = this.startOptionsList[this.startCurrent % this.startLength];
                 this.startSelected.setAttribute('id', 'selected');
-                // arrow.setAttribute('id', 'startArrow');
-                // this.startContainers[this.startCurrent].appendChild(arrow);
+                arrow.setAttribute('id', 'startArrow');
+                this.startContainers[this.startCurrent].appendChild(arrow);
                 break;
         }
     }
@@ -129,15 +129,15 @@ export default class Menu {
                 break;
 
             case this.menuHash[4]:
-                // let startArrow = document.getElementById('startArrow');
-                // startArrow.parentNode.removeChild(startArrow);
+                let startArrow = document.getElementById('startArrow');
+                startArrow.parentNode.removeChild(startArrow);
                 this.startOptionsList[this.startCurrent].removeAttribute('id', 'selected');
                 this.startCurrent -= 1;
-                if (this.startCUrrent < 0) this.startCUrrent = this.startLength - 1;
+                if (this.startCurrent < 0) this.startCurrent = this.startLength - 1;
                 this.startSelected = this.startOptionsList[this.startCurrent % this.startLength];
                 this.startSelected.setAttribute('id', 'selected');
-                // arrow.setAttribute('id', 'startArrow');
-                // this.startContainers[this.startCurrent].appendChild(arrow);
+                arrow.setAttribute('id', 'startArrow');
+                this.startContainers[this.startCurrent].appendChild(arrow);
                 break;
             default:
                 break;

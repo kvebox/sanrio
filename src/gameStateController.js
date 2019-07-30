@@ -9,8 +9,6 @@ const GAMESTATE = {
 export default class GameInputHandler {
     constructor (game, menu) {
         document.addEventListener('keydown', (e) => {
-            // if (e.repeat) return;
-            console.log(game.gameState)
         if (game.gameState == GAMESTATE.PAUSED){
             switch (e.keyCode) {
                 // down
@@ -52,7 +50,6 @@ export default class GameInputHandler {
                     break;
             }
         } else if (game.gameState == GAMESTATE.START) {
-            console.log('started')
             switch (e.keyCode) {
                 // down
                 case 40:
