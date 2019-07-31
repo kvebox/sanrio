@@ -18,10 +18,11 @@ const GAMESTATE = {
 
 
 export default class Game {
-    constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
+    constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx, controlctx) {
         this.gameWidth = CANVAS_WIDTH;
         this.gameHeight = CANVAS_HEIGHT;
         this.ctx = ctx; 
+        this.controlctx = controlctx;
     }
 
     start() {
@@ -37,14 +38,16 @@ export default class Game {
             3: new PlatformBuilder(2, 375, 225),
             4: new PlatformBuilder(7, 20, 320),
         };
+        
         this.menu = new Menu(this);
         this.menu.generateControls();
         new GameInputHandler(this, this.menu);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
 
-        this.tutorial = new Tutorial();
-        this.tutorial.start();
+        this.tutorial = new Tutorial(this.controlctx);
+        this.tutorial.draw();
+
         // this.tutorialPlayer = new Player(this.tutorial);
         // console.log(this.tutorialPlayer);
         // const tutorialHandle = new InputHandler(this.tutorialPlayer, this);
@@ -129,10 +132,11 @@ export default class Game {
         }
 
         if (this.gameState == GAMESTATE.PAUSED) {
+            
             this.menu.showMenu();
         }
         
-        this.tutorial.draw();
+        // this.tutorial.draw();
         if (this.gameState == GAMESTATE.GAMEOVER){
             this.menu.gameOver();
         }
