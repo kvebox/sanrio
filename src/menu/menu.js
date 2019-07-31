@@ -307,10 +307,10 @@ export default class Menu {
             }
         }
 
-        if (this.menuType === this.menuHash[2]) {
-            this.changeMenuType(0);
-            this.toggleMenu();
-        }
+        // if (this.menuType === this.menuHash[2]) {
+        //     this.changeMenuType(0);
+        //     this.toggleMenu();
+        // }
     }
     
     

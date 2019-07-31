@@ -38,7 +38,7 @@ export default class Game {
             3: new PlatformBuilder(2, 375, 225),
             4: new PlatformBuilder(7, 20, 320),
         };
-        
+
         this.menu = new Menu(this);
         this.menu.generateControls();
         new GameInputHandler(this, this.menu);
@@ -46,6 +46,7 @@ export default class Game {
         requestAnimationFrame(handle.loop);
 
         this.tutorial = new Tutorial(this.controlctx);
+        this.tutorial.start();
         this.tutorial.draw();
 
         // this.tutorialPlayer = new Player(this.tutorial);
