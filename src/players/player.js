@@ -20,7 +20,7 @@ export default class Player {
         this.hit = false;
     }
 
-    move(deltaTime){
+    move(){
         this.x_velocity *= 0.9;
         // if (this.y_velocity < 0) {this.y_velocity += 15 }
         // console.log(this.y_velocity);
@@ -41,9 +41,9 @@ export default class Player {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
-    update(deltaTime) {
+    update() {
         
-        this.move(deltaTime);
+        this.move();
 
         //check collisions with wall
         
@@ -70,7 +70,7 @@ export default class Player {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
                 this.y_velocity = 5;
-                this.position.y = platform.position.y - this.height
+                this.position.y = platform.position.y - this.height;
                 this.hit = true;
                 this.canJump = true;
             }

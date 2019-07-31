@@ -1,11 +1,9 @@
 import InputHandler from './players/playerInput';
 import GameInputHandler from './gameStateController';
-import Platform from './scene/platform';
 import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
 import Tutorial from './menu/tutorial';
-import { levels, parseLevel } from './lvlLoader';
 
 
 const GAMESTATE = {
@@ -18,17 +16,15 @@ const GAMESTATE = {
 
 
 export default class Game {
-    constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx, controlctx) {
+    constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
         this.gameWidth = CANVAS_WIDTH;
         this.gameHeight = CANVAS_HEIGHT;
         this.ctx = ctx; 
-        this.controlctx = controlctx;
+        this.gameState = '';
     }
 
     start() {
-        // parseLevel(levels[1]);
         this.gameState = GAMESTATE.RUNNING;
-        // this.gameState = GAMESTATE.START;
         this.player = new Player(this);
 
   
@@ -45,14 +41,9 @@ export default class Game {
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
 
-        this.tutorial = new Tutorial(this.controlctx);
-        this.tutorial.start();
-        this.tutorial.draw();
-
-        // this.tutorialPlayer = new Player(this.tutorial);
-        // console.log(this.tutorialPlayer);
-        // const tutorialHandle = new InputHandler(this.tutorialPlayer, this);
-        // requestAnimationFrame(tutorialHandle.loop);
+        // this.tutorial = new Tutorial(this.controlctx);
+        // this.tutorial.start();
+        // this.tutorial.draw();
     }
     
     pause() {
@@ -124,6 +115,7 @@ export default class Game {
         this.ctx.beginPath();
 
         this.player.draw(this.ctx);
+        // this.tutorial.draw();
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(this.ctx);
         });
@@ -137,7 +129,6 @@ export default class Game {
             this.menu.showMenu();
         }
         
-        // this.tutorial.draw();
         if (this.gameState == GAMESTATE.GAMEOVER){
             this.menu.gameOver();
         }

@@ -1,5 +1,3 @@
-import Tutorial from './tutorial';
-
 const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,
@@ -29,8 +27,6 @@ export default class Menu {
         this.startCurrent = 0;
         this.startOptionsList = document.getElementsByClassName('startOptions');
         this.startLength = this.startOptionsList.length;
-
-        this.tutorial = new Tutorial();
 
         this.game = game;
         this.menuHash = {
