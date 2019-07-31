@@ -1,5 +1,6 @@
 import Player from '../players/player';
 import InputHandler from '../players/playerInput';
+import PlatformBuilder from '../scene/platformBuilder';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -16,6 +17,7 @@ export default class Tutorial {
         this.game = game;
 
         this.platforms = {
+            1: new PlatformBuilder(41, 0, 100)
         };
 
         // this.tutorialCanvas = document.getElementById('controlCanvas');
@@ -49,7 +51,9 @@ export default class Tutorial {
         this.tutorialctx.beginPath();
         this.tutorialctx.fillStyle= 'red';
         this.player.draw(this.tutorialctx);
-        // console.log(this.player)
+        Object.keys(this.platforms).forEach(key => {
+            this.platforms[key].draw(this.tutorialctx);
+        });
         this.tutorialctx.rect(20, 20, 150, 100);
         // this.tutorialctx.stroke();
         this.tutorialctx.closePath();

@@ -1,19 +1,19 @@
-import {CANVAS_HEIGHT, CANVAS_WIDTH} from './constants';
+import {CANVAS_HEIGHT, CANVAS_WIDTH, CONTROL_CANVAS_HEIGHT, CONTROL_CANVAS_WIDTH} from './constants';
 import Game from './game';
 import Tutorial from './menu/tutorial';
 
 document.addEventListener('DOMContentLoaded', () => {
     let canvas = document.getElementById('canvas');
     let tutorialCanvas = document.getElementById('controlCanvas');
-    tutorialCanvas.height = 125;
-    tutorialCanvas.width = 650;
+    tutorialCanvas.height = CONTROL_CANVAS_HEIGHT;
+    tutorialCanvas.width = CONTROL_CANVAS_WIDTH;
     canvas.height = CANVAS_HEIGHT;
     canvas.width = CANVAS_WIDTH;
     let ctx = canvas.getContext('2d');
     let controlctx = tutorialCanvas.getContext('2d');
 
     let game = new Game(CANVAS_HEIGHT, CANVAS_WIDTH, ctx);
-    let tutorial = new Tutorial(125,650,controlctx, game);
+    let tutorial = new Tutorial(CONTROL_CANVAS_HEIGHT,CONTROL_CANVAS_WIDTH,controlctx, game);
     game.start();
     tutorial.start();
     
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastTime = timestamp;
 
         ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+        controlctx.clearRect(0,0,CONTROL_CANVAS_WIDTH,CONTROL_CANVAS_HEIGHT);
 
         tutorial.update();
         tutorial.draw(controlctx);

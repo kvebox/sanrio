@@ -1,3 +1,5 @@
+export const CONTROL_CANVAS_HEIGHT = 125;
+export const CONTROL_CANVAS_WIDTH = 650;
 
 export const CANVAS_HEIGHT = 400;
 export const CANVAS_WIDTH = 700;
