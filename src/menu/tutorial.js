@@ -47,15 +47,12 @@ export default class Tutorial {
     loseLife(){}
     
     draw() {
-        // console.log(this.tutorialctx);
         this.tutorialctx.beginPath();
         this.tutorialctx.fillStyle= 'red';
         this.player.draw(this.tutorialctx);
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(this.tutorialctx);
         });
-        this.tutorialctx.rect(20, 20, 150, 100);
-        // this.tutorialctx.stroke();
         this.tutorialctx.closePath();
     }
 

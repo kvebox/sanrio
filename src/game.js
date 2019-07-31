@@ -72,9 +72,11 @@ export default class Game {
         this.gameState = GAMESTATE.RUNNING;
         let menu = document.getElementById('goContainer');
         menu.style.display = 'none';
-        this.addLife();
-        this.addLife();
-        this.addLife();
+
+        // let lives = document.getElementsByClassName('heartIcon');
+        while (lives.length < 3){
+            this.addLife();
+        }
         this.menu.changeMenuType(0);
         this.player.position.x = this.gameWidth / 2 - this.width / 2;
         this.player.position.y = this.gameHeight / 2;
