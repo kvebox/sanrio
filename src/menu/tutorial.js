@@ -15,17 +15,11 @@ export default class Tutorial {
         this.gameWidth = width;
         this.gameHeight = height;
         this.game = game;
+        this.tutorialctx = controlctx;
 
         this.platforms = {
-            1: new PlatformBuilder(41, 0, 100)
+            1: new PlatformBuilder(35, 50, 100)
         };
-
-        // this.tutorialCanvas = document.getElementById('controlCanvas');
-        // this.tutorialCanvas.height = 125;
-        // this.tutorialCanvas.width = 650;
-        this.tutorialctx = controlctx;
-        // this.tutorialctx = canvas.getContext('2d');
-
     }
 
     start() {

@@ -37,9 +37,9 @@ export default class PlatformBuilder {
         this.pieces.forEach(piece => {
             piece.draw(ctx);
         });
-        ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
-        ctx.fillStyle = 'rgba(110,49,25)';
-        ctx.fill();
+        // ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
+        // ctx.fillStyle = 'rgba(110,49,25)';
+        // ctx.fill();
         
     }
 

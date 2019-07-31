@@ -40,10 +40,6 @@ export default class Game {
         new GameInputHandler(this, this.menu);
         const handle = new InputHandler(this.player, this);
         requestAnimationFrame(handle.loop);
-
-        // this.tutorial = new Tutorial(this.controlctx);
-        // this.tutorial.start();
-        // this.tutorial.draw();
     }
     
     pause() {
@@ -73,8 +69,8 @@ export default class Game {
         let menu = document.getElementById('goContainer');
         menu.style.display = 'none';
 
-        // let lives = document.getElementsByClassName('heartIcon');
-        while (lives.length < 3){
+        let lives = document.getElementsByClassName('heartIcon');
+        while (lives.length < 4){
             this.addLife();
         }
         this.menu.changeMenuType(0);
@@ -84,13 +80,8 @@ export default class Game {
     
     
     update(deltaTime){
-        
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
-        
         this.player.update(deltaTime);
-        // Object.keys(this.platforms).forEach (key => {
-        //     this.platforms[key].update(deltaTime);
-        // });
     }
 
     addLife(){
@@ -117,7 +108,7 @@ export default class Game {
         this.ctx.beginPath();
 
         this.player.draw(this.ctx);
-        // this.tutorial.draw();
+
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(this.ctx);
         });
@@ -126,8 +117,7 @@ export default class Game {
             this.menu.startMenu();
         }
 
-        if (this.gameState == GAMESTATE.PAUSED) {
-            
+        if (this.gameState == GAMESTATE.PAUSED) { 
             this.menu.showMenu();
         }
         
