@@ -13,5 +13,5 @@ export const DIRECTIONS = {
 export const JUMP = 15;
 export const SPEED = 5;
 
-export const GRAVITY = .5;
-export const BLOCKSIZE = 15;
+export const GRAVITY = 0.5;
+export const BLOCKSIZE = 20;

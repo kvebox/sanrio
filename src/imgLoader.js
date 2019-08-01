@@ -93,11 +93,11 @@ cloud_5.src = './src/images/scene/cloud_6.png';
 cloud_6.src = './src/images/scene/cloud_6.png';
 
 bush_1.src = './src/images/scene/bush_1.png';
-bush_2.src = './src/images/scene/bush_1.png';
-bush_3.src = './src/images/scene/bush_1.png';
-bush_4.src = './src/images/scene/bush_1.png';
-bush_5.src = './src/images/scene/bush_1.png';
-bush_6.src = './src/images/scene/bush_1.png';
+bush_2.src = './src/images/scene/bush_2.png';
+bush_3.src = './src/images/scene/bush_3.png';
+bush_4.src = './src/images/scene/bush_4.png';
+bush_5.src = './src/images/scene/bush_5.png';
+bush_6.src = './src/images/scene/bush_6.png';
 
 flower_1.src = './src/images/scene/flower_1.png';
 flower_2.src = './src/images/scene/flower_2.png';
