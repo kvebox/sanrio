@@ -1,10 +1,12 @@
 import { BLOCKSIZE } from '../constants';
+import { platformOlive } from '../imgLoader';
 
 export default class PlatformPiece {
     constructor(x, y) {
         this.width = BLOCKSIZE;
         this.height = BLOCKSIZE;
-        this.image = document.getElementById('platformPiece-middle');
+        this.image = platformOlive[1];
+        // this.image = document.getElementById('platformPiece-middle');
 
         this.position = {
             x: x,
