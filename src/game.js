@@ -4,6 +4,7 @@ import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
 import Tutorial from './menu/tutorial';
+import {LEVEL_HEIGHT, LEVEL_WIDTH} from './constants';
 
 
 const GAMESTATE = {
@@ -38,8 +39,8 @@ export default class Game {
         this.menu = new Menu(this);
         this.menu.generateControls();
         new GameInputHandler(this, this.menu);
-        const handle = new InputHandler(this.player, this);
-        requestAnimationFrame(handle.loop);
+        this.handle = new InputHandler(this.player, this);
+        requestAnimationFrame(this.handle.loop);
     }
     
     pause() {
@@ -70,12 +71,15 @@ export default class Game {
         menu.style.display = 'none';
 
         let lives = document.getElementsByClassName('heartIcon');
-        while (lives.length < 4){
+        while (lives.length < 3){
             this.addLife();
         }
         this.menu.changeMenuType(0);
-        this.player.position.x = this.gameWidth / 2 - this.width / 2;
-        this.player.position.y = this.gameHeight / 2;
+        // this.player.position.x = this.gameWidth / 2 - this.width / 2;
+        // this.player.position.y = this.gameHeight / 2;
+        this.player = new Player(this);
+        this.handle = new InputHandler(this.player, this);
+        requestAnimationFrame(this.handle.loop);
     }
     
     
@@ -106,6 +110,12 @@ export default class Game {
     
     draw() {
         this.ctx.beginPath();
+
+
+        this.ctx.resetTransform(); 
+        // this.ctx.translate(this.player.position.x, this.player.position.y);
+        // this.ctx.scale(1,1);
+        // this.ctx.translate(LEVEL_WIDTH/2 , LEVEL_HEIGHT/2 );
 
         this.player.draw(this.ctx);
 

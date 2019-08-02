@@ -24,6 +24,7 @@ export default class InputHandler {
             switch (e.keyCode) {
                 // down
                 case 40:
+                    document.getElementById("downArrow").classList.add('pressed');
                     break;
                 // up    
                 case 38:
@@ -56,6 +57,7 @@ export default class InputHandler {
             switch (e.keyCode) {
                 // down
                 case 40:
+                    document.getElementById("downArrow").classList.remove('pressed');
                     break;
                 // up    
                 case 38:
@@ -64,12 +66,10 @@ export default class InputHandler {
                 // left
                 case 37:
                     document.getElementById("leftArrow").classList.remove('pressed');
-                    while (this.player.x_velocity > 0) this.player.x_velocity -= 1;
                     break;
                 // right
                 case 39:
                     document.getElementById("rightArrow").classList.remove('pressed');
-                    while (this.player.x_velocity < 0) this.player.x_velocity += 1;
                     break;
             }
             // }
@@ -85,7 +85,7 @@ export default class InputHandler {
             case 37:
                 this.left = key_state;
                 break;
-            case 32:
+            case 38:
                 this.up = key_state;
                 break;
             case 39:
@@ -115,7 +115,6 @@ export default class InputHandler {
         if (this.player.position.y >= this.game.gameHeight - this.player.height || this.player.y_velocity == 0){
             this.player.canJump = true;
         }
-
 
         document.addEventListener('keydown', this.controller);
         document.addEventListener('keyup', this.controller);
