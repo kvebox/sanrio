@@ -15,7 +15,6 @@ const GAMESTATE = {
     INTRO: 4
 };
 
-
 export default class Game {
     constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
         this.gameWidth = CANVAS_WIDTH;
@@ -30,7 +29,7 @@ export default class Game {
 
   
         this.platforms = {
-            1: new PlatformBuilder(8, 250, 350),
+            1: new PlatformBuilder(20, 250, 350),
             2: new PlatformBuilder(7, 150, 250),
             3: new PlatformBuilder(2, 375, 225),
             4: new PlatformBuilder(7, 20, 320),
@@ -113,9 +112,9 @@ export default class Game {
 
 
         this.ctx.resetTransform(); 
-        // this.ctx.translate(this.player.position.x, this.player.position.y);
-        // this.ctx.scale(1,1);
-        // this.ctx.translate(LEVEL_WIDTH/2 , LEVEL_HEIGHT/2 );
+        this.ctx.translate(-this.player.position.x, -this.player.position.y);
+        this.ctx.scale(1,1);
+        this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
 
         this.player.draw(this.ctx);
 
