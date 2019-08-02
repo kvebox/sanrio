@@ -26,7 +26,7 @@ export default class Tutorial {
     start() {
         this.player = new Player(this);
         const controlHandle = new InputHandler(this.player, this);
-        requestAnimationFrame(controlHandle.loop);
+        // requestAnimationFrame(controlHandle.loop);
 
     }
 

@@ -1,10 +1,15 @@
-import Game from "../game";
-import {CANVAS_WIDTH, CANVAS_HEIGHT, SPEED, JUMP} from '../constants';
+import {SPEED, JUMP} from '../constants';
 
+const GAMESTATE = {
+    PAUSED: 0,
+    RUNNING: 1,
+    START: 2,
+    GAMEOVER: 3,
+    INTRO: 4
+};
 
 export default class InputHandler {
     constructor(player, game){
-        // this.controller = this.controller.bind(this);
         this.left = false;
         this.right = false;
         this.up = false;
@@ -12,11 +17,70 @@ export default class InputHandler {
         this.loop = this.loop.bind(this);
         this.player = player;
         this.game = game;
+    // }
+
+    document.addEventListener('keydown', (e) => {
+        // if (this.game.gameState == GAMESTATE.PAUSED) {
+            switch (e.keyCode) {
+                // down
+                case 40:
+                    break;
+                // up    
+                case 38:
+                    if (this.player.canJump) {
+                        document.getElementById("upArrow").classList.add('pressed');
+                        this.player.y_velocity = -JUMP;
+                        this.player.canJump = false; 
+                        this.player.hit = false;
+                    } else if (this.player.hit == true) {
+                        this.player.hit = false;
+                    }
+                    break;
+                // left
+                case 37:
+                    document.getElementById("leftArrow").classList.add('pressed');
+                    this.player.x_velocity = -SPEED;
+                    break;
+                // right
+                case 39:
+                    document.getElementById("rightArrow").classList.add('pressed');
+                    this.player.x_velocity = SPEED;
+                    break;
+            }
+            
+        // }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            // if (this.game.gameState == GAMESTATE.PAUSED) {
+            switch (e.keyCode) {
+                // down
+                case 40:
+                    break;
+                // up    
+                case 38:
+                    document.getElementById("upArrow").classList.remove('pressed');
+                    break;
+                // left
+                case 37:
+                    document.getElementById("leftArrow").classList.remove('pressed');
+                    while (this.player.x_velocity > 0) this.player.x_velocity -= 1;
+                    break;
+                // right
+                case 39:
+                    document.getElementById("rightArrow").classList.remove('pressed');
+                    while (this.player.x_velocity < 0) this.player.x_velocity += 1;
+                    break;
+            }
+            // }
+        });
     }
+
+    
     
     controller (e){
         var key_state = (event.type == 'keydown') ? true : false;
-        
+        if (this.game.gameState == GAMESTATE.RUNNING){
         switch (e.keyCode) {
             case 37:
                 this.left = key_state;
@@ -27,6 +91,7 @@ export default class InputHandler {
             case 39:
                 this.right = key_state;
                 break;
+            }
         }
     }
     
@@ -36,7 +101,6 @@ export default class InputHandler {
             this.player.canJump = false; 
             this.player.hit = false;
         } else if (this.player.hit == true) {
-            // this.player.y_velocity = 0;
             this.player.hit = false;
         } 
         
@@ -47,7 +111,6 @@ export default class InputHandler {
         } else {
             this.player.x_velocity = 0;
         }
-        
 
         if (this.player.position.y >= this.game.gameHeight - this.player.height || this.player.y_velocity == 0){
             this.player.canJump = true;

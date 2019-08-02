@@ -154,20 +154,20 @@ body {
 
 
 .audioSlider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none; 
     appearance: none;
-    width: 15px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
-    background: #D8D8D8; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 15px; 
+    height: 15px; 
+    background: #D8D8D8; 
+    cursor: pointer; 
     border-radius: 15px;
 }
 
 .audioSlider::-moz-range-thumb {
-    width: 15px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
-    background: #D8D8D8; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 15px; 
+    height: 15px; 
+    background: #D8D8D8; 
+    cursor: pointer; 
     border-radius: 15px;
 }
 
@@ -179,10 +179,10 @@ body {
     height: 466px;
     border-radius: 25px;
     box-shadow:
-            inset 0px 0 5px rgb(255,255,255,.4),  /* inner left */
-            inset 0px 0 5px rgb(255,255,255,.4), /* inner right */
-            -0px 0 5px rgb(255,255,255,.4),        /* outer left */
-            0px 0 5px rgb(255,255,255,.4);         /* outer right */
+        inset 0px 0 5px rgb(255,255,255,.4),  /* inner left */
+        inset 0px 0 5px rgb(255,255,255,.4), /* inner right */
+        -0px 0 5px rgb(255,255,255,.4),        /* outer left */
+        0px 0 5px rgb(255,255,255,.4);         /* outer right */
 }
 
 #controlsMenuContainer {
@@ -204,11 +204,8 @@ body {
 
 #controlCanvas {
     border-bottom: 1px solid #979797;
-    /* width: 90%; */
-    /* height: 125px; */
     display: block;
     margin: 0 auto;
-    /* background: white; */
 }
 
 #controlsMenuList {
@@ -265,7 +262,7 @@ body {
 #goMenuContent, #startContent {
     display: flex;
     flex-direction: column;
-    margin: 10% auto; /* 15% from the top and centered */
+    margin: 10% auto; 
     width: 446px;
     align-items: center;
 }
@@ -306,7 +303,6 @@ body {
     width: 100%;
     position: relative;
     box-sizing: border-box;
-    /* justify-content: space-between; */
 }
 
 .keyLetterContent {
@@ -315,7 +311,6 @@ body {
 }
 
 .keyNumberContent {
-    /* margin: 0; */
     margin-bottom: 0;
     margin-top: 18.5px;
     padding: 0 2.5px;
@@ -348,7 +343,6 @@ body {
     width: 49px;
 }
 
-
 .backspace {
     height: 70px;
     width: 40px;
@@ -366,6 +360,7 @@ body {
     border: 2px solid white;
 }
 
+
 .arrow {
     width: 39px;
     height: 25px;
@@ -377,8 +372,9 @@ body {
     flex-direction: column;
 }
 
-#pressed {
+.pressed {
     border: 2px solid red;
+    background: white;
 }
 
 #allMenus {

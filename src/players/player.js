@@ -5,7 +5,6 @@ import {detectCollision} from '../util/collision';
 
 export default class Player {
     constructor(game) {
-        // this.image = 
         this.width = 15;
         this.height = 15;
         this.game = game;
@@ -37,7 +36,6 @@ export default class Player {
     }
 
     draw(ctx) {
-        // ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
@@ -75,9 +73,6 @@ export default class Player {
                 this.canJump = true;
             }
         });
-
-
-        
     }
 }
 

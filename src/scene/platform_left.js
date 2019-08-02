@@ -20,12 +20,4 @@ export default class PlatformLeft  {
         ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
 
-    update(deltaTime) {
-
-    }
 }
-
-// export function PlatformLeft(x,y){
-//     PlatformPiece.call(this, x, y);
-//     this.image = document.getElementById('platformPiece-left');
-// }

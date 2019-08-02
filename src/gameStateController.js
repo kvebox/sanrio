@@ -70,19 +70,5 @@ export default class GameInputHandler {
                 }
         }
         });
-
-    //     document.addEventListener('keyup', e => {
-    //     switch (e.keyCode) {
-    //         case 37:
-    //             if (player.speedx < 0) player.stop();
-    //             break;
-    //         case 39:
-    //             if (player.speedx > 0) player.stop();
-    //             break;
-    //         case 32:
-    //             if (player.speedy > 0) player.drop();
-    //             break;
-    //     }
-    // });
     }
 }
