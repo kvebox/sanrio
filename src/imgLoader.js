@@ -2,6 +2,16 @@
 const menuArrowImg = new Image();
 menuArrowImg.src = './src/images/menu/life.png';
 
+const keyboardLeft = new Image();
+const keyboardRight = new Image();
+const keyboardUp = new Image();
+const keyboardDown = new Image();
+keyboardLeft.src = './src/images/menu/arrow_left.png';
+keyboardRight.src = './src/images/menu/arrow_right.png';
+keyboardUp.src = './src/images/menu/arrow_up.png';
+keyboardDown.src = './src/images/menu/arrow_down.png';
+
+export const arrows = [keyboardLeft, keyboardRight, keyboardUp, keyboardDown];
 export const menuArrow = [menuArrowImg];
 
 // scene

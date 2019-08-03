@@ -1,3 +1,5 @@
+import { arrows } from '../imgLoader';
+
 const GAMESTATE = {
     PAUSED: 0,
     RUNNING: 1,

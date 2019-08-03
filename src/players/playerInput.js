@@ -20,7 +20,9 @@ export default class InputHandler {
     // }
 
     document.addEventListener('keydown', (e) => {
-        // if (this.game.gameState == GAMESTATE.PAUSED) {
+        if (this.game.gameState == GAMESTATE.RUNNING) {
+            return;
+        }
             switch (e.keyCode) {
                 // down
                 case 40:
@@ -96,6 +98,7 @@ export default class InputHandler {
     }
     
     loop () {
+        
         if (this.up && this.player.canJump ) {
             this.player.y_velocity = -JUMP;
             this.player.canJump = false; 
