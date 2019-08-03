@@ -393,6 +393,7 @@ export default class Menu {
                     case 9:
                         element.setAttribute("class", "arrowContainer");
                         let leftArrow = document.createElement('DIV');
+                        leftArrow.appendChild(arrows[0]);
                         leftArrow.setAttribute("class", "arrow");
                         leftArrow.setAttribute("id", "leftArrow");
 
@@ -406,10 +407,12 @@ export default class Menu {
                     case 10:
                         element.setAttribute("class", "arrowContainer");
                         let upArrow = document.createElement('DIV');
+                        upArrow.appendChild(arrows[2]);
                         upArrow.setAttribute("class", "arrow");
                         upArrow.setAttribute("id", "upArrow");
 
                         let downArrow = document.createElement('DIV');
+                        downArrow.appendChild(arrows[3]);
                         downArrow.setAttribute("class", "arrow");
                         downArrow.setAttribute("id", "downArrow");
 
@@ -421,6 +424,7 @@ export default class Menu {
                         element.setAttribute("class", "arrowContainer");
 
                         let rightArrow = document.createElement('DIV');
+                        rightArrow.appendChild(arrows[1]);
                         rightArrow.setAttribute("class", "arrow");
                         rightArrow.setAttribute("id", "rightArrow");
 

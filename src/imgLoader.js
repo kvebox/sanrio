@@ -7,9 +7,13 @@ const keyboardRight = new Image();
 const keyboardUp = new Image();
 const keyboardDown = new Image();
 keyboardLeft.src = './src/images/menu/arrow_left.png';
+keyboardLeft.setAttribute("class", "arrowImgHorizontal");
 keyboardRight.src = './src/images/menu/arrow_right.png';
+keyboardRight.setAttribute("class", "arrowImgHorizontal");
 keyboardUp.src = './src/images/menu/arrow_up.png';
+keyboardUp.setAttribute("class", "arrowImgVertical");
 keyboardDown.src = './src/images/menu/arrow_down.png';
+keyboardDown.setAttribute("class", "arrowImgVertical");
 
 export const arrows = [keyboardLeft, keyboardRight, keyboardUp, keyboardDown];
 export const menuArrow = [menuArrowImg];

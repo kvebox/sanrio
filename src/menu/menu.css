@@ -365,6 +365,9 @@ body {
     width: 39px;
     height: 25px;
     margin-bottom: 3.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .arrowContainer {
@@ -379,4 +382,14 @@ body {
 
 #allMenus {
     display: none;
+}
+
+.arrowImgHorizontal {
+    height: 12.5px;
+    width: 10px;
+}
+
+.arrowImgVertical {
+    height: 10px;
+    width: 12.5px;
 }
