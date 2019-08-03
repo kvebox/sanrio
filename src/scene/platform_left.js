@@ -1,14 +1,14 @@
 import PlatformPiece from './platform_piece';
 import { BLOCKSIZE } from '../constants';
-import {platform_1} from '../imgLoader';
+import {platform_left} from '../imgLoader';
 
 export default class PlatformLeft extends PlatformPiece {
-    constructor(x, y) {
-        super(x,y);
+    constructor(x, y, color) {
+        super(x,y, color);
         this.width = BLOCKSIZE;
         this.height = BLOCKSIZE;
 
-        this.image = platform_1[0];
+        this.image = platform_left[color];
 
         this.position = {
             x: x,

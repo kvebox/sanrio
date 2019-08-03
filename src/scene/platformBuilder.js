@@ -5,7 +5,7 @@ import {platformOlive} from '../imgLoader';
 import {BLOCKSIZE, CANVAS_HEIGHT} from '../constants';
 
 export default class PlatformBuilder {
-    constructor(numBlocks, x, y) {
+    constructor(numBlocks, x, y, color) {
         this.width = BLOCKSIZE * (numBlocks+2);
         this.height = BLOCKSIZE;
         this.pieces = [];
@@ -14,6 +14,7 @@ export default class PlatformBuilder {
         this.platform_y = y;
         this.x_filler = x;
         this.y_filler = y + BLOCKSIZE;
+        this.color = color;
         // this.filler = filler;
 
         this.position = {
@@ -24,13 +25,13 @@ export default class PlatformBuilder {
     }
 
     build(){
-        this.pieces.push(new PlatformLeft(this.platform_x, this.platform_y));
+        this.pieces.push(new PlatformLeft(this.platform_x, this.platform_y, this.color));
         this.platform_x += BLOCKSIZE;
         for (let i = this.numBlocks; i > 0; i--){
-            this.pieces.push(new PlatformPiece(this.platform_x, this.platform_y));
+            this.pieces.push(new PlatformPiece(this.platform_x, this.platform_y, this.color));
             this.platform_x += BLOCKSIZE;
         }
-        this.pieces.push(new PlatformRight(this.platform_x, this.platform_y));
+        this.pieces.push(new PlatformRight(this.platform_x, this.platform_y, this.color));
 
     }
 

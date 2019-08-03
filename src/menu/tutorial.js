@@ -19,7 +19,7 @@ export default class Tutorial {
         this.tutorialctx = controlctx;
 
         this.platforms = {
-            1: new PlatformBuilder(25, 50, 95)
+            1: new PlatformBuilder(25, 50, 95, 1)
         };
     }
 

@@ -126,6 +126,10 @@ hill_18.src = './src/images/scene/hill_18.png';
 hill_19.src = './src/images/scene/hill_19.png';
 hill_20.src = './src/images/scene/hill_20.png';
 
+export const platform_mid = ['', platformMid_1, platformMid_2, platformMid_3, platformMid_4, platformMid_5];
+export const platform_left = ['', platformLeft_1, platformLeft_2, platformLeft_3, platformLeft_4, platformLeft_5];
+export const platform_right = ['', platformRight_1, platformRight_2, platformRight_3, platformRight_4, platformRight_5];
+
 export const platform_1 = [platformLeft_1, platformMid_1, platformRight_1];
 export const platform_2 = [platformLeft_2, platformMid_2, platformRight_2];
 export const platform_3 = [platformLeft_3, platformMid_3, platformRight_3];

@@ -25,14 +25,15 @@ export default class Game {
 
     start() {
         this.gameState = GAMESTATE.RUNNING;
+        // this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
   
         this.platforms = {
-            1: new PlatformBuilder(20, 250, 350),
-            2: new PlatformBuilder(7, 150, 250),
-            3: new PlatformBuilder(2, 375, 225),
-            4: new PlatformBuilder(7, 20, 320),
+            1: new PlatformBuilder(20, 250, 350, 1),
+            2: new PlatformBuilder(7, 150, 225, 2),
+            3: new PlatformBuilder(10, 455, 225, 1),
+            4: new PlatformBuilder(7, 20, 320, 1),
         };
 
         this.menu = new Menu(this);
@@ -113,7 +114,7 @@ export default class Game {
 
         this.ctx.resetTransform(); 
         this.ctx.translate(-this.player.position.x, -this.player.position.y);
-        this.ctx.scale(1,1);
+        // this.ctx.scale(1,1);
         this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
 
         this.player.draw(this.ctx);
