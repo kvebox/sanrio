@@ -107,12 +107,7 @@ body {
     margin-top: 5px;
 }
 
-
-/*----------- IMAGES ------------*/
-
-/* platforms */
-#platformPiece-middle, #platformPiece-left, #platformPiece-right {
-    display: none;
+#instructions {
+    text-align: center;
+    margin-top: 25px;
 }
-
-
