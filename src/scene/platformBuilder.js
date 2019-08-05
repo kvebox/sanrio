@@ -1,7 +1,6 @@
 import PlatformPiece from './platform_piece';
 import PlatformLeft from './platform_left';
 import PlatformRight from './platform_right';
-import {platformOlive} from '../imgLoader';
 import {BLOCKSIZE, CANVAS_HEIGHT} from '../constants';
 
 export default class PlatformBuilder {
@@ -45,8 +44,5 @@ export default class PlatformBuilder {
         
     }
 
-    update(deltaTime) {
-
-    }
 }
 

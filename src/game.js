@@ -7,6 +7,7 @@ import Tutorial from './menu/tutorial';
 import {LEVEL_HEIGHT, LEVEL_WIDTH} from './constants';
 import { clouds } from './imgLoader';
 import Cloud from './scene/cloud';
+import { levels, parseLevel } from './util/lvlLoader';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -27,6 +28,7 @@ export default class Game {
         this.gameState = '';
         this.cloudCount = 0;
         this.clouds = {};
+
     }
 
     deleteElement(hash, key){
@@ -47,6 +49,8 @@ export default class Game {
     }
 
     start() {
+        this.levelObjects = parseLevel(levels[1]);
+        console.log(this.levelObjects);
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
@@ -150,6 +154,10 @@ export default class Game {
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);
+        });
+
+        this.levelObjects[1].forEach(sceneObject => {
+            sceneObject.draw(this.ctx);
         });
 
         this.player.draw(this.ctx);
