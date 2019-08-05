@@ -13,7 +13,7 @@ export default class Cloud {
             y: this.game.gameHeight / 2
         };
 
-        this.x_velocity += 0;
+        this.x_velocity = -0.5;
 
     }
 

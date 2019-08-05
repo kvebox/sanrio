@@ -89,9 +89,13 @@ export default class Game {
     update(deltaTime){
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
 
+        Object.keys(this.clouds).forEach(key => {
+            // this.clouds[key].update();
+        });
         this.player.update(deltaTime);
-        // Object.keys(this.clouds).forEach(key => this.clouds[key].update());
     }
+
+  
 
     addLife(){
         let heart = document.createElement('img');
