@@ -2,19 +2,58 @@ import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../c
 import { clouds } from '../imgLoader';
 
 export default class Cloud {
-    constructor(game, number) {
-        this.width = 100;
-        this.height = 100;
+    constructor(game) {
+        this.width = 0;
+        this.height = 0;
         this.game = game;
-        this.image = clouds[number];
+        this.number = this.randomInt(0, 5);
+        this.image = clouds[this.number];
 
         this.position = {
-            x: this.game.gameWidth/2,
-            y: this.game.gameHeight / 2
+            x: this.game.gameWidth,
+            y: this.game.gameHeight/2
         };
 
-        this.x_velocity = -0.5;
+        this.x_velocity = -Math.random(0,1);
+        this.create();
+    }
 
+    randomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    destroy(){}
+
+    create(){
+        switch (this.number){
+            case 0:
+                this.height = 252/4;
+                this.width = 816/4;
+                break;
+            case 1:
+                this.height = 60/4;
+                this.width = 465/4;
+                break;
+            case 2:
+                this.height = 162/4;
+                this.width = 702/4;
+                break;
+            case 3:
+                this.height = 184/4;
+                this.width = 698/4;
+                break;
+            case 4:
+                this.height = 176/4;
+                this.width = 858/4;
+                break;
+            case 5:
+                this.height = 294/4;
+                this.width = 891/4;
+                break;
+
+        }
     }
 
     move() {
@@ -31,7 +70,9 @@ export default class Cloud {
 
         //check collisions with wall
 
-        // if (this.position.x < 0) this.position.x = 0;
+        if (this.position.x < 0) {
+            this.destroy();
+        }
         // if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
     }
 }

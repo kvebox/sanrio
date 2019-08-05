@@ -29,7 +29,7 @@ export default class Game {
         this.player = new Player(this);
 
         this.clouds = {
-            1: new Cloud(this, 0)
+            1: new Cloud(this)
         };
 
         this.platforms = {
@@ -90,7 +90,7 @@ export default class Game {
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
 
         Object.keys(this.clouds).forEach(key => {
-            // this.clouds[key].update();
+            this.clouds[key].update();
         });
         this.player.update(deltaTime);
     }
@@ -123,7 +123,7 @@ export default class Game {
 
         this.ctx.resetTransform(); 
         this.ctx.translate(-this.player.position.x, -this.player.position.y);
-        // this.ctx.scale(1,1);
+        this.ctx.scale(1,1);
         this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
 
         Object.keys(this.clouds).forEach(key => {
