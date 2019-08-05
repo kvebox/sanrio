@@ -33,24 +33,26 @@ export default class Game {
         switch (hash){
             case 'clouds':
                 delete this.clouds[key];
+                this.addElement('clouds', this.cloudCount);
         }
         
     }
 
     addElement(hash, key){
-        hash[key] = new Cloud(this, key);
-        key += 1;
+        switch (hash) {
+            case 'clouds':
+                this.clouds[key] = new Cloud(this, this.cloudCount);
+                this.cloudCount += 1;
+        }
     }
 
     start() {
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
-        this.addElement(this.clouds, this.cloudCount);
-        
-        // while (Object.keys(this.clouds).length < 5){
-        //     this.addElement(this.clouds, this.cloudCount);
-        // }
+        for (let i = 0; i < 5; i++){
+            this.addElement('clouds', this.cloudCount);
+        }
 
         this.platforms = {
             1: new PlatformBuilder(20, 250, 350, 1),
@@ -108,11 +110,7 @@ export default class Game {
     
     update(deltaTime){
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
-
-        // if (Object.keys(this.clouds).length < 5) {
-            
-        // }
-
+        
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].update();
         });
@@ -145,10 +143,10 @@ export default class Game {
         this.ctx.beginPath();
 
 
-        this.ctx.resetTransform(); 
-        this.ctx.translate(-this.player.position.x, -this.player.position.y);
-        this.ctx.scale(1,1);
-        this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
+        // this.ctx.resetTransform(); 
+        // this.ctx.translate(-this.player.position.x, -this.player.position.y);
+        // this.ctx.scale(1,1);
+        // this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);

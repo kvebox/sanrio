@@ -12,10 +12,10 @@ export default class Cloud {
 
         this.position = {
             x: this.game.gameWidth,
-            y: this.game.gameHeight/ this.randomInt(2,4)
+            y: this.game.gameHeight/ this.randomInt(0.5,10)
         };
 
-        this.x_velocity = -Math.random(0.5,1);
+        this.x_velocity = -Math.random(1,2);
         this.create();
     }
 
@@ -30,30 +30,31 @@ export default class Cloud {
     }
 
     create(){
+        let multiplier = this.randomInt(2,4);
         switch (this.number){
             case 0:
-                this.height = 252/4;
-                this.width = 816/4;
+                this.height = 252/multiplier;
+                this.width = 816/multiplier;
                 break;
             case 1:
-                this.height = 60/4;
-                this.width = 465/4;
+                this.height = 60/multiplier;
+                this.width = 465/multiplier;
                 break;
             case 2:
-                this.height = 162/4;
-                this.width = 702/4;
+                this.height = 162/multiplier;
+                this.width = 702/multiplier;
                 break;
             case 3:
-                this.height = 184/4;
-                this.width = 698/4;
+                this.height = 184/multiplier;
+                this.width = 698/multiplier;
                 break;
             case 4:
-                this.height = 176/4;
-                this.width = 858/4;
+                this.height = 176/multiplier;
+                this.width = 858/multiplier;
                 break;
             case 5:
-                this.height = 294/4;
-                this.width = 891/4;
+                this.height = 294/multiplier;
+                this.width = 891/multiplier;
                 break;
 
         }
@@ -73,7 +74,7 @@ export default class Cloud {
 
         //check collisions with wall
 
-        if (this.position.x < 0) {
+        if (this.position.x + this.width < 0) {
             this.destroy();
         }
         // if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
