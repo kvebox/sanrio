@@ -5,7 +5,7 @@ import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
 import Tutorial from './menu/tutorial';
 import {LEVEL_HEIGHT, LEVEL_WIDTH} from './constants';
-
+import Cloud from './scene/cloud';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -28,7 +28,10 @@ export default class Game {
         // this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
-  
+        this.clouds = {
+            1: new Cloud(this, 0)
+        };
+
         this.platforms = {
             1: new PlatformBuilder(20, 250, 350, 1),
             2: new PlatformBuilder(7, 150, 225, 2),
@@ -85,7 +88,9 @@ export default class Game {
     
     update(deltaTime){
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
+
         this.player.update(deltaTime);
+        // Object.keys(this.clouds).forEach(key => this.clouds[key].update());
     }
 
     addLife(){
@@ -117,7 +122,13 @@ export default class Game {
         // this.ctx.scale(1,1);
         this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
 
+        Object.keys(this.clouds).forEach(key => {
+            this.clouds[key].draw(this.ctx);
+        });
+
         this.player.draw(this.ctx);
+
+
 
         Object.keys(this.platforms).forEach(key => {
             this.platforms[key].draw(this.ctx);
