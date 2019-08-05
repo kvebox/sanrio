@@ -64,6 +64,15 @@ export default class Player {
 
         // check collisions with platforms
 
+        this.game.sceneObjects.forEach(platform => {
+            if (detectCollision(this, platform)) {
+                this.y_velocity = 5;
+                this.position.y = platform.position.y - this.height;
+                this.hit = true;
+                this.canJump = true;
+            }
+        });
+
         Object.keys(this.game.platforms).forEach (key => {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){

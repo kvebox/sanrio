@@ -3,8 +3,6 @@ import GameInputHandler from './gameStateController';
 import Player from './players/player';
 import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
-import Tutorial from './menu/tutorial';
-import {LEVEL_HEIGHT, LEVEL_WIDTH} from './constants';
 import { clouds } from './imgLoader';
 import Cloud from './scene/cloud';
 import { levels, parseLevel } from './util/lvlLoader';
@@ -50,7 +48,7 @@ export default class Game {
 
     start() {
         this.levelObjects = parseLevel(levels[1]);
-        console.log(this.levelObjects);
+        this.sceneObjects = this.levelObjects[1];
         this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
@@ -60,9 +58,9 @@ export default class Game {
 
         this.platforms = {
             1: new PlatformBuilder(20, 250, 350, 1),
-            2: new PlatformBuilder(7, 150, 225, 2),
-            3: new PlatformBuilder(10, 455, 225, 1),
-            4: new PlatformBuilder(7, 20, 320, 1),
+        //     2: new PlatformBuilder(7, 150, 225, 2),
+        //     3: new PlatformBuilder(10, 455, 225, 1),
+        //     4: new PlatformBuilder(7, 20, 320, 1),
         };
 
         this.menu = new Menu(this);
@@ -118,7 +116,9 @@ export default class Game {
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].update();
         });
+
         this.player.update(deltaTime);
+
     }
 
   
@@ -150,15 +150,17 @@ export default class Game {
         // this.ctx.resetTransform(); 
         // this.ctx.translate(-this.player.position.x, -this.player.position.y);
         // this.ctx.scale(1,1);
-        // this.ctx.translate(LEVEL_WIDTH/2,LEVEL_HEIGHT/2);
+        // this.ctx.translate(this.gameWidth/2,this.gameHeight/2);
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);
         });
 
-        this.levelObjects[1].forEach(sceneObject => {
-            sceneObject.draw(this.ctx);
+        Object.keys(this.levelObjects).forEach(key => {
+            this.levelObjects[key].forEach(object => object.draw(this.ctx));
         });
+
+
 
         this.player.draw(this.ctx);
 

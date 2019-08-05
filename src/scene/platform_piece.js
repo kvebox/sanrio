@@ -1,5 +1,6 @@
 import { BLOCKSIZE } from '../constants';
 import { platform_mid } from '../imgLoader';
+import { platform } from 'os';
 
 export default class PlatformPiece {
     constructor(x, y, color) {
