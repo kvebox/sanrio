@@ -57,7 +57,7 @@ export default class Game {
         }
 
         this.platforms = {
-            1: new PlatformBuilder(20, 250, 350, 1),
+            // 1: new PlatformBuilder(33, 0, 350, 1),
         //     2: new PlatformBuilder(7, 150, 225, 2),
         //     3: new PlatformBuilder(10, 455, 225, 1),
         //     4: new PlatformBuilder(7, 20, 320, 1),

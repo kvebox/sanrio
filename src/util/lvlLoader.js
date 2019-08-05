@@ -1,6 +1,6 @@
 import level01 from '../levels/level_1.txt';
 // import {hills_1, hills_2, hills_3, hills_4, trees, flowers, clouds} from '../../imgLoader';
-import { BLOCKSIZE, CANVAS_HEIGHT } from '../constants';
+import { HEIGHTSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
 
@@ -16,28 +16,30 @@ export const parseLevel = levelData => {
     let blockCount = 0;
 
     let sceneObjects = [];
+    let deco = [];
     let enemies = [];
 
     for (let i = 0; i < level.length; i++){
         switch (level[i]){
             case '\n':
-                height += BLOCKSIZE * 2;
+                height += HEIGHTSPAN;
                 width = 0;
                 break;
             case '\t':
                 width += BLOCKSIZE * 4;
                 break;
             case 'G':
-                sceneObjects.push(new Tree(width, height+BLOCKSIZE));
+                deco.push(new Tree(width, height-HEIGHTSPAN*2));
                 break;
             case ' ':
                 width += BLOCKSIZE;
                 break;
             case 'x':
                 blockCount += 1;
-                width += BLOCKSIZE;
+                // width += BLOCKSIZE;
                 break;
             case 'X':
+                blockCount += 1;
                 switch (height) {
                     case height <= CANVAS_HEIGHT / 5 * 5:
                         depth = 5;
@@ -56,6 +58,7 @@ export const parseLevel = levelData => {
                         break;
                 }
                 sceneObjects.push(new PlatformBuilder(blockCount, width, height, depth));
+                width += BLOCKSIZE;
                 blockCount = 0;
                 break;
             default:
@@ -63,7 +66,8 @@ export const parseLevel = levelData => {
     }
     
     return {
-        1: sceneObjects
+        1: sceneObjects,
+        2: deco
     };
 
 };

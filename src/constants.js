@@ -7,6 +7,8 @@ export const CANVAS_WIDTH = 700;
 export const LEVEL_HEIGHT = 400;
 export const LEVEL_WIDTH = 700;
 
+export const HEIGHTSPAN = 30;
+
 export const DIRECTIONS = {
     LEFT: (-1, 0),
     RIGHT: (1, 0),

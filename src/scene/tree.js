@@ -9,7 +9,7 @@ export default class Tree {
 
         this.position = {
             x: x,
-            y: y
+            y: y - this.height/2
         };
     }
 
