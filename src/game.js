@@ -5,6 +5,7 @@ import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
 import Tutorial from './menu/tutorial';
 import {LEVEL_HEIGHT, LEVEL_WIDTH} from './constants';
+import { clouds } from './imgLoader';
 import Cloud from './scene/cloud';
 
 const GAMESTATE = {
@@ -15,22 +16,41 @@ const GAMESTATE = {
     INTRO: 4
 };
 
+const SCENE = {
+};
+
 export default class Game {
     constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
         this.gameWidth = CANVAS_WIDTH;
         this.gameHeight = CANVAS_HEIGHT;
         this.ctx = ctx; 
         this.gameState = '';
+        this.cloudCount = 0;
+        this.clouds = {};
+    }
+
+    deleteElement(hash, key){
+        switch (hash){
+            case 'clouds':
+                delete this.clouds[key];
+        }
+        
+    }
+
+    addElement(hash, key){
+        hash[key] = new Cloud(this, key);
+        key += 1;
     }
 
     start() {
         this.gameState = GAMESTATE.RUNNING;
-        // this.gameState = GAMESTATE.RUNNING;
         this.player = new Player(this);
 
-        this.clouds = {
-            1: new Cloud(this)
-        };
+        this.addElement(this.clouds, this.cloudCount);
+        
+        // while (Object.keys(this.clouds).length < 5){
+        //     this.addElement(this.clouds, this.cloudCount);
+        // }
 
         this.platforms = {
             1: new PlatformBuilder(20, 250, 350, 1),
@@ -88,6 +108,10 @@ export default class Game {
     
     update(deltaTime){
         if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
+
+        // if (Object.keys(this.clouds).length < 5) {
+            
+        // }
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].update();

@@ -2,19 +2,20 @@ import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../c
 import { clouds } from '../imgLoader';
 
 export default class Cloud {
-    constructor(game) {
+    constructor(game, key) {
         this.width = 0;
         this.height = 0;
         this.game = game;
+        this.key = key;
         this.number = this.randomInt(0, 5);
         this.image = clouds[this.number];
 
         this.position = {
             x: this.game.gameWidth,
-            y: this.game.gameHeight/2
+            y: this.game.gameHeight/ this.randomInt(2,4)
         };
 
-        this.x_velocity = -Math.random(0,1);
+        this.x_velocity = -Math.random(0.5,1);
         this.create();
     }
 
@@ -24,7 +25,9 @@ export default class Cloud {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    destroy(){}
+    destroy(){
+        this.game.deleteElement('clouds', this.key);
+    }
 
     create(){
         switch (this.number){
