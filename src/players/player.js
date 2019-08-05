@@ -2,6 +2,13 @@ import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../c
 import {detectCollision} from '../util/collision';
 
 
+const GAMESTATE = {
+    PAUSED: 0,
+    RUNNING: 1,
+    START: 2,
+    GAMEOVER: 3,
+    INTRO: 4
+};
 
 export default class Player {
     constructor(game) {
@@ -72,6 +79,7 @@ export default class Player {
                 this.canJump = true;
             }
         });
+        
 
         Object.keys(this.game.platforms).forEach (key => {
             let platform = this.game.platforms[key];
