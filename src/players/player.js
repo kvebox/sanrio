@@ -17,8 +17,8 @@ export default class Player {
         this.game = game;
 
         this.position = {
-            x: this.game.gameWidth/2  - this.width/2,
-            y: this.game.gameHeight/2 
+            x: this.game.gameWidth/4  - this.width/2,
+            y: this.game.gameHeight  
         };
         this.canJump = false;
         this.y_velocity = GRAVITY;
@@ -36,6 +36,14 @@ export default class Player {
         this.position.x += this.x_velocity;
         this.position.y += this.y_velocity ;
         
+    }
+
+    getOffset_x(){
+        return this.x_velocity;
+    }
+
+    getOffset_y(){
+        return this.y_velocity;
     }
 
     shoot() {

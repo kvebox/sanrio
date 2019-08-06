@@ -15,8 +15,6 @@ const GAMESTATE = {
     INTRO: 4
 };
 
-const SCENE = {
-};
 
 export default class Game {
     constructor(CANVAS_HEIGHT, CANVAS_WIDTH, ctx) {
@@ -116,6 +114,8 @@ export default class Game {
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].update();
         });
+
+        this.sceneObjects.forEach(x => x.update(this.player));
 
         this.player.update(deltaTime);
 

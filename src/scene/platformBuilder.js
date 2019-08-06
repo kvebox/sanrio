@@ -34,6 +34,20 @@ export default class PlatformBuilder {
 
     }
 
+
+    move(player) {
+        this.position.x -= player.getOffset_x();
+
+    }
+
+    update(player){
+        this.move(player);
+
+        this.pieces.forEach(piece => {
+            piece.update(player);
+        });
+    }
+
     draw(ctx) {
         this.pieces.forEach(piece => {
             piece.draw(ctx);
