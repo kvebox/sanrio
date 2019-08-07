@@ -30,22 +30,28 @@ export default class InputHandler {
                     break;
                 // up    
                 case 38:
+                    // console.log(this.player.position);
                     if (this.player.canJump) {
                         document.getElementById("upArrow").classList.add('pressed');
                         this.player.y_velocity = -JUMP;
                         this.player.canJump = false; 
                         this.player.hit = false;
+                        this.player.getOffset_y(-JUMP);
                     } else if (this.player.hit == true) {
                         this.player.hit = false;
                     }
                     break;
                 // left
                 case 37:
+                    
+
                     document.getElementById("leftArrow").classList.add('pressed');
                     this.player.x_velocity = -SPEED;
                     break;
                 // right
                 case 39:
+                    // console.log(this.player.position);
+
                     document.getElementById("rightArrow").classList.add('pressed');
                     this.player.x_velocity = SPEED;
                     break;

@@ -15,6 +15,7 @@ export default class Player {
         this.width = PLAYER;
         this.height = PLAYER;
         this.game = game;
+        this.offset = 0;
 
         this.position = {
             x: this.game.gameWidth/4  - this.width/2,
@@ -27,6 +28,8 @@ export default class Player {
     }
 
     move(){
+        // console.log(this.position);
+        // console.log(this.position)
         this.x_velocity *= 0.9;
         // if (this.y_velocity < 0) {this.y_velocity += 15 }
         // console.log(this.y_velocity);
@@ -42,8 +45,8 @@ export default class Player {
         return this.x_velocity;
     }
 
-    getOffset_y(){
-        return this.y_velocity;
+    getOffset_y(jump){
+        return this.offset + jump;
     }
 
     shoot() {
@@ -60,10 +63,12 @@ export default class Player {
 
         //check collisions with wall
         
-        if(this.position.x < 0) this.position.x = 0;
+        if (this.position.x < 0) this.position.x = 0;
+
         if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;
 
-        // this.position.x =  this.game.gameWidth-this.width;
+        //adjust camera offset
+
 
         //check collisions w floor 
         if(this.position.y < 0) this.position.y = 0;

@@ -155,9 +155,13 @@ export default class Game {
 
 
         this.ctx.resetTransform(); 
-        this.ctx.translate(-this.player.position.x, -this.player.position.y);
-        this.ctx.scale(2,2);
-        // this.ctx.translate(this.gameWidth,this.gameHeight);
+        this.ctx.save();
+        this.ctx.translate(-(this.player.position.x - this.gameWidth/2), -(this.player.position.y - this.gameHeight/2));
+        // this.ctx.translate(this.player.position.x - this.gameWidth/2, -this.player.position.y - this.gameHeight/2);
+        // this.ctx.scale(2,2);
+        // this.ctx.translate(this.gameWidth, this.gameHeight);
+        // this.ctx.restore();
+        // this.ctx.scale(.5,.5);
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);
@@ -165,16 +169,6 @@ export default class Game {
 
         Object.keys(this.levelObjects).forEach(key => {
             this.levelObjects[key].forEach(object => object.draw(this.ctx));
-        });
-
-
-
-        this.player.draw(this.ctx);
-
-
-
-        Object.keys(this.platforms).forEach(key => {
-            this.platforms[key].draw(this.ctx);
         });
 
         if (this.gameState == GAMESTATE.START){
@@ -188,6 +182,9 @@ export default class Game {
         if (this.gameState == GAMESTATE.GAMEOVER){
             this.menu.gameOver();
         }
+        this.player.draw(this.ctx);
+
+        this.ctx.restore();
         
         this.ctx.closePath();
     }
