@@ -41,19 +41,19 @@ export const parseLevel = levelData => {
                 let depth = 5;
                 switch (height > 0) {
                     case (height >= 0 && height < 100):
-                        depth = 1;
+                        depth = 5;
                         break;
                     case (height >= 100 && height < 200):
-                        depth = 2;
+                        depth = 4;
                         break;
                     case (height >= 200 && height < 300):
                         depth = 3;
                         break;
                     case (height >= 300 && height < 400):
-                        depth = 4;
+                        depth = 2;
                         break;
                     case height >= 400:
-                        depth = 5;
+                        depth = 1;
                         break;
                 }
                 sceneObjects.push(new PlatformBuilder(blockCount, width, height, depth));

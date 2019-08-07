@@ -83,21 +83,21 @@ platformLeft_1.src = './src/images/scene/platformLeft_1.png';
 platformMid_1.src = './src/images/scene/platformMiddle_1.png';
 platformRight_1.src = './src/images/scene/platformRight_1.png';
 
-platformLeft_2.src = './src/images/scene/platformLeft_3.png';
-platformMid_2.src = './src/images/scene/platformMiddle_3.png';
-platformRight_2.src = './src/images/scene/platformRight_3.png';
+platformLeft_2.src = './src/images/scene/platformLeft_2.png';
+platformMid_2.src = './src/images/scene/platformMiddle_2.png';
+platformRight_2.src = './src/images/scene/platformRight_2.png';
 
 platformLeft_3.src = './src/images/scene/platformLeft_3.png';
 platformMid_3.src = './src/images/scene/platformMiddle_3.png';
 platformRight_3.src = './src/images/scene/platformRight_3.png';
 
-platformLeft_4.src = './src/images/scene/platformLeft_3.png';
-platformMid_4.src = './src/images/scene/platformMiddle_3.png';
-platformRight_4.src = './src/images/scene/platformRight_3.png';
+platformLeft_4.src = './src/images/scene/platformLeft_4.png';
+platformMid_4.src = './src/images/scene/platformMiddle_4.png';
+platformRight_4.src = './src/images/scene/platformRight_4.png';
 
-platformLeft_5.src = './src/images/scene/platformLeft_3.png';
-platformMid_5.src = './src/images/scene/platformMiddle_3.png';
-platformRight_5.src = './src/images/scene/platformRight_3.png';
+platformLeft_5.src = './src/images/scene/platformLeft_5.png';
+platformMid_5.src = './src/images/scene/platformMiddle_5.png';
+platformRight_5.src = './src/images/scene/platformRight_5.png';
 
 cloud_1.src = './src/images/scene/cloud_1.png';
 cloud_2.src = './src/images/scene/cloud_2.png';
