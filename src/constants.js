@@ -16,10 +16,10 @@ export const DIRECTIONS = {
     UP: (0, 1),
 };
 
-export const JUMP = 12;
+export const JUMP = 15;
 export const SPEED = 5;
 
 export const PLAYER = 15;
 
 export const GRAVITY = 0.5;
-export const BLOCKSIZE = 15;
+export const BLOCKSIZE = 20;
