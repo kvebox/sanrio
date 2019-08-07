@@ -19,6 +19,7 @@ export default class PlatformPiece {
 
     move(player) {
         this.position.x -= player.getOffset_x();
+        // this.position.y += player.getOffset_y();
         // this.position.y += this.y_velocity;
 
     }

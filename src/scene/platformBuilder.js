@@ -37,6 +37,7 @@ export default class PlatformBuilder {
 
     move(player) {
         this.position.x -= player.getOffset_x();
+        // this.position.y += player.getOffset_y();
 
     }
 

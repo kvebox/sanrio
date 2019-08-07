@@ -1,4 +1,4 @@
-import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../constants';
+import { PLAYER, GRAVITY } from './../constants';
 import {detectCollision} from '../util/collision';
 
 
@@ -12,8 +12,8 @@ const GAMESTATE = {
 
 export default class Player {
     constructor(game) {
-        this.width = 15;
-        this.height = 15;
+        this.width = PLAYER;
+        this.height = PLAYER;
         this.game = game;
 
         this.position = {

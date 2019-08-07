@@ -45,14 +45,20 @@ export default class Game {
     }
 
     start() {
-        this.levelObjects = parseLevel(levels[1]);
-        this.sceneObjects = this.levelObjects[1];
-        this.gameState = GAMESTATE.RUNNING;
-        this.player = new Player(this);
+        this.menu = new Menu(this);
+        this.menu.generateControls();
+        new GameInputHandler(this, this.menu);
+        // this.levelObjects = parseLevel(levels[1]);
+        // this.sceneObjects = this.levelObjects[1];
+        // this.gameState = GAMESTATE.RUNNING;
+        this.newGame();
+        // this.player = new Player(this);
 
         for (let i = 0; i < 5; i++){
             this.addElement('clouds', this.cloudCount);
         }
+        this.handle = new InputHandler(this.player, this);
+        requestAnimationFrame(this.handle.loop);
 
         this.platforms = {
             // 1: new PlatformBuilder(33, 0, 350, 1),
@@ -61,11 +67,7 @@ export default class Game {
         //     4: new PlatformBuilder(7, 20, 320, 1),
         };
 
-        this.menu = new Menu(this);
-        this.menu.generateControls();
-        new GameInputHandler(this, this.menu);
-        this.handle = new InputHandler(this.player, this);
-        requestAnimationFrame(this.handle.loop);
+    
     }
     
     pause() {
@@ -95,10 +97,15 @@ export default class Game {
         let menu = document.getElementById('goContainer');
         menu.style.display = 'none';
 
+        this.levelObjects = parseLevel(levels[1]);
+        this.sceneObjects = this.levelObjects[1];
+
         let lives = document.getElementsByClassName('heartIcon');
-        while (lives.length < 3){
+        while (lives.length < 4){
             this.addLife();
         }
+
+
         this.menu.changeMenuType(0);
         // this.player.position.x = this.gameWidth / 2 - this.width / 2;
         // this.player.position.y = this.gameHeight / 2;
@@ -147,10 +154,10 @@ export default class Game {
         this.ctx.beginPath();
 
 
-        // this.ctx.resetTransform(); 
-        // this.ctx.translate(-this.player.position.x, -this.player.position.y);
-        // this.ctx.scale(1,1);
-        // this.ctx.translate(this.gameWidth/2,this.gameHeight/2);
+        this.ctx.resetTransform(); 
+        this.ctx.translate(-this.player.position.x, -this.player.position.y);
+        this.ctx.scale(2,2);
+        // this.ctx.translate(this.gameWidth,this.gameHeight);
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);

@@ -1,6 +1,5 @@
 import level01 from '../levels/level_1.txt';
-// import {hills_1, hills_2, hills_3, hills_4, trees, flowers, clouds} from '../../imgLoader';
-import { HEIGHTSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
+import { HEIGHTSPAN, WIDTHSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
 
@@ -12,7 +11,6 @@ export const parseLevel = levelData => {
     let level = levelData.split("");
     let height = 0;
     let width = 0;
-    let depth = 5;
     let blockCount = 0;
 
     let sceneObjects = [];
@@ -26,13 +24,13 @@ export const parseLevel = levelData => {
                 width = 0;
                 break;
             case '\t':
-                width += BLOCKSIZE * 4;
+                width += WIDTHSPAN;
                 break;
             case 'G':
                 deco.push(new Tree(width, height-HEIGHTSPAN*2));
                 break;
             case ' ':
-                width += BLOCKSIZE;
+                width += WIDTHSPAN;
                 break;
             case 'x':
                 blockCount += 1;
@@ -40,25 +38,26 @@ export const parseLevel = levelData => {
                 break;
             case 'X':
                 blockCount += 1;
-                switch (height) {
-                    case height <= CANVAS_HEIGHT / 5 * 5:
-                        depth = 5;
+                let depth = 5;
+                switch (height > 0) {
+                    case (height >= 0 && height < 100):
+                        console.log(height);
                         break;
-                    case height <= CANVAS_HEIGHT / 5 * 4:
+                    case (height >= 100 && height < 200):
                         depth = 4;
                         break;
-                    case height <= CANVAS_HEIGHT / 5 * 3:
+                    case (height >= 200 && height < 300):
                         depth = 3;
                         break;
-                    case height <= CANVAS_HEIGHT / 5 * 2:
+                    case (height >= 300 && height < 400):
                         depth = 2;
                         break;
-                    case height <= CANVAS_HEIGHT / 5 * 1:
+                    case height >= 400:
                         depth = 1;
                         break;
                 }
                 sceneObjects.push(new PlatformBuilder(blockCount, width, height, depth));
-                width += BLOCKSIZE;
+                width += WIDTHSPAN;
                 blockCount = 0;
                 break;
             default:
@@ -67,7 +66,7 @@ export const parseLevel = levelData => {
     
     return {
         1: sceneObjects,
-        2: deco
+        // 2: deco
     };
 
 };
