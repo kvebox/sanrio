@@ -1,7 +1,9 @@
 import { trees } from '../imgLoader';
+import SceneObject from './sceneObject';
 
-export default class Tree {
+export default class Tree extends SceneObject {
     constructor(x, y) {
+        super(x,y);
         this.width = 50;
         this.height = 110;
         this.image = trees[0];
@@ -12,17 +14,5 @@ export default class Tree {
         };
     }
 
-    draw(ctx) {
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
-    }
-
-    move(player) {
-        this.position.x -= player.getOffset_x();
-
-    }
-
-    update(player) {
-        this.move(player);
-    }
 }
 
