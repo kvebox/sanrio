@@ -71,7 +71,7 @@ export default class Player {
 
 
         //check collisions w floor 
-        if(this.position.y < 0) this.position.y = 0;
+        // if(this.position.y < 0) this.position.y = 0;
         // if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
         
         if (this.position.y + this.height > this.game.gameHeight) {

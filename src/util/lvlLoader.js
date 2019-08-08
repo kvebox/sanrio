@@ -24,10 +24,11 @@ export const parseLevel = levelData => {
                 width = 0;
                 break;
             case '\t':
-                width += WIDTHSPAN;
+                width += WIDTHSPAN*4;
                 break;
             case 'G':
-                deco.push(new Tree(width, height-HEIGHTSPAN*2));
+                deco.push(new Tree(width, height - HEIGHTSPAN - HEIGHTSPAN/1.3));
+                width += WIDTHSPAN;
                 break;
             case ' ':
                 width += WIDTHSPAN;
@@ -65,8 +66,8 @@ export const parseLevel = levelData => {
     }
     
     return {
+        0: deco,
         1: sceneObjects,
-        // 2: deco
     };
 
 };

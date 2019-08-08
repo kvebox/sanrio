@@ -39,7 +39,6 @@ export default class Game {
     addElement(hash, key){
         switch (hash) {
             case 'clouds':
-                console.log('cloud spawned')
                 this.clouds[key] = new Cloud(this, this.cloudCount);
                 this.cloudCount += 1;
         }
@@ -123,7 +122,11 @@ export default class Game {
             this.clouds[key].update();
         });
 
-        this.sceneObjects.forEach(x => x.update(this.player));
+        Object.keys(this.levelObjects).forEach(key => {
+            this.levelObjects[key].forEach(object => object.update(this.player));
+        });
+
+        // this.sceneObjects.forEach(x => x.update(this.player));
 
         this.player.update(deltaTime);
 

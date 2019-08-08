@@ -20,7 +20,7 @@ export default class Cloud {
     }
 
     respawn(){
-        (this.game.gameWidth + this.game.gameWidth / 2) * (Math.random(0, 1));
+        (this.game.gameWidth + this.game.gameWidth / 2) * Math.random(0, 1);
     }
 
     randomInt(min, max) {
