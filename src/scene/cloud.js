@@ -2,7 +2,7 @@ import { CANVAS_WIDTH, JUMP_HEIGHT, SPEED, CANVAS_HEIGHT, GRAVITY } from './../c
 import { clouds } from '../imgLoader';
 
 export default class Cloud {
-    constructor(game, key) {
+    constructor(game, key, position_x) {
         this.width = 0;
         this.height = 0;
         this.game = game;
@@ -11,12 +11,16 @@ export default class Cloud {
         this.image = clouds[this.number];
 
         this.position = {
-            x: this.game.gameWidth,
-            y: this.game.gameHeight/ this.randomInt(0.5,10)
+            x: position_x || (this.game.gameWidth + this.game.gameWidth / 2) * (Math.random(0, 1)),
+            y: (this.game.gameHeight + this.game.gameHeight/2) / this.randomInt(0.5,10)
         };
 
         this.x_velocity = -Math.random(1,2);
         this.create();
+    }
+
+    respawn(){
+        (this.game.gameWidth + this.game.gameWidth / 2) * (Math.random(0, 1));
     }
 
     randomInt(min, max) {
@@ -74,7 +78,7 @@ export default class Cloud {
 
         //check collisions with wall
 
-        if (this.position.x + this.width < 0) {
+        if (this.position.x + this.width + this.game.gameWidth / 2 < 0) {
             this.destroy();
         }
         // if (this.position.x + this.width > this.game.gameWidth) this.position.x = this.game.gameWidth - this.width;

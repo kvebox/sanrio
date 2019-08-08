@@ -39,6 +39,7 @@ export default class Game {
     addElement(hash, key){
         switch (hash) {
             case 'clouds':
+                console.log('cloud spawned')
                 this.clouds[key] = new Cloud(this, this.cloudCount);
                 this.cloudCount += 1;
         }
