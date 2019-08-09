@@ -58,19 +58,19 @@ export default class PlatformBuilder {
 
         switch (this.color){
             case 1: 
-                ctx.fillStyle = 'rgba(110,49,25)';
+                ctx.fillStyle = 'rgba(90,49,33)';
                 break;
             case 2:
-                ctx.fillStyle = 'rgba(90,49,25)';
+                ctx.fillStyle = 'rgba(115,72,45)';
                 break;
             case 3:
-                ctx.fillStyle = 'rgba(70,49,25)';
+                ctx.fillStyle = 'rgba(120,82,50)';
                 break;
             case 4:
-                ctx.fillStyle = 'rgba(50,49,25)';
+                ctx.fillStyle = 'rgba(123,92,57)';
                 break;
             case 5:
-                ctx.fillStyle = 'rgba(40,49,25)';
+                ctx.fillStyle = 'rgba(138,120,69)';
                 break;
             default: ctx.fillStyle = 'rgba(30,49,25)';
         }

@@ -75,7 +75,7 @@ export default class Player {
         // if(this.position.y < 0) this.position.y = 0;
         // if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
         
-        if (this.position.y + this.height > this.game.gameHeight) {
+        if (this.position.y + this.height > this.game.gameHeight + 500) {
             this.position.x = this.game.gameWidth / 2 - this.width / 2;
             this.position.y = this.game.gameHeight / 2;
             this.game.loseLife();
