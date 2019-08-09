@@ -19,8 +19,8 @@ export default class Player {
         // this.level = levelData;
 
         this.position = {
-            x: this.game.gameWidth/4  - this.width/2,
-            y: this.game.gameHeight  
+            x: this.game.gameWidth  - this.width/2,
+            y: this.game.gameHeight/2 
         };
         this.canJump = false;
         this.y_velocity = GRAVITY;
@@ -75,7 +75,7 @@ export default class Player {
         // if(this.position.y < 0) this.position.y = 0;
         // if(this.position.y + this.height > this.game.gameHeight) this.position.y = this.game.gameHeight-this.height;
         
-        if (this.position.y + this.height > this.game.gameHeight + 500) {
+        if (this.position.y + this.height > this.game.gameHeight+100) {
             this.position.x = this.game.gameWidth / 2 - this.width / 2;
             this.position.y = this.game.gameHeight / 2;
             this.game.loseLife();
@@ -104,7 +104,7 @@ export default class Player {
         //     }
         // });
         
-
+        // if (this.game.gameState == GAMESTATE.PAUSED) {
         Object.keys(this.game.platforms).forEach (key => {
             let platform = this.game.platforms[key];
             if (detectCollision(this, platform)){
@@ -114,6 +114,7 @@ export default class Player {
                 this.canJump = true;
             }
         });
+    // }
     }
 }
 

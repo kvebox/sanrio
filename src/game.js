@@ -98,7 +98,7 @@ export default class Game {
         menu.style.display = 'none';
 
         this.levelObjects = parseLevel(levels[1]);
-        this.sceneObjects = this.levelObjects[1];
+        this.sceneObjects = this.levelObjects[0];
         this.items = this.levelObjects[2];
      
 
@@ -164,11 +164,7 @@ export default class Game {
         this.ctx.resetTransform(); 
         this.ctx.save();
         this.ctx.translate(-(this.player.position.x - this.gameWidth/2), -(this.player.position.y - this.gameHeight/2));
-        // this.ctx.translate(this.player.position.x - this.gameWidth/2, -this.player.position.y - this.gameHeight/2);
-        // this.ctx.scale(2,2);
-        // this.ctx.translate(this.gameWidth, this.gameHeight);
-        // this.ctx.restore();
-        // this.ctx.scale(.5,.5);
+
 
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].draw(this.ctx);

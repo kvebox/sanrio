@@ -76,8 +76,8 @@ export const parseLevel = levelData => {
     }
     
     return {
-        0: deco,
-        1: sceneObjects,
+        0: sceneObjects,
+        1: deco,
         2: items
     };
 

@@ -14,7 +14,6 @@ export default class PlatformBuilder {
         this.x_filler = x;
         this.y_filler = y + BLOCKSIZE;
         this.color = color;
-        // this.filler = filler;
 
         this.position = {
             x: x,
