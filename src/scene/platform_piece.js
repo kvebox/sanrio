@@ -14,7 +14,9 @@ export default class PlatformPiece {
     }
 
     draw(ctx) {
+        ctx.beginPath();
         ctx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+        ctx.closePath();
     }
 
     move(player) {
