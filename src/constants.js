@@ -8,7 +8,7 @@ export const LEVEL_HEIGHT = 400;
 export const LEVEL_WIDTH = 700;
 
 export const HEIGHTSPAN = 20;
-export const WIDTHSPAN = 40;
+export const WIDTHSPAN = 20;
 
 export const DIRECTIONS = {
     LEFT: (-1, 0),

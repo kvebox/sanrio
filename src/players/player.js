@@ -16,6 +16,7 @@ export default class Player {
         this.height = PLAYER;
         this.game = game;
         this.offset = 0;
+        // this.level = levelData;
 
         this.position = {
             x: this.game.gameWidth/4  - this.width/2,
@@ -92,6 +93,16 @@ export default class Player {
                 this.canJump = true;
             }
         });
+
+        // Object.keys(this.game.items).forEach(item => {
+        //     if (detectCollision(this, item)){
+        //         switch (item.type) {
+        //             case 'coin':
+        //                 delete this.game.items[item.key];
+        //                 break;
+        //         }
+        //     }
+        // });
         
 
         Object.keys(this.game.platforms).forEach (key => {

@@ -39,6 +39,8 @@ export default class PlatformBuilder {
         this.position.x -= player.getOffset_x();
         // this.position.y += player.getOffset_y();
 
+        this.x_filler -= player.getOffset_x();
+        this.platform_x -= player.getOffset_x();
     }
 
     update(player){
@@ -53,9 +55,29 @@ export default class PlatformBuilder {
         this.pieces.forEach(piece => {
             piece.draw(ctx);
         });
-        // ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
-        // ctx.fillStyle = 'rgba(110,49,25)';
-        // ctx.fill();
+
+        switch (this.color){
+            case 1: 
+                ctx.fillStyle = 'rgba(110,49,25)';
+                break;
+            case 2:
+                ctx.fillStyle = 'rgba(90,49,25)';
+                break;
+            case 3:
+                ctx.fillStyle = 'rgba(70,49,25)';
+                break;
+            case 4:
+                ctx.fillStyle = 'rgba(50,49,25)';
+                break;
+            case 5:
+                ctx.fillStyle = 'rgba(40,49,25)';
+                break;
+            default: ctx.fillStyle = 'rgba(30,49,25)';
+        }
+
+        ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
+        
+        ctx.fill();
         
     }
 

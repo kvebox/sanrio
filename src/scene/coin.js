@@ -2,12 +2,14 @@ import StaticObject from './staticObject';
 import { coin } from '../imgLoader';
 
 export default class Coin extends StaticObject {
-    constructor (x, y) {
+    constructor (x, y, key) {
         super(x,y);
         this.width = 20;
         this.height = 20;
         this.image = coin;
         this.cycle = 0;
+        this.type = 'coin';
+        this.key = key;
 
         this.position = {
             x: x,
@@ -23,4 +25,6 @@ export default class Coin extends StaticObject {
         }
         ctx.drawImage(this.image[Math.floor(this.cycle)], this.position.x, this.position.y, this.width, this.height);
     }
+
+
 }

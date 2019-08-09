@@ -13,6 +13,7 @@ export const parseLevel = levelData => {
     let height = 0;
     let width = 0;
     let blockCount = 0;
+    let itemCount = 0;
 
     let sceneObjects = [];
     let deco = [];
@@ -31,7 +32,8 @@ export const parseLevel = levelData => {
             case 'G':
                 break;
             case 'c':
-                deco.push(new Coin(width, height - HEIGHTSPAN));
+                items.push(new Coin(width, height - HEIGHTSPAN, itemCount));
+                itemCount += 1;
                 width += WIDTHSPAN;
                 break;
             case 't':

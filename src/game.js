@@ -99,6 +99,9 @@ export default class Game {
 
         this.levelObjects = parseLevel(levels[1]);
         this.sceneObjects = this.levelObjects[1];
+        this.items = this.levelObjects[2];
+     
+
 
         let lives = document.getElementsByClassName('heartIcon');
         while (lives.length < 4){
@@ -186,6 +189,7 @@ export default class Game {
         if (this.gameState == GAMESTATE.GAMEOVER){
             this.menu.gameOver();
         }
+        this.ctx.fillStyle = 'rgba(0,0,0)';
         this.player.draw(this.ctx);
 
         this.ctx.restore();
