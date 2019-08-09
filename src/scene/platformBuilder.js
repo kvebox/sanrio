@@ -56,6 +56,9 @@ export default class PlatformBuilder {
         });
 
         switch (this.color){
+            case 0: 
+                ctx.fillStyle = 'rgba(0,0,0,0)';
+                break;
             case 1: 
                 ctx.fillStyle = 'rgba(90,49,33)';
                 break;

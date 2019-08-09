@@ -3,6 +3,8 @@ import { HEIGHTSPAN, WIDTHSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
 import Coin from '../scene/coin';
+import Bush from '../scene/bush';
+import { randomInt } from './util';
 
 export const levels = {
     1: level01
@@ -38,6 +40,10 @@ export const parseLevel = levelData => {
                 break;
             case 't':
                 deco.push(new Tree(width, height - HEIGHTSPAN - HEIGHTSPAN/1.3));
+                width += WIDTHSPAN;
+                break;
+            case 'b':
+                deco.push(new Bush(width, height - HEIGHTSPAN/1.15, randomInt(0,5)));
                 width += WIDTHSPAN;
                 break;
             case ' ':

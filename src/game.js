@@ -150,10 +150,15 @@ export default class Game {
         let lives = document.getElementsByClassName('heartIcon');
         lives[0].parentNode.removeChild(lives[0]);
         if (lives.length === 0) this.gameOver();
+
+        this.levelObjects = parseLevel(levels[1]);
+        this.sceneObjects = this.levelObjects[0];
+        this.items = this.levelObjects[2];
     }
 
     gameOver(){
         this.gameState = GAMESTATE.GAMEOVER;
+        return;
     }
     
     
