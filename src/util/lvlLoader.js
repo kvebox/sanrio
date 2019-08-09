@@ -31,7 +31,7 @@ export const parseLevel = levelData => {
             case 'G':
                 break;
             case 'c':
-                deco.push(new Coin(width, height - HEIGHTSPAN/2));
+                deco.push(new Coin(width, height - HEIGHTSPAN));
                 width += WIDTHSPAN;
                 break;
             case 't':
