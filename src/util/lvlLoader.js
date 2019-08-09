@@ -2,6 +2,7 @@ import level01 from '../levels/level_1.txt';
 import { HEIGHTSPAN, WIDTHSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
+import Coin from '../scene/coin';
 
 export const levels = {
     1: level01
@@ -16,6 +17,7 @@ export const parseLevel = levelData => {
     let sceneObjects = [];
     let deco = [];
     let enemies = [];
+    let items = [];
 
     for (let i = 0; i < level.length; i++){
         switch (level[i]){
@@ -27,6 +29,12 @@ export const parseLevel = levelData => {
                 width += WIDTHSPAN*4;
                 break;
             case 'G':
+                break;
+            case 'c':
+                deco.push(new Coin(width, height - HEIGHTSPAN/2));
+                width += WIDTHSPAN;
+                break;
+            case 't':
                 deco.push(new Tree(width, height - HEIGHTSPAN - HEIGHTSPAN/1.3));
                 width += WIDTHSPAN;
                 break;
@@ -68,6 +76,7 @@ export const parseLevel = levelData => {
     return {
         0: deco,
         1: sceneObjects,
+        2: items
     };
 
 };

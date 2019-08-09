@@ -1,7 +1,7 @@
 import { trees } from '../imgLoader';
-import SceneObject from './sceneObject';
+import StaticObject from './staticObject';
 
-export default class Tree extends SceneObject {
+export default class Tree extends StaticObject {
     constructor(x, y) {
         super(x,y);
         this.width = 50;

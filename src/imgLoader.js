@@ -79,6 +79,7 @@ const hill_18 = new Image();
 const hill_19 = new Image();
 const hill_20 = new Image();
 
+
 platformLeft_1.src = './src/images/scene/platformLeft_1.png';
 platformMid_1.src = './src/images/scene/platformMiddle_1.png';
 platformRight_1.src = './src/images/scene/platformRight_1.png';
@@ -140,6 +141,9 @@ hill_18.src = './src/images/scene/hill_18.png';
 hill_19.src = './src/images/scene/hill_19.png';
 hill_20.src = './src/images/scene/hill_20.png';
 
+// items --------------------------------------------
+
+
 export const platform_mid = ['', platformMid_1, platformMid_2, platformMid_3, platformMid_4, platformMid_5];
 export const platform_left = ['', platformLeft_1, platformLeft_2, platformLeft_3, platformLeft_4, platformLeft_5];
 export const platform_right = ['', platformRight_1, platformRight_2, platformRight_3, platformRight_4, platformRight_5];
@@ -158,3 +162,14 @@ export const hills_1 = [hill_3, hill_4, hill_13, hill_14, hill_15, hill_16, hill
 export const hills_2 = [hill_1, hill_2, hill_8, hill_9, hill_10, hill_11, hill_12];
 export const hills_3 = [hill_5, hill_20];
 export const hills_4 = [hill_6, hill_7, hill_18, hill_19];
+
+
+const coins = [];
+
+for (let i = 0; i < 19; i++) {
+    let image = new Image();
+    image.src = `./src/images/items/coin/coin_${i}.png`;
+    coins.push(image);
+}
+
+export const coin = coins;
