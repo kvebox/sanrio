@@ -34,7 +34,7 @@ export const parseLevel = levelData => {
             case 'G':
                 break;
             case 'c':
-                items.push(new Coin(width, height - HEIGHTSPAN, itemCount));
+                items[itemCount] = (new Coin(width, height - HEIGHTSPAN, itemCount));
                 itemCount += 1;
                 width += WIDTHSPAN;
                 break;

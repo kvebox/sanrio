@@ -17,6 +17,7 @@ export default class Tutorial {
         this.gameHeight = height;
         this.game = game;
         this.tutorialctx = controlctx;
+        this.items = [];
 
         this.platforms = {
             1: new PlatformBuilder(25, 50, 95, 1)

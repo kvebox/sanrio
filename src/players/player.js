@@ -94,15 +94,15 @@ export default class Player {
             }
         });
 
-        // Object.keys(this.game.items).forEach(item => {
-        //     if (detectCollision(this, item)){
-        //         switch (item.type) {
-        //             case 'coin':
-        //                 delete this.game.items[item.key];
-        //                 break;
-        //         }
-        //     }
-        // });
+        this.game.items.forEach(item => {
+            if (detectCollision(this, item)){
+                switch (item.type) {
+                    case 'coin':
+                        delete this.game.items[item.key];
+                        break;
+                }
+            }
+        });
         
         // if (this.game.gameState == GAMESTATE.PAUSED) {
         Object.keys(this.game.platforms).forEach (key => {

@@ -43,8 +43,6 @@ export default class InputHandler {
                     break;
                 // left
                 case 37:
-                    
-
                     document.getElementById("leftArrow").classList.add('pressed');
                     this.player.x_velocity = -SPEED;
                     break;
