@@ -53,6 +53,7 @@ export default class Tutorial {
         this.tutorialctx.drawImage(bushes[1], 385, 75, 65, 20);
         this.tutorialctx.drawImage(bushes[2], 475, 75, 85, 20);
 
+        this.tutorialctx.fillStyle = 'rgba(255,0,0)';
         this.player.draw(this.tutorialctx);
         this.tutorialctx.closePath();
     }

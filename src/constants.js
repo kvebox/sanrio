@@ -16,7 +16,7 @@ export const DIRECTIONS = {
     UP: (0, 1),
 };
 
-export const JUMP = 15;
+export const JUMP = 12;
 export const SPEED = 5;
 
 export const PLAYER = 15;
