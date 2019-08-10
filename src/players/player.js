@@ -29,17 +29,10 @@ export default class Player {
     }
 
     move(deltaTime){
-        // console.log(this.position);
-        // console.log(this.position)
         this.x_velocity *= 0.9 * (deltaTime * 0.025);
-        // if (this.y_velocity < 0) {this.y_velocity += 15 }
-        // console.log(this.y_velocity);
-        // if (this.y_velocity != 0){
         this.y_velocity += 0.9;
-        // }
         this.position.x += this.x_velocity;
         this.position.y += this.y_velocity;
-        
     }
 
     getOffset_x(){

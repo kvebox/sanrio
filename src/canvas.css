@@ -52,6 +52,18 @@ body {
 }
 
 /*----------- GAME ------------*/
+
+#coinContainer {
+    display: flex;
+    align-items: center;
+}
+
+#coinIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
 #heartContainer {
     display: flex;
     justify-content: flex-end;
