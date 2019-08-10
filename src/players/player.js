@@ -28,17 +28,17 @@ export default class Player {
         this.hit = false;
     }
 
-    move(){
+    move(deltaTime){
         // console.log(this.position);
         // console.log(this.position)
-        this.x_velocity *= 0.9;
+        this.x_velocity *= 0.9 * (deltaTime * 0.025);
         // if (this.y_velocity < 0) {this.y_velocity += 15 }
         // console.log(this.y_velocity);
         // if (this.y_velocity != 0){
         this.y_velocity += 0.9;
         // }
         this.position.x += this.x_velocity;
-        this.position.y += this.y_velocity ;
+        this.position.y += this.y_velocity;
         
     }
 
@@ -58,9 +58,9 @@ export default class Player {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 
-    update() {
+    update(deltaTime) {
         
-        this.move();
+        this.move(deltaTime);
 
         //check collisions with wall
         
