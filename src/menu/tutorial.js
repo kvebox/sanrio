@@ -20,7 +20,7 @@ export default class Tutorial {
         this.items = [];
 
         this.platforms = {
-            1: new PlatformBuilder(25, 50, 95, 1)
+            1: new PlatformBuilder(25, 50, 95, 0.5)
         };
 
         this.sceneObjects = [];
@@ -28,8 +28,8 @@ export default class Tutorial {
 
     start() {
         this.player = new Player(this);
-        const controlHandle = new InputHandler(this.player, this);
-        // requestAnimationFrame(controlHandle.loop);
+        new InputHandler(this.player, this);
+
 
     }
 

@@ -13,7 +13,8 @@ export default class PlatformBuilder {
         this.platform_y = y;
         this.x_filler = x;
         this.y_filler = y + BLOCKSIZE;
-        this.color = color;
+        this.fillerColor = color;
+        this.color = Math.ceil(this.fillerColor);
 
         this.position = {
             x: x,
@@ -55,7 +56,7 @@ export default class PlatformBuilder {
             piece.draw(ctx);
         });
 
-        switch (this.color){
+        switch (Math.floor(this.fillerColor)){
             case 0: 
                 ctx.fillStyle = 'rgba(0,0,0,0)';
                 break;
