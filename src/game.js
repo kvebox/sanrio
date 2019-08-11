@@ -131,7 +131,7 @@ export default class Game {
 
         // this.sceneObjects.forEach(x => x.update(this.player));
 
-        this.player.update(deltaTime);
+        this.player.update(deltaTime, 0.025);
 
     }
 

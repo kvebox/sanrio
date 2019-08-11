@@ -33,9 +33,9 @@ export default class Tutorial {
 
     }
 
-    update(){
+    update(deltaTime){
         if (this.game.gameState == GAMESTATE.PAUSED) {
-            this.player.update();
+            this.player.update(deltaTime, 0.055);
         }
 
     }

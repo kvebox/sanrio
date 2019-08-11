@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
         controlctx.clearRect(0,0,CONTROL_CANVAS_WIDTH,CONTROL_CANVAS_HEIGHT);
 
-        tutorial.update();
+        tutorial.update(deltaTime);
         tutorial.draw(controlctx);
 
         game.update(deltaTime);

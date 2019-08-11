@@ -1,5 +1,5 @@
 import level01 from '../levels/level_1.txt';
-import { HEIGHTSPAN, WIDTHSPAN, CANVAS_HEIGHT, BLOCKSIZE } from '../constants';
+import { HEIGHTSPAN, WIDTHSPAN, TREEHEIGHT, TREEWIDTH } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
 import Coin from '../scene/coin';
@@ -38,12 +38,16 @@ export const parseLevel = levelData => {
                 itemCount += 1;
                 width += WIDTHSPAN;
                 break;
+            case 'T':
+                deco.push(new Tree(width, height + HEIGHTSPAN, 1.5));
+                width += WIDTHSPAN;
+                break;
             case 't':
-                deco.push(new Tree(width, height - HEIGHTSPAN - HEIGHTSPAN/1.3));
+                deco.push(new Tree(width, height + HEIGHTSPAN, 1));
                 width += WIDTHSPAN;
                 break;
             case 'b':
-                deco.push(new Bush(width, height - HEIGHTSPAN/1.15, randomInt(0,5)));
+                deco.push(new Bush(width, height, randomInt(0,5)));
                 width += WIDTHSPAN;
                 break;
             case ' ':

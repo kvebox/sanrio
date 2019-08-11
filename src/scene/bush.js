@@ -11,7 +11,7 @@ export default class Bush extends StaticObject {
 
         this.position = {
             x: x,
-            y: y + this.height/this.multiplier
+            y: y 
         };
 
         this.create();

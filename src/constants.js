@@ -16,6 +16,9 @@ export const DIRECTIONS = {
     UP: (0, 1),
 };
 
+export const TREEWIDTH = 50;
+export const TREEHEIGHT = 110;
+
 export const JUMP = 12;
 export const SPEED = 5;
 
