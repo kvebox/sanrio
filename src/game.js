@@ -48,11 +48,7 @@ export default class Game {
         this.menu = new Menu(this);
         this.menu.generateControls();
         new GameInputHandler(this, this.menu);
-        // this.levelObjects = parseLevel(levels[1]);
-        // this.sceneObjects = this.levelObjects[1];
-        // this.gameState = GAMESTATE.RUNNING;
         this.newGame();
-        // this.player = new Player(this);
 
         for (let i = 0; i < 5; i++){
             this.addElement('clouds', this.cloudCount);
@@ -60,12 +56,7 @@ export default class Game {
         this.handle = new InputHandler(this.player, this);
         requestAnimationFrame(this.handle.loop);
 
-        this.platforms = {
-            // 1: new PlatformBuilder(33, 0, 350, 1),
-        //     2: new PlatformBuilder(7, 150, 225, 2),
-        //     3: new PlatformBuilder(10, 455, 225, 1),
-        //     4: new PlatformBuilder(7, 20, 320, 1),
-        };
+        this.platforms = {};
 
     
     }
@@ -98,6 +89,7 @@ export default class Game {
         menu.style.display = 'none';
 
         this.levelObjects = parseLevel(levels[1]);
+        this.restart = this.levelObjects;
         this.sceneObjects = this.levelObjects[0];
         this.items = this.levelObjects[2];
      
@@ -110,8 +102,6 @@ export default class Game {
 
 
         this.menu.changeMenuType(0);
-        // this.player.position.x = this.gameWidth / 2 - this.width / 2;
-        // this.player.position.y = this.gameHeight / 2;
         this.player = new Player(this);
         this.handle = new InputHandler(this.player, this);
         requestAnimationFrame(this.handle.loop);
@@ -128,8 +118,6 @@ export default class Game {
         Object.keys(this.levelObjects).forEach(key => {
             this.levelObjects[key].forEach(object => object.update(this.player));
         });
-
-        // this.sceneObjects.forEach(x => x.update(this.player));
 
         this.player.update(deltaTime, 0.025);
 
@@ -151,9 +139,8 @@ export default class Game {
         lives[0].parentNode.removeChild(lives[0]);
         if (lives.length === 0) this.gameOver();
 
-        this.levelObjects = parseLevel(levels[1]);
+        this.levelObjects = this.restart;
         this.sceneObjects = this.levelObjects[0];
-        this.items = this.levelObjects[2];
     }
 
     gameOver(){

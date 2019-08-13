@@ -33,6 +33,9 @@ export const parseLevel = levelData => {
                 break;
             case 'G':
                 break;
+            case 'm': 
+                // deco.push(new Mountain(width, height));
+                break;
             case 'c':
                 items[itemCount] = (new Coin(width, height - HEIGHTSPAN, itemCount));
                 itemCount += 1;
