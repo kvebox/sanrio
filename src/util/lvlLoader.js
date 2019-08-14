@@ -60,7 +60,6 @@ export const parseLevel = levelData => {
                 break;
             case 'x':
                 blockCount += 1;
-                // width += BLOCKSIZE;
                 break;
             case 'X':
                 blockCount += 1;
