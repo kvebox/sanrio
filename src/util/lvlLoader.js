@@ -83,7 +83,7 @@ export const parseLevel = levelData => {
                         break;
                 }
                 sceneObjects.push(new PlatformBuilder(blockCount, width, height, depth));
-                width += WIDTHSPAN;
+                width += WIDTHSPAN*blockCount;
                 blockCount = 0;
                 break;
             default:
