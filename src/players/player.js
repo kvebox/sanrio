@@ -92,6 +92,8 @@ export default class Player {
                 switch (item.type) {
                     case 'coin':
                         delete this.game.items[item.key];
+                        let coinCounter = document.getElementById('coins');
+                        coinCounter.innerHTML = parseInt(coinCounter.innerHTML) + 1;
                         break;
                 }
             }

@@ -6,8 +6,8 @@ export default class Mountain extends StaticObject {
         super(x,y);
         this.number = 1;
         this.image = hills[this.number];
-        this.width = 200;
-        this.height = 2000;
+        this.width = 2000;
+        this.height = 4000;
 
         this.position = {
             x: x,

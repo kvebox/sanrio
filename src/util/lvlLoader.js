@@ -37,6 +37,7 @@ export const parseLevel = levelData => {
                 break;
             case 'm': 
                 background.push(new Mountain(width, height));
+                width += WIDTHSPAN*4;
                 break;
             case 'c':
                 items[itemCount] = (new Coin(width, height - HEIGHTSPAN, itemCount));
@@ -94,7 +95,6 @@ export const parseLevel = levelData => {
         1: sceneObjects,
         2: deco,
         3: items,
-        4: enemies
     };
 
 };
