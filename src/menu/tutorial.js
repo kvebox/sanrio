@@ -8,7 +8,10 @@ const GAMESTATE = {
     RUNNING: 1,
     START: 2,
     GAMEOVER: 3,
-    INTRO: 4
+    INTRO: 4,
+    MAP: 5,
+    WIN: 6,
+    CONTINUE: 7
 };
 
 export default class Tutorial {

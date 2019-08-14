@@ -1,7 +1,7 @@
-export default class SceneObject {
+export default class StaticObject {
     constructor(x, y) {
-        this.width = 0;
-        this.height = 0;
+        this.width = 1000;
+        this.height = 1000;
 
         this.position = {
             x: x,

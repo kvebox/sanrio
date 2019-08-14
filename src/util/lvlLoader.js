@@ -36,8 +36,8 @@ export const parseLevel = levelData => {
             case 'G':
                 break;
             case 'm': 
-                background.push(new Mountain(width, height));
-                width += WIDTHSPAN*4;
+                background.push(new Mountain(width, 0));
+                width += WIDTHSPAN * randomInt(2, 7);
                 break;
             case 'c':
                 items[itemCount] = (new Coin(width, height - HEIGHTSPAN, itemCount));
