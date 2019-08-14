@@ -53,7 +53,7 @@ export const parseLevel = levelData => {
                 width += WIDTHSPAN;
                 break;
             case 'b':
-                deco.push(new Bush(width, height, randomInt(0,5)));
+                deco.push(new Bush(width, height + HEIGHTSPAN, randomInt(0,5)));
                 width += WIDTHSPAN;
                 break;
             case ' ':

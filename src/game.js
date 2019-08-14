@@ -95,7 +95,6 @@ export default class Game {
         this.restart = this.levelObjects;
         this.sceneObjects = this.levelObjects[1];
         this.items = this.levelObjects[3];
-     
 
 
         let lives = document.getElementsByClassName('heartIcon');

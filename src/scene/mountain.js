@@ -9,7 +9,7 @@ export default class Mountain extends StaticObject {
         this.image = hills[this.number];
         this.position = {
             x: x,
-            y: randomInt(-100, 150)
+            y: randomInt(-150, 200)
         };
         this.create();
     }
