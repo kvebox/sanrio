@@ -2,6 +2,7 @@ import level01 from '../levels/level_1.txt';
 import { HEIGHTSPAN, WIDTHSPAN, TREEHEIGHT, TREEWIDTH } from '../constants';
 import PlatformBuilder from '../scene/platformBuilder';
 import Tree from '../scene/tree';
+import Mountain from '../scene/mountain';
 import Coin from '../scene/coin';
 import Bush from '../scene/bush';
 import { randomInt } from './util';
@@ -17,6 +18,7 @@ export const parseLevel = levelData => {
     let blockCount = 0;
     let itemCount = 0;
 
+    let background = [];
     let sceneObjects = [];
     let deco = [];
     let enemies = [];
@@ -34,7 +36,7 @@ export const parseLevel = levelData => {
             case 'G':
                 break;
             case 'm': 
-                // deco.push(new Mountain(width, height));
+                background.push(new Mountain(width, height));
                 break;
             case 'c':
                 items[itemCount] = (new Coin(width, height - HEIGHTSPAN, itemCount));
@@ -89,9 +91,11 @@ export const parseLevel = levelData => {
     }
     
     return {
-        0: sceneObjects,
-        1: deco,
-        2: items
+        0: background,
+        1: sceneObjects,
+        2: deco,
+        3: items,
+        4: enemies
     };
 
 };

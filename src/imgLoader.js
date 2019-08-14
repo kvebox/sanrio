@@ -163,6 +163,8 @@ export const hills_2 = [hill_1, hill_2, hill_8, hill_9, hill_10, hill_11, hill_1
 export const hills_3 = [hill_5, hill_20];
 export const hills_4 = [hill_6, hill_7, hill_18, hill_19];
 
+export const hills = [hill_1, hill_2, hill_3, hill_4, hill_5, hill_6, hill_7, hill_8, hill_9, hill_10, hill_11, hill_12, hill_13, hill_14, hill_15, hill_16, hill_17, hill_18, hill_19, hill_20];
+
 
 const coins = [];
 

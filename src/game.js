@@ -90,8 +90,8 @@ export default class Game {
 
         this.levelObjects = parseLevel(levels[1]);
         this.restart = this.levelObjects;
-        this.sceneObjects = this.levelObjects[0];
-        this.items = this.levelObjects[2];
+        this.sceneObjects = this.levelObjects[1];
+        this.items = this.levelObjects[3];
      
 
 
@@ -140,7 +140,7 @@ export default class Game {
         if (lives.length === 0) this.gameOver();
 
         this.levelObjects = this.restart;
-        this.sceneObjects = this.levelObjects[0];
+        this.sceneObjects = this.levelObjects[1];
     }
 
     gameOver(){
