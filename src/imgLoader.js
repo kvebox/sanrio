@@ -175,3 +175,14 @@ for (let i = 0; i < 19; i++) {
 }
 
 export const coin = coins;
+
+
+// const gordoImg = [];
+
+// for (let i = 0; i < 19; i++) {
+//     let image = new Image();
+//     image.src = `./src/images/items/coin/coin_${i}.png`;
+//     gordoImg.push(image);
+// }
+
+// export const gordo = gordoImg;

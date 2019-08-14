@@ -78,7 +78,7 @@ export default class PlatformBuilder {
             default: ctx.fillStyle = 'rgba(30,49,25)';
         }
 
-        ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, CANVAS_HEIGHT);
+        ctx.rect(this.x_filler, this.y_filler, this.platform_x-this.x_filler+BLOCKSIZE, 500);
         
         ctx.fill();
         
