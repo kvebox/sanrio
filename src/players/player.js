@@ -89,11 +89,7 @@ export default class Player {
 
         this.game.enemies.forEach(enemy => {
             if (detectCollision(this, enemy)) {
-                switch (enemy.type) {
-                    case 'gordo':
-                        this.game.loseLife();
-                        break;
-                }
+                this.game.loseLife();
             }
         });
 

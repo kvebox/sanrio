@@ -176,7 +176,6 @@ for (let i = 0; i < 19; i++) {
 
 export const coin = coins;
 
-
 const gordoImg = [];
 
 for (let i = 0; i < 44; i++) {
@@ -186,3 +185,24 @@ for (let i = 0; i < 44; i++) {
 }
 
 export const gordo = gordoImg;
+
+const pinkImg = [];
+const pinkFlippedImg = [];
+
+for (let i = 0; i < 15; i++){
+    let image = new Image();
+    image.src = `./src/images/sprites/pink/pink_${i}.png`;
+    pinkImg.push(image);
+}
+
+
+for (let i = 0; i < 15; i++) {
+    let image = new Image();
+    image.src = `./src/images/sprites/pink_flipped/pink_${i}.png`;
+    // image.style.transform = 'scaleX(-1)';
+    pinkFlippedImg.push(image);
+}
+
+export const pink = pinkImg;
+export const pinkFlipped = pinkFlippedImg;
+
