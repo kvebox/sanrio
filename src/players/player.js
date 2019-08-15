@@ -87,6 +87,19 @@ export default class Player {
             }
         });
 
+        this.game.enemies.forEach(enemy => {
+            if (detectCollision(this, enemy)) {
+                switch (enemy.type) {
+                    case 'gordo':
+                        this.game.loseLife();
+                        // delete this.game.enemies[enemy.key];
+                        // let coinCounter = document.getElementById('coins');
+                        // coinCounter.innerHTML = parseInt(coinCounter.innerHTML) + 1;
+                        break;
+                }
+            }
+        });
+
         this.game.items.forEach(item => {
             if (detectCollision(this, item)){
                 switch (item.type) {

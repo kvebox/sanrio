@@ -1,9 +1,7 @@
 import InputHandler from './players/playerInput';
 import GameInputHandler from './gameStateController';
 import Player from './players/player';
-import PlatformBuilder from './scene/platformBuilder';
 import Menu from './menu/menu';
-import { clouds } from './imgLoader';
 import Cloud from './scene/cloud';
 import { levels, parseLevel } from './util/lvlLoader';
 
@@ -92,9 +90,10 @@ export default class Game {
         menu.style.display = 'none';
 
         this.levelObjects = parseLevel(levels[1]);
-        this.restart = this.levelObjects;
         this.sceneObjects = this.levelObjects[1];
+        this.restart = this.sceneObjects;
         this.items = this.levelObjects[3];
+        this.enemies = this.levelObjects[4];
 
 
         let lives = document.getElementsByClassName('heartIcon');
@@ -141,8 +140,9 @@ export default class Game {
         lives[0].parentNode.removeChild(lives[0]);
         if (lives.length === 0) this.gameOver();
 
-        this.levelObjects = this.restart;
-        this.sceneObjects = this.levelObjects[1];
+        this.sceneObjects = this.restart;
+        this.player.position = {x:0, y:0};
+        // this.sceneObjects = this.levelObjects[1];
     }
 
     gameOver(){
