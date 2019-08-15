@@ -21,6 +21,7 @@ export default class Tutorial {
         this.game = game;
         this.tutorialctx = controlctx;
         this.items = [];
+        this.enemies = [];
 
         this.platforms = {
             1: new PlatformBuilder(25, 50, 95, 0.5)

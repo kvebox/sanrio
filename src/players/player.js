@@ -2,13 +2,13 @@ import { PLAYER, GRAVITY } from './../constants';
 import {detectCollision} from '../util/collision';
 
 
-const GAMESTATE = {
-    PAUSED: 0,
-    RUNNING: 1,
-    START: 2,
-    GAMEOVER: 3,
-    INTRO: 4
-};
+
+// const PLAYERSTATE = {
+//     0: IDLE,
+//     1: DAMAGED,
+//     2: DEAD,
+//     3: MOVING
+// };
 
 export default class Player {
     constructor(game) {
@@ -92,9 +92,6 @@ export default class Player {
                 switch (enemy.type) {
                     case 'gordo':
                         this.game.loseLife();
-                        // delete this.game.enemies[enemy.key];
-                        // let coinCounter = document.getElementById('coins');
-                        // coinCounter.innerHTML = parseInt(coinCounter.innerHTML) + 1;
                         break;
                 }
             }

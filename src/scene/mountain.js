@@ -18,82 +18,102 @@ export default class Mountain extends StaticObject {
         let multiplier = 1.5;
         switch (this.number){
             case 0:
+                this.parallax = 4;
                 this.width = 72 / multiplier;
                 this.height = 934 / multiplier;
                 break;
             case 1:
+                this.parallax = 4;
                 this.width = 404 / multiplier;
                 this.height = 1086 / multiplier;
                 break;
             case 2:
+                this.parallax = 5;
                 this.width = 606 / multiplier;
                 this.height = 879 / multiplier;
                 break;
             case 3:
+                this.parallax = 5;
                 this.width = 204 / multiplier;
                 this.height = 385 / multiplier;
                 break;
             case 4:
+                this.parallax = 3;
                 this.width = 208 / multiplier;
                 this.height = 1004 / multiplier;
                 break;
             case 5:
+                this.parallax = 2;
                 this.width = 148 / multiplier;
                 this.height = 752 / multiplier;
                 break;
             case 6:
+                this.parallax = 2;
                 this.width = 266 / multiplier;
                 this.height = 716 / multiplier;
                 break;
             case 7:
+                this.parallax = 4;
                 this.width = 404 / multiplier;
                 this.height = 1104 / multiplier;
                 break;
             case 8:
+                this.parallax = 4;
                 this.width = 201 / multiplier;
                 this.height = 1050 / multiplier;
                 break;
             case 9:
+                this.parallax = 4;
                 this.width = 363 / multiplier;
                 this.height = 1266 / multiplier;
                 break;
             case 10:
+                this.parallax = 4;
                 this.width = 207 / multiplier;
                 this.height = 1152 / multiplier;
                 break;
             case 11:
+                this.parallax = 4;
                 this.width = 138 / multiplier;
                 this.height = 1152 / multiplier;
                 break;
             case 12:
+                this.parallax = 5;
                 this.width = 600 / multiplier;
                 this.height = 1770 / multiplier;
                 break;
             case 13:
+                this.parallax = 5;
                 this.width = 192 / multiplier;
                 this.height = 1491 / multiplier;
                 break;
             case 14:
+                this.parallax = 5;
                 this.width = 200 / multiplier;
                 this.height = 806 / multiplier;
                 break;
             case 15:
+                this.parallax = 5;
                 this.width = 204 / multiplier;
                 this.height = 756 / multiplier;
                 break;
             case 16:
+                this.parallax = 5;
                 this.width = 190 / multiplier;
                 this.height = 904 / multiplier;
                 break;
             case 17:
+                this.parallax = 2;
                 this.width = 264 / multiplier;
                 this.height = 669 / multiplier;
                 break;
             case 18:
+                this.parallax = 2;
                 this.width = 150 / multiplier;
                 this.height = 777 / multiplier;
                 break;
             case 19:
+                this.parallax = 3;
                 this.width = 262 / multiplier;
                 this.height = 654 / multiplier;
                 break;
@@ -102,7 +122,7 @@ export default class Mountain extends StaticObject {
     }
 
     move(player) {
-        this.position.x -= player.getOffset_x()/2;
+        this.position.x -= player.getOffset_x()/this.parallax;
 
     }
 
