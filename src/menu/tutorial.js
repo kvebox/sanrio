@@ -2,6 +2,7 @@ import Player from '../players/player';
 import InputHandler from '../players/playerInput';
 import PlatformBuilder from '../scene/platformBuilder';
 import {trees, bushes} from '../imgLoader';
+import { BLOCKSIZE } from '../constants';
 
 const GAMESTATE = {
     PAUSED: 0,
@@ -23,8 +24,10 @@ export default class Tutorial {
         this.items = [];
         this.enemies = [];
 
+        (BLOCKSIZE == 20) ? this.blockCount = 25 : this.blockCount = 34;
+
         this.platforms = {
-            1: new PlatformBuilder(25, 50, 95, 0.5)
+            1: new PlatformBuilder(this.blockCount, 50, 95, 0.5)
         };
 
         this.sceneObjects = [];

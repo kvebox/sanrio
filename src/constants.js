@@ -7,8 +7,8 @@ export const CANVAS_WIDTH = 700;
 export const LEVEL_HEIGHT = 400;
 export const LEVEL_WIDTH = 700;
 
-export const HEIGHTSPAN = 20;
-export const WIDTHSPAN = 20;
+export const HEIGHTSPAN = 15;
+export const WIDTHSPAN = 15;
 
 export const DIRECTIONS = {
     LEFT: (-1, 0),
@@ -25,4 +25,4 @@ export const SPEED = 5;
 export const PLAYER = 15;
 
 export const GRAVITY = 0.5;
-export const BLOCKSIZE = 20;
+export const BLOCKSIZE = 15;

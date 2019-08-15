@@ -142,9 +142,7 @@ export default class Game {
         lives[0].parentNode.removeChild(lives[0]);
         if (lives.length === 0) this.gameOver();
 
-        this.sceneObjects = this.restart;
         this.player.position = {x:0, y:0};
-        // this.sceneObjects = this.levelObjects[1];
     }
 
     gameOver(){

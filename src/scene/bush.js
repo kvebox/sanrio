@@ -19,7 +19,7 @@ export default class Bush extends StaticObject {
     }
 
     create() {
-        let multiplier = 2.5;
+        let multiplier = 3;
         switch (this.number) {
             case 0:
                 this.height = 102 / multiplier;
