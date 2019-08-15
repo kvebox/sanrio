@@ -6,6 +6,8 @@ import Mountain from '../scene/mountain';
 import Coin from '../scene/coin';
 import Bush from '../scene/bush';
 import { randomInt } from './util';
+import Gordo from '../enemies/gordo';
+
 
 export const levels = {
     1: level01
@@ -17,6 +19,7 @@ export const parseLevel = levelData => {
     let width = 0;
     let blockCount = 0;
     let itemCount = 0;
+    let enemyCount = 0;
 
     let background = [];
     let sceneObjects = [];
@@ -34,6 +37,7 @@ export const parseLevel = levelData => {
                 width += WIDTHSPAN*4;
                 break;
             case 'G':
+                enemies.push(new Gordo(width, height + HEIGHTSPAN, enemyCount));
                 break;
             case 'm': 
                 background.push(new Mountain(width, 0));
@@ -95,6 +99,7 @@ export const parseLevel = levelData => {
         1: sceneObjects,
         2: deco,
         3: items,
+        4: enemies 
     };
 
 };

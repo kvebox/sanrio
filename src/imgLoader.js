@@ -177,12 +177,12 @@ for (let i = 0; i < 19; i++) {
 export const coin = coins;
 
 
-// const gordoImg = [];
+const gordoImg = [];
 
-// for (let i = 0; i < 19; i++) {
-//     let image = new Image();
-//     image.src = `./src/images/items/coin/coin_${i}.png`;
-//     gordoImg.push(image);
-// }
+for (let i = 0; i < 44; i++) {
+    let image = new Image();
+    image.src = `./src/images/sprites/gordo/gordo_${i}.png`;
+    gordoImg.push(image);
+}
 
-// export const gordo = gordoImg;
+export const gordo = gordoImg;
