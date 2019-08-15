@@ -19,7 +19,7 @@ export default class Player {
         // this.level = levelData;
 
         this.position = {
-            x: this.game.gameWidth  - this.width/2,
+            x: this.game.gameWidth/2  - this.width/2,
             y: this.game.gameHeight/2 
         };
         this.canJump = false;

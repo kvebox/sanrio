@@ -101,6 +101,8 @@ export default class Game {
             this.addLife();
         }
 
+        document.getElementById('coins').innerHTML = '00000';
+
 
         this.menu.changeMenuType(0);
         this.player = new Player(this);

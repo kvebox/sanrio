@@ -19,7 +19,7 @@ export default class Coin extends StaticObject {
         
     }
     draw(ctx){
-        this.cycle += 0.5;
+        this.cycle += 0.33;
         if (this.cycle > this.image.length-1) {
             this.cycle = 0;
         }

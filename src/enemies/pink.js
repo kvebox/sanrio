@@ -5,8 +5,8 @@ import { CANVAS_HEIGHT, CANVAS_WIDTH } from '../constants';
 export default class Pink extends Enemy {
     constructor(x, y, key) {
         super(x, y);
-        this.width = 40;
-        this.height = 40;
+        this.width = 35;
+        this.height = 35;
         this.cycle = 0;
         this.type = 'pink';
         this.image = pink;
