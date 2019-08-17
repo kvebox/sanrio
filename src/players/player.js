@@ -101,6 +101,11 @@ export default class Player {
                         let coinCounter = document.getElementById('coins');
                         coinCounter.innerHTML = parseInt(coinCounter.innerHTML) + 1;
                         break;
+                    case 'pogo':
+                        let inventory = document.getElementById('powerContainer');
+                        if (inventory.childNodes.length != 4) {
+                        delete this.game.items[item.key];
+                        }
                 }
             }
         });

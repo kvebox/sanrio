@@ -222,3 +222,6 @@ export const pinkFlipped = pinkFlippedImg;
 export const pinkJump = pinkJumpImg;
 export const pinkJumpFlipped = pinkJumpFlippedImg;
 
+const pogoImg = new Image();
+pogoImg.src = './src/images/items/pogo.png';
+export const pogo = pogoImg;

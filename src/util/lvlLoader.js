@@ -8,6 +8,7 @@ import Bush from '../scene/bush';
 import { randomInt } from './util';
 import Gordo from '../enemies/gordo';
 import Pink from '../enemies/pink';
+import Pogo from '../projectiles/pogo';
 
 
 export const levels = {
@@ -39,6 +40,10 @@ export const parseLevel = levelData => {
                 break;
             case '\t':
                 width += WIDTHSPAN*4;
+                break;
+            case 'f': 
+                items.push(new Pogo(width,height, itemCount));
+                itemCount += 1;
                 break;
             case 'G':
                 enemies.push(new Gordo(width, height + HEIGHTSPAN, enemyCount));
