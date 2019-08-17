@@ -355,11 +355,15 @@ body {
     width: 207px;
 }
 
-#keyS, #keyP, #key1, #key2, #key3, #key4, #space, #rightArrow, #leftArrow, #upArrow, #downArrow {
+#keyP, #key1, #key2, #key3, #key4, #space, #rightArrow, #leftArrow, #upArrow, #downArrow {
     color: white;
     border: 2px solid white;
 }
 
+#keyP {
+    background: white;
+    color: rgba(47,47,47,0.9);
+}
 
 .arrow {
     width: 39px;

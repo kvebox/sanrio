@@ -48,10 +48,23 @@ export default class InputHandler {
                     break;
                 // right
                 case 39:
-                    // console.log(this.player.position);
-
                     document.getElementById("rightArrow").classList.add('pressed');
                     this.player.x_velocity = SPEED;
+                    break;
+                case 49:
+                    document.getElementById("key1").classList.add('pressed');
+                    break;
+                case 50:
+                    document.getElementById("key2").classList.add('pressed');
+                    break;
+                case 51:
+                    document.getElementById("key3").classList.add('pressed');
+                    break;
+                case 52:
+                    document.getElementById("key4").classList.add('pressed');
+                    break;
+                case 32:
+                    document.getElementById('#space').classList.add('pressed');
                     break;
             }
             
@@ -76,6 +89,21 @@ export default class InputHandler {
                 // right
                 case 39:
                     document.getElementById("rightArrow").classList.remove('pressed');
+                    break;
+                case 49:
+                    document.getElementById("key1").classList.remove('pressed');
+                    break;
+                case 50:
+                    document.getElementById("key2").classList.remove('pressed');
+                    break;
+                case 51: 
+                    document.getElementById("key3").classList.remove('pressed');
+                    break;
+                case 52: 
+                    document.getElementById("key4").classList.remove('pressed');
+                    break;
+                case 32:
+                    document.getElementById('#space').classList.add('pressed');
                     break;
             }
             // }
