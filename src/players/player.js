@@ -103,9 +103,10 @@ export default class Player {
                         break;
                     case 'pogo':
                         let inventory = document.getElementById('powerContainer');
-                        if (inventory.childNodes.length != 4) {
+                        // if (inventory.children.length >= 8) return;
                         delete this.game.items[item.key];
-                        }
+                        document.getElementById(`box${4 - inventory.children.length}`).src = './src/images/menu/pogo_icon.png';
+                        break;
                 }
             }
         });
