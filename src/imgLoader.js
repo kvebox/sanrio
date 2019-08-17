@@ -188,6 +188,8 @@ export const gordo = gordoImg;
 
 const pinkImg = [];
 const pinkFlippedImg = [];
+const pinkJumpImg = [];
+const pinkJumpFlippedImg = [];
 
 for (let i = 0; i < 15; i++){
     let image = new Image();
@@ -199,10 +201,24 @@ for (let i = 0; i < 15; i++){
 for (let i = 0; i < 15; i++) {
     let image = new Image();
     image.src = `./src/images/sprites/pink_flipped/pink_${i}.png`;
-    // image.style.transform = 'scaleX(-1)';
     pinkFlippedImg.push(image);
+}
+
+for (let i = 0; i < 11; i++) {
+    let image = new Image();
+    image.src = `./src/images/sprites/pink_jump/pink_${i}.png`;
+    pinkJumpImg.push(image);
+}
+
+
+for (let i = 0; i < 11; i++) {
+    let image = new Image();
+    image.src = `./src/images/sprites/pink_jump_flipped/pink_${i}.png`;
+    pinkJumpFlippedImg.push(image);
 }
 
 export const pink = pinkImg;
 export const pinkFlipped = pinkFlippedImg;
+export const pinkJump = pinkJumpImg;
+export const pinkJumpFlipped = pinkJumpFlippedImg;
 

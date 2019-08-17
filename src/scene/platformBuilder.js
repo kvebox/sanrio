@@ -26,10 +26,10 @@ export default class PlatformBuilder {
     build(){
         this.pieces.push(new PlatformLeft(this.platform_x, this.platform_y, this.color));
         this.platform_x += BLOCKSIZE;
-        for (let i = this.numBlocks; i > 0; i--){
-            this.pieces.push(new PlatformPiece(this.platform_x, this.platform_y, this.color));
-            this.platform_x += BLOCKSIZE;
-        }
+        // for (let i = this.numBlocks; i > 0; i--){
+            this.pieces.push(new PlatformPiece(this.platform_x, this.platform_y, this.color, this.numBlocks));
+            this.platform_x += BLOCKSIZE*this.numBlocks;
+        // }
         this.pieces.push(new PlatformRight(this.platform_x, this.platform_y, this.color));
 
     }

@@ -2,10 +2,11 @@ import { BLOCKSIZE } from '../constants';
 import { platform_mid } from '../imgLoader';
 
 export default class PlatformPiece {
-    constructor(x, y, color) {
-        this.width = BLOCKSIZE;
+    constructor(x, y, color, numBlocks) {
+        this.width = BLOCKSIZE*numBlocks;
         this.height = BLOCKSIZE;
         this.image = platform_mid[color];
+
 
         this.position = {
             x: x,
