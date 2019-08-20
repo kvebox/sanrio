@@ -123,3 +123,9 @@ body {
     text-align: center;
     margin-top: 25px;
 }
+
+
+#winScoreContainer {
+    display: flex;
+    justify-content: space-between;
+}

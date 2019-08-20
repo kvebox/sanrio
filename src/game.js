@@ -101,7 +101,7 @@ export default class Game {
 
 
         let lives = document.getElementsByClassName('heartIcon');
-        while (lives.length < 4){
+        while (lives.length < 3){
             this.addLife();
         }
 
@@ -156,6 +156,9 @@ export default class Game {
 
     win(){
         this.gameState = GAMESTATE.WIN;
+        // let score = document.getElementById('winScoreCoins');
+        // let numCoins = document.getElementById('coins').innerHTML;
+        // score.innerHTML = numCoins;
         return;
     }
     
