@@ -3,20 +3,18 @@ import {detectCollision} from '../util/collision';
 
 
 
-// const PLAYERSTATE = {
-//     0: IDLE,
-//     1: DAMAGED,
-//     2: DEAD,
-//     3: MOVING
-// };
+const PLAYERSTATE = {
+    IDLE: 0,
+    DAMAGED: 1,
+    DEAD: 2,
+    MOVING: 3
+};
 
 export default class Player {
     constructor(game) {
         this.width = PLAYER;
         this.height = PLAYER;
         this.game = game;
-        this.offset = 0;
-        // this.level = levelData;
 
         this.position = {
             x: this.game.gameWidth/2  - this.width/2,
@@ -26,6 +24,7 @@ export default class Player {
         this.y_velocity = GRAVITY;
         this.x_velocity = 0;
         this.hit = false;
+        this.itemSelect = 0;
     }
 
     move(deltaTime, x){
@@ -44,7 +43,12 @@ export default class Player {
     }
 
     shoot() {
+        let selected = document.getElementById(`box${this.itemSelect}`);
+        selected.removeAttribute('src');
+    }
 
+    select(x){
+        this.itemSelect = x;
     }
 
     draw(ctx) {

@@ -53,18 +53,23 @@ export default class InputHandler {
                     break;
                 case 49:
                     document.getElementById("key1").classList.add('pressed');
+                    this.player.select(0);
                     break;
                 case 50:
                     document.getElementById("key2").classList.add('pressed');
+                    this.player.select(1);
                     break;
                 case 51:
                     document.getElementById("key3").classList.add('pressed');
+                    this.player.select(2);
                     break;
                 case 52:
                     document.getElementById("key4").classList.add('pressed');
+                    this.player.select(3);
                     break;
                 case 32:
-                    document.getElementById('#space').classList.add('pressed');
+                    document.getElementById('space').classList.add('pressed');
+                    this.player.shoot();
                     break;
             }
             
@@ -103,7 +108,7 @@ export default class InputHandler {
                     document.getElementById("key4").classList.remove('pressed');
                     break;
                 case 32:
-                    document.getElementById('#space').classList.add('pressed');
+                    document.getElementById('space').classList.remove('pressed');
                     break;
             }
             // }

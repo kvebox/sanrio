@@ -9,6 +9,7 @@ import { randomInt } from './util';
 import Gordo from '../enemies/gordo';
 import Pink from '../enemies/pink';
 import Pogo from '../projectiles/pogo';
+import Goal from '../scene/goal';
 
 
 export const levels = {
@@ -28,6 +29,7 @@ export const parseLevel = levelData => {
     let deco = [];
     let enemies = [];
     let items = [];
+    let end = [];
 
     for (let i = 0; i < level.length; i++){
         switch (level[i]){
@@ -40,6 +42,9 @@ export const parseLevel = levelData => {
                 break;
             case '\t':
                 width += WIDTHSPAN*4;
+                break;
+            case 'F':
+                end.push(new Goal(width,height + HEIGHTSPAN));
                 break;
             case 'f': 
                 items.push(new Pogo(width,height, itemCount));
@@ -110,7 +115,8 @@ export const parseLevel = levelData => {
         1: sceneObjects,
         2: deco,
         3: items,
-        4: enemies 
+        4: enemies,
+        5: end
     };
 
 };

@@ -60,11 +60,11 @@ body {
     box-sizing: border-box;
 }
 
-.menuOptions, .back, .goMenuOptions, .controlMenuOptions .audioHeader, .startOptions, .optionMenuOptions, .controlsMenuOptions {
+.menuOptions, .back, .goMenuOptions, .controlMenuOptions .audioHeader, .startOptions, .optionMenuOptions, .controlsMenuOptions, .winMenuOptions {
     text-shadow: 0px 0px 7px rgb(255,255,255.05);
 }
 
-.menuOptions, .goMenuOptions, .startOptions {
+.menuOptions, .goMenuOptions, .startOptions, .winMenuOptions {
     padding: 2.5px 15px;
     margin-bottom: 10px;
     font-size: 14px;
@@ -72,7 +72,7 @@ body {
     width: 80%;
 }
 
-.optionMenuOptionContainer, .goMenuOptionContainer, .startMenuOptionContainer {
+.optionMenuOptionContainer, .goMenuOptionContainer, .startMenuOptionContainer, .winMenuOptionContainer {
     display: flex;
     justify-content: space-between;
 }
@@ -227,7 +227,7 @@ body {
 
 /* ---------- GO Menu -------------> */
 
-#goMenuTitle {
+#goMenuTitle, #winMenuTitle {
     font-family: 'super_plumber_brothersregular';
     color: white;
     font-size: 100px;
@@ -248,18 +248,28 @@ body {
     display: none;
 }
 
-#goMenuList {
+#winContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(47,47,47,0.95);
+    display: none;
+}
+
+#goMenuList, #winMenuList {
     margin: 0;
     padding: 0;
 }
 
-#goMenu{
+#goMenu, #winMenu{
   padding: 20px;
   width: 350px;
   margin-top: 25px;
 }
 
-#goMenuContent, #startContent {
+#goMenuContent, #startContent, #winMenuContent {
     display: flex;
     flex-direction: column;
     margin: 10% auto; 
@@ -380,7 +390,6 @@ body {
 }
 
 .pressed {
-    border: 2px solid red;
     background: white;
 }
 

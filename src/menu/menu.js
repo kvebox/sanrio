@@ -28,6 +28,11 @@ export default class Menu {
         this.goOptionsList = document.getElementsByClassName('goMenuOptions');
         this.goLength = this.goOptionsList.length;
 
+        this.winContainers = document.getElementsByClassName('winMenuOptionContainer');
+        this.winCurrent = 0;
+        this.winOptionsList = document.getElementsByClassName('winMenuOptions');
+        this.winLength = this.winOptionsList.length;
+
         this.startContainers = document.getElementsByClassName('startMenuOptionContainer');
         this.startCurrent = 0;
         this.startOptionsList = document.getElementsByClassName('startOptions');
@@ -40,7 +45,10 @@ export default class Menu {
             2: 'control',
             3: 'gameover',
             4: 'start',
-            5: 'intro'
+            5: 'intro',
+            6: 'map',
+            7: 'win',
+            8: 'continue'
         };
         this.menuType = this.menuHash[0];
     }
@@ -97,6 +105,18 @@ export default class Menu {
                 arrow.setAttribute('id', 'startArrow');
                 this.startContainers[this.startCurrent].appendChild(arrow);
                 break;
+            case this.menuHash[7]:
+                let winArrow = document.getElementById('winArrow');
+                winArrow.parentNode.removeChild(winArrow);
+                this.winOptionsList[this.winCurrent].removeAttribute('id', 'selected');
+                this.winCurrent += 1;
+                if (this.winCurrent >= this.winLength) this.winCurrent %= this.winLength;
+                this.winSelected = this.winOptionsList[this.winCurrent % this.winLength];
+                this.winSelected.setAttribute('id', 'selected');
+                arrow.setAttribute('id', 'winArrow');
+                this.winContainers[this.winCurrent].appendChild(arrow);
+                break;
+                
         }
     }
 
@@ -151,6 +171,18 @@ export default class Menu {
                 this.startSelected.setAttribute('id', 'selected');
                 arrow.setAttribute('id', 'startArrow');
                 this.startContainers[this.startCurrent].appendChild(arrow);
+                break;
+
+            case this.menuHash[7]:
+                let winArrow = document.getElementById('winArrow');
+                winArrow.parentNode.removeChild(winArrow);
+                this.winOptionsList[this.winCurrent].removeAttribute('id', 'selected');
+                this.winCurrent -= 1;
+                if (this.winCurrent < 0) this.winCurrent = this.winLength - 1;
+                this.winSelected = this.winOptionsList[this.winCurrent % this.winLength];
+                this.winSelected.setAttribute("id", "selected");
+                arrow.setAttribute('id', 'winArrow');
+                this.winContainers[this.winCurrent].appendChild(arrow);
                 break;
             default:
                 break;
@@ -215,6 +247,16 @@ export default class Menu {
             }
         }
 
+        if (this.menuType === this.menuHash[7]) {
+            switch (this.goCurrent) {
+                case 0:
+                    this.game.newGame();
+                    break;
+                case 1:
+                    break;
+            }
+        }
+
         if (this.menuType === this.menuHash[4]){
             switch (this.startCurrent){
                 // one player game
@@ -243,6 +285,12 @@ export default class Menu {
         let end = document.getElementById('goContainer');
         end.style.display = 'block';
         this.changeMenuType(3);
+    }
+
+    win(){
+        let end = document.getElementById('winContainer');
+        end.style.display = 'block';
+        this.changeMenuType(7);
     }
 
     startMenu(){
@@ -285,9 +333,6 @@ export default class Menu {
         controlsMenu.style.display = 'none';
         mainMenu.style.display = 'none';
         optionsMenu.style.display = 'block';
-    }
-
-    spawn(){
     }
 
     decreaseVolume(){
