@@ -248,11 +248,12 @@ export default class Menu {
         }
 
         if (this.menuType === this.menuHash[7]) {
-            switch (this.goCurrent) {
+            switch (this.winCurrent) {
                 case 0:
                     this.game.newGame();
                     break;
                 case 1:
+                    this.startMenu();
                     break;
             }
         }
@@ -288,8 +289,8 @@ export default class Menu {
     }
 
     win(){
-        let end = document.getElementById('winContainer');
-        end.style.display = 'block';
+        let win = document.getElementById('winContainer');
+        win.style.display = 'block';
         this.changeMenuType(7);
     }
 

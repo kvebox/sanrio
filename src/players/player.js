@@ -97,6 +97,12 @@ export default class Player {
             }
         });
 
+        this.game.goal.forEach(goal => {
+            if (detectCollision(this, goal)){
+                this.game.win();
+            }
+        });
+
         this.game.items.forEach(item => {
             if (detectCollision(this, item)){
                 switch (item.type) {

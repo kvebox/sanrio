@@ -23,6 +23,7 @@ export default class Tutorial {
         this.tutorialctx = controlctx;
         this.items = [];
         this.enemies = [];
+        this.goal = [];
 
         (BLOCKSIZE == 20) ? this.blockCount = 25 : this.blockCount = 34;
 

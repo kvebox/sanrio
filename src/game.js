@@ -89,11 +89,15 @@ export default class Game {
         let menu = document.getElementById('goContainer');
         menu.style.display = 'none';
 
+        let winMenu = document.getElementById('winContainer');
+        winMenu.style.display = 'none';
+
         this.levelObjects = parseLevel(levels[1]);
         this.sceneObjects = this.levelObjects[1];
         this.restart = this.sceneObjects;
         this.items = this.levelObjects[3];
         this.enemies = this.levelObjects[4];
+        this.goal = this.levelObjects[5];
 
 
         let lives = document.getElementsByClassName('heartIcon');
@@ -112,7 +116,7 @@ export default class Game {
     
     
     update(deltaTime){
-        if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER) return;
+        if (this.gameState == GAMESTATE.PAUSED || this.gameState == GAMESTATE.GAMEOVER || this.gameState == GAMESTATE.WIN) return;
         
         Object.keys(this.clouds).forEach(key => {
             this.clouds[key].update();
@@ -149,6 +153,11 @@ export default class Game {
         this.gameState = GAMESTATE.GAMEOVER;
         return;
     }
+
+    win(){
+        this.gameState = GAMESTATE.WIN;
+        return;
+    }
     
     
     draw() {
@@ -175,10 +184,15 @@ export default class Game {
         if (this.gameState == GAMESTATE.PAUSED) { 
             this.menu.showMenu();
         }
+
+        if (this.gameState == GAMESTATE.WIN) {
+            this.menu.win();
+        }
         
         if (this.gameState == GAMESTATE.GAMEOVER){
             this.menu.gameOver();
         }
+
         this.ctx.fillStyle = 'rgba(0,0,0)';
         this.player.draw(this.ctx);
 

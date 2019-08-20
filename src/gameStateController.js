@@ -3,7 +3,10 @@ const GAMESTATE = {
     RUNNING: 1,
     START: 2,
     GAMEOVER: 3,
-    INTRO: 4
+    INTRO: 4,
+    MAP: 5,
+    WIN: 6,
+    CONTINUE: 7
 };
 
 export default class GameInputHandler {
@@ -35,7 +38,7 @@ export default class GameInputHandler {
                     menu.exit();
                     menu.changeMenuType(0);
             }
-        } else if (game.gameState == GAMESTATE.GAMEOVER){
+        } else if (game.gameState == GAMESTATE.GAMEOVER || game.gameState == GAMESTATE.WIN){
             switch (e.keyCode) {
                 // down
                 case 40:
